@@ -6,9 +6,45 @@ class Dev_model extends CI_Model{
 		parent::__construct();
 	  
 		$this->load->model('poste/Poste_model','poste');
-		$this->load->model('eleve/Eleve_model','eleve');
 	  }
 
-	  
+	  public function getDevOrSearchAp()
+	  {
+		  # code...
+	  }
+
+	  public function getDevApByPost($idPoste)
+	  {
+		  # code...
+	  }
+	  public function getDevApByDate($date)
+	  {
+		  # code...
+	  }
+	  public function getDevApById($id)
+	  {
+		  # code...
+	  }
+	  public function getCmOrSearchAp()
+	  {
+		  # code...
+	  }
+	  public function getDevCmByTitre($titre)
+	  {
+		  # code...
+	  }
+
+	  public function getDevCmById($id)
+	  {
+		  # code...
+	  }
+	  public function delCm($id)
+	  {
+		  # code...
+	  }
+	  public function delAp($id)
+	  {
+		  # code...
+	  }
 }
 ?>
