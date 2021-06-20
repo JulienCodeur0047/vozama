@@ -6,5 +6,17 @@ class Dev_model extends CI_Model{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 	  }
+	  public function getAllComSearch()
+	  {
+		  # code...
+	  }
+	  public function getComById($id)
+	  {
+		  # code...
+	  }
+	  public function insertCom()
+	  {
+		  # code...
+	  }
 }
 ?>

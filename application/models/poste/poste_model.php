@@ -87,6 +87,13 @@ class Poste_model extends CI_Model{
 		return $query->row_array();
 	}
 
+	public function getPosteLike($strPoste)
+	{
+		$this->db->like($strPoste);
+		$query = $this->db->get('poste');
+		return $query->result();
+
+	}
 	public function deletePoste($id){
 		return $this->db->delete('poste', array('id' => $id));
 	}

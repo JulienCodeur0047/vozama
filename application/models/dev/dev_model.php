@@ -6,11 +6,24 @@ class Dev_model extends CI_Model{
 		parent::__construct();
 	  
 		$this->load->model('poste/Poste_model','poste');
+		$this->load->model('poste/Eleve_model','eleve');
 	  }
 
 	  public function getDevOrSearchAp()
 	  {
-		  # code...
+		if(!empty($this->input->get("search"))){
+			$this->db->like('eleve_name', $this->input->get("search"));
+			$this->db->or_like('eleve_firstname', $this->input->get("search"));  
+			$this->db->or_like('eleve_matricule', $this->input->get("search"));  
+		  }
+		if(!empty($this->input->post("postfilter"))){
+			$this->db->like('poste_id', $this->input->post("postfilter"));
+		  }
+		if(!empty($this->input->get("secteurfilter"))){
+			$this->db->like('eleve_secteur', $this->input->get("secteurfilter")); 
+		  }
+		$query = $this->db->get("eleve");
+		return $query->result();
 	  }
 
 	  public function getDevApByPost($idPoste)
@@ -43,6 +56,10 @@ class Dev_model extends CI_Model{
 		  # code...
 	  }
 	  public function delAp($id)
+	  {
+		  # code...
+	  }
+	  public function insertDev()
 	  {
 		  # code...
 	  }
