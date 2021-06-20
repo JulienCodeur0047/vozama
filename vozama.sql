@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 15 juin 2021 à 08:24
+-- Généré le : Dim 20 juin 2021 à 15:50
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `chambre` (
   `chr_type` varchar(100) DEFAULT NULL,
   `chr_numero` int(10) DEFAULT NULL,
   `chr_prix` int(10) DEFAULT NULL,
-  `chr_reserve` varchar(100) DEFAULT 'non',
   `chr_nbr_lit_1_plce` int(10) DEFAULT '0',
   `chr_nbr_lit_2_plce` int(10) DEFAULT '0',
   `chr_tv` varchar(100) DEFAULT 'non',
@@ -316,6 +315,21 @@ CREATE TABLE IF NOT EXISTS `fokotany` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `gardien`
+--
+
+DROP TABLE IF EXISTS `gardien`;
+CREATE TABLE IF NOT EXISTS `gardien` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `gar_name` varchar(100) DEFAULT NULL,
+  `gar_firstname` varchar(100) DEFAULT NULL,
+  `gar_matricule` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `inspecteur`
 --
 
@@ -446,6 +460,24 @@ CREATE TABLE IF NOT EXISTS `parent` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `passgard`
+--
+
+DROP TABLE IF EXISTS `passgard`;
+CREATE TABLE IF NOT EXISTS `passgard` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `pass_name_firstname` varchar(300) DEFAULT NULL,
+  `pass_date_dep` date DEFAULT NULL,
+  `pass_hr_dep` time DEFAULT NULL,
+  `pass_hr_rem` time DEFAULT NULL,
+  `pass_date_rem` date DEFAULT NULL,
+  `pass_obejt` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `pepiniere`
 --
 
@@ -531,6 +563,21 @@ CREATE TABLE IF NOT EXISTS `personal_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pers_type_code` varchar(100) DEFAULT NULL,
   `pers_type_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `planning`
+--
+
+DROP TABLE IF EXISTS `planning`;
+CREATE TABLE IF NOT EXISTS `planning` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `plan_nom` varchar(100) DEFAULT NULL,
+  `plan_start` date DEFAULT NULL,
+  `plan_end` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -756,6 +803,42 @@ CREATE TABLE IF NOT EXISTS `sous_prefecture` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `touriste`
+--
+
+DROP TABLE IF EXISTS `touriste`;
+CREATE TABLE IF NOT EXISTS `touriste` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `tour_name` varchar(100) DEFAULT NULL,
+  `tour_firstname` varchar(100) DEFAULT NULL,
+  `tour_date_birth` date DEFAULT NULL,
+  `tour_nationalite` varchar(100) DEFAULT NULL,
+  `tour_lieu_nais` varchar(100) DEFAULT NULL,
+  `tour_email` varchar(150) DEFAULT NULL,
+  `tour_tel` varchar(100) DEFAULT NULL,
+  `tour_newsletter` varchar(100) DEFAULT 'non',
+  `tour_gazette` varchar(100) DEFAULT 'non',
+  `tour_address` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tour_log`
+--
+
+DROP TABLE IF EXISTS `tour_log`;
+CREATE TABLE IF NOT EXISTS `tour_log` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `log_num` int(10) DEFAULT NULL,
+  `touriste_id` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `user`
 --
 
@@ -777,6 +860,26 @@ INSERT INTO `user` (`id`, `user_name`, `user_password`, `user_type_code`, `user_
 (1, 'admin', 'admin', 1, 'Administrateur'),
 (2, 'rakoto', 'alph', 2, 'Alphabetisation'),
 (3, 'rabe', 'env', 3, 'Environnement');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `visiteur`
+--
+
+DROP TABLE IF EXISTS `visiteur`;
+CREATE TABLE IF NOT EXISTS `visiteur` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `vis_name` varchar(100) DEFAULT NULL,
+  `vis_firstname` varchar(100) DEFAULT NULL,
+  `vis_cin` varchar(100) DEFAULT NULL,
+  `vis_date` date DEFAULT NULL,
+  `vis_hr_in` time DEFAULT NULL,
+  `vis_hr_o` time DEFAULT NULL,
+  `vis_objectif` varchar(100) DEFAULT NULL,
+  `vis_num_badge` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -828,6 +931,26 @@ CREATE TABLE IF NOT EXISTS `visite_poste` (
 INSERT INTO `visite_poste` (`id`, `vp_date`, `vp_heure`, `vp_visiteur1`, `vp_visiteur2`, `vp_visiteur3`, `vp_presence_moniteur`, `vp_rempl_nom`, `vp_rempl_raison`, `vp_rempl_duree`, `vp_appel_fait`, `vp_nbr_list_off`, `vp_cahier_appel`, `vp_nbr_eleve_present`, `vp_nbr_abs`, `vp_observation`, `vp_cahier_a_jour`, `vp_remarque`, `vp_prep_cours_fait`, `vp_rem_cahier_appel`, `vp_rem_prepa_cours`, `vp_propr_salle`, `vp_etat_salle`, `poste_id`, `vp_poste`, `vp_moniteur`, `vp_inspecteur`, `vp_nbr_eleve_classe`, `vp_eval_moniteur`, `vp_eval_inspecteur`, `moniteur_id`, `inspecteur_id`) VALUES
 (1, '2021-05-06', '22:00:00', 'Loyal', 'Mahenina', 'C. Brown', 'oui', 'Rakoto', 'Oui', 'pl', 'oui', 2, 'oui', 9, 8, 'A1', NULL, 'Remarque General', 'oui', NULL, 'Remarque 1', 'pp', 'LK', 7, '6665', 'Rakoto', 'Andry', 4, '1', '2', '1', '1'),
 (2, '2021-05-07', '11:00:00', 'Randrianomena', 'Mahenina', '', NULL, '', '', '', NULL, 31, NULL, 0, 5, '', NULL, NULL, NULL, NULL, '', 'Propre', 'moyen', 11, 'QWER', 'Rakoto', 'Andry', 100, '', '', '1', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `viste_site`
+--
+
+DROP TABLE IF EXISTS `viste_site`;
+CREATE TABLE IF NOT EXISTS `viste_site` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `vs_prix_jour` int(10) DEFAULT NULL,
+  `vs_prix_demi_jr` int(10) DEFAULT NULL,
+  `vs_prix_a_voiture` int(10) DEFAULT NULL,
+  `vs_prix_s_voiture` int(10) DEFAULT NULL,
+  `vs_nbr_jour` int(10) DEFAULT NULL,
+  `vs_prix_total` int(10) DEFAULT NULL,
+  `site_id` int(10) DEFAULT NULL,
+  `vs_site` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
