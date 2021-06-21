@@ -62,6 +62,7 @@ $route['alph'] = "poste/Poste_controller/index";
 $route['printposte'] = "poste/Poste_controller/printListPosteToPdf";
 $route['env'] = "environnement/Env_controller/indexPep";
 $route['dev'] = "dev/Dev_controller/indexap";
+$route['devac'] = "dev/Dev_controller/userList";
 $route['suiv'] = "suiv/Suiv_controller/indexpr";
 $route['suivel'] = "suiv/Suiv_controller/indexel";
 $route['suivec'] = "suiv/Suiv_controller/indexec";

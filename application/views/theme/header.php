@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>login</title>
+	<script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery-ui.min.js') ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/fonts/ionicons.min.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/Navigation-with-Search.css') ?>">
@@ -14,6 +16,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/fullcalendar.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/jquery-ui.css') ?>">
+
 </head>
 
 <body style="background: rgba(223,231,241,0.95);height: 683px;">

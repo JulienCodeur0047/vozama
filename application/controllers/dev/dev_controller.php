@@ -7,6 +7,7 @@ class Dev_controller extends CI_Controller{
 		parent::__construct(); 
 		//$this->load->library('form_validation');
 		//$this->load->library('session');
+		$this->load->helper('url');
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('dev/DEv_model','dev');
@@ -14,6 +15,16 @@ class Dev_controller extends CI_Controller{
 
 	}
 	
+	public function userList(){
+		// POST data
+		$postData = $this->input->post();
+	
+		// Get data
+		$data = $this->dev->getPoste($postData);
+	
+		echo json_encode($data);
+	  }
+
 	public function indexap(){
 		$data['data'] = $this->dev->getDevOrSearchAp();
 		$data['poste'] = $this->poste->getAllPoste();

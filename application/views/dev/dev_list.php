@@ -1,14 +1,10 @@
     <?php $this->load->view('theme/header_dev'); ?>
+ 
 	<form class="form-inline mr-auto" target="_self">
-                    <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label><input type="search" class="form-control search-field" id="search-field" name="search" style="width: 309px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" />
-                    <select name="postfilter" style="font-size: 12px;width: 145px;color: var(--gray);height: 25px;border-radius: 2px;">
-                    <optgroup label="Poste">
-                    <option value selected>Selec. Poste</option>
-					<?php foreach ($poste as $poste) { ?>
-					<option value="<?php echo $poste->id; ?>"><?php echo $poste->poste_name; ?></option>
-					<?php }?>
-                    </optgroup>
-                </select>
+                    <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label>
+                    <input type="search" class="form-control search-field" id="search-field" name="search" style="width: 200px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" />
+                    <input type="text" class="form-control search-field" id="autocomplete" name="searchposte" style="width: 150px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Poste" />
+
                     </div>
                 </form><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
             </div>
@@ -31,7 +27,7 @@
                         <option value="2022" >2022</option>
                     </optgroup>
                 </select>
-                <a class="btn btn-light action-button" href="<?php echo base_url('dev')?>" role="button" href="#" style="margin-top: 0px;background: var(--teal);font-size: 12px;"><i class="fa fa-filter" style="font-size: 12px;"></i></a></h1>
+                </h1>
             <div class="table-responsive" style="width: auto;font-size: 12px;">
                 <table class="table">
                     <thead>
@@ -71,3 +67,34 @@
         </div>
     </div>
 </section>
+
+ <script>
+ $(document).ready(function(){
+
+// Initialize 
+$( "#autocomplete" ).autocomplete({
+   source: function( request, response ) {
+     // Fetch datajQuery
+     $.ajax({
+       url: "<?php echo base_url('devac'); ?>",
+       type: 'post',
+       dataType: "json",
+       data: {
+         search: request.term
+       },
+       success: function( data ) {
+         response( data );
+       }
+     });
+   },
+   select: function (event, ui) {
+     // Set selection
+     $('#search-field-poste').val(ui.item.label); // display the selected text
+     //$('#userid').val(ui.item.value); // save selected id to input
+     return false;
+   }
+ });
+
+});
+    </script>
+  

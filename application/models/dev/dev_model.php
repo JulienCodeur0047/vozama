@@ -26,6 +26,26 @@ class Dev_model extends CI_Model{
 		return $query->result();
 	  }
 
+	  public function getPoste($postSrt)
+	  {
+		$response = array();
+
+		if(isset($postData['search']) ){
+		  // Select record
+		  $this->db->select('*');
+		  $this->db->where("poste_name like '%".$postData['search']."%' ");
+   
+		  $records = $this->db->get('poste')->result();
+   
+		  foreach($records as $row ){
+			 $response[] = array("value"=>$row->id,"label"=>$row->username);
+		  }
+   
+		}
+   
+		return $response;
+	  }
+
 	  public function getDevApByPost($idPoste)
 	  {
 		  # code...
