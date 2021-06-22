@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 20 juin 2021 à 15:50
+-- Généré le : mar. 22 juin 2021 à 14:03
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -96,6 +96,28 @@ CREATE TABLE IF NOT EXISTS `cisco` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `cisco_name` varchar(100) DEFAULT NULL,
   `cisco_code` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comite_villagois`
+--
+
+DROP TABLE IF EXISTS `comite_villagois`;
+CREATE TABLE IF NOT EXISTS `comite_villagois` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `cmv_name` varchar(100) DEFAULT NULL,
+  `cmv_firstname` varchar(100) DEFAULT NULL,
+  `cmv_titre` varchar(100) DEFAULT NULL,
+  `cmv_adresse` varchar(200) DEFAULT NULL,
+  `cmv_tel` varchar(100) DEFAULT NULL,
+  `cmv_site` varchar(100) DEFAULT NULL,
+  `site_id` int(10) DEFAULT NULL,
+  `cmv_gps` varchar(300) DEFAULT NULL,
+  `cm_nbr_enfant` int(10) DEFAULT NULL,
+  `cm_nbr_par_ger` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
