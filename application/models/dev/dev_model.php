@@ -26,6 +26,19 @@ class Dev_model extends CI_Model{
 		return $query->result();
 	  }
 
+	  public function getDevOrSearchcmv()
+	  {
+		if(!empty($this->input->get("search"))){
+			$this->db->like('cmv_name', $this->input->get("search"));
+			$this->db->or_like('cmv_firstname', $this->input->get("search"));  
+			$this->db->or_like('cmv_tel', $this->input->get("search"));  
+			$this->db->or_like('cmv_site', $this->input->get("search"));  
+			$this->db->or_like('cmv_adresse', $this->input->get("search"));  
+		  }
+		$query = $this->db->get("comite_villagois");
+		return $query->result();
+	  }
+
 	  public function getPoste($postSrt)
 	  {
 		$response = array();

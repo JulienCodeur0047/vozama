@@ -35,9 +35,10 @@ class Dev_controller extends CI_Controller{
 	}
 	public function indexcmv()
 	{
+		$data['data'] = $this->dev->getDevOrSearchcmv();
 		$session['session'] = $this->session;
 		$this->load->view('theme/header',$session);
-		$this->load->view('dev/dev_list_cmv');
+		$this->load->view('dev/dev_list_cmv',$data);
 		$this->load->view('theme/footer');
 	}
 	public function indexagr()
@@ -47,5 +48,7 @@ class Dev_controller extends CI_Controller{
 		$this->load->view('dev/dev_list_agr');
 		$this->load->view('theme/footer');
 	}
+
+
 }
 ?>
