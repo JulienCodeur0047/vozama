@@ -11,4 +11,9 @@ class Site_model extends CI_Model{
 		return $this->db->get_where('site', array('id' => $id))->row();
 	  }
 
+	  
+	  public function findParentById($id)
+	  {
+		return $this->db->get_where('parent', array('id' => $id))->row();
+	  }
 }

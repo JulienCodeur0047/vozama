@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 23 juin 2021 à 13:48
+-- Généré le : mer. 23 juin 2021 à 19:50
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -47,6 +47,33 @@ CREATE TABLE IF NOT EXISTS `aep` (
 INSERT INTO `aep` (`id`, `aep_date`, `aep_site`, `aep_poste`, `poste_id`, `site_id`, `aep_parrain`, `aep_description`) VALUES
 (1, '2021-05-04', NULL, '6665', 7, 0, 'RAKOTO', 'SDSDS'),
 (2, '2021-06-05', 'Aba', '367', 5, 1, 'AA', 'XXX');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `agr`
+--
+
+DROP TABLE IF EXISTS `agr`;
+CREATE TABLE IF NOT EXISTS `agr` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `agr_filiere` varchar(150) DEFAULT NULL,
+  `agr_qte` int(10) DEFAULT NULL,
+  `agr_date_d` date DEFAULT NULL,
+  `agr_date_suivi` date DEFAULT NULL,
+  `agr_unite` varchar(100) DEFAULT NULL,
+  `agr_formation` varchar(100) DEFAULT NULL,
+  `agr_parent` varchar(300) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `agr`
+--
+
+INSERT INTO `agr` (`id`, `agr_filiere`, `agr_qte`, `agr_date_d`, `agr_date_suivi`, `agr_unite`, `agr_formation`, `agr_parent`, `parent_id`) VALUES
+(1, 'Akoho', 23, '2021-06-11', '2021-06-11', 'NBR', 'VITA', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `comite_villagois` (
   `cmv_nbr_enfant` int(10) DEFAULT NULL,
   `cmv_nbr_par_ger` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comite_villagois`

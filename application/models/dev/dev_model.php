@@ -17,13 +17,22 @@ class Dev_model extends CI_Model{
 			$this->db->or_like('eleve_firstname', $this->input->get("search"));  
 			$this->db->or_like('eleve_matricule', $this->input->get("search"));  
 		  }
-		if(!empty($this->input->post("postfilter"))){
-			$this->db->like('poste_id', $this->input->post("postfilter"));
+		if(!empty($this->input->post("postefilter"))){
+			$this->db->where('eleve_poste', $this->input->post("postefilter"));
 		  }
-		if(!empty($this->input->get("secteurfilter"))){
-			$this->db->like('eleve_secteur', $this->input->get("secteurfilter")); 
-		  }
+		if(!empty($this->input->post("anneefilter"))){
+			$this->db->like('eleve_date_entre', $this->input->post("anneefilter"));
+		}
 		$query = $this->db->get("eleve");
+		return $query->result();
+	  }
+	  public function getDevOrSearchAgr()
+	  {
+		if(!empty($this->input->get("search"))){
+			$this->db->like('agr_filiere', $this->input->get("search"));
+			$this->db->or_like('agr_parent', $this->input->get("search"));    
+		  }
+		$query = $this->db->get("agr");
 		return $query->result();
 	  }
 
@@ -58,6 +67,67 @@ class Dev_model extends CI_Model{
 		'cmv_nbr_enfant' => $this->input->post('cm_nbr_enfant'),
 		);
 		return $this->db->insert('comite_villagois', $data);
+	}
+
+	public function insertAgr(){
+		$pere_name = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_name;
+		$pere_firstname = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_firstname;
+		$data = array(
+		'agr_parent' => $pere_name." ".$pere_firstname ,
+		'parent_id' => $this->input->post('parent_id'),
+		'agr_filiere' => $this->input->post('agr_filiere'),
+		'agr_qte' => $this->input->post('agr_qte'),
+		'agr_date_d' => $this->input->post('agr_date_d'),
+		'agr_date_suivi' => $this->input->post('agr_date_suivi'),
+		'agr_unite' => $this->input->post('agr_unite'),
+		'agr_formation' => $this->input->post('agr_formation'),
+		);
+		return $this->db->insert('agr', $data);
+	}
+
+	public function deleteAgr($id){
+		return $this->db->delete('agr', array('id' => $id));
+	}
+	public function deleteCmv($id){
+		return $this->db->delete('comite_villagois', array('id' => $id));
+	}
+	
+
+	public function printcmv()
+	{
+		if(!empty($this->input->post("search"))){
+			$this->db->where('cmv_name', $this->input->post("search")); 
+			$this->db->or_where('cmv_firstname', $this->input->post("search")); 
+			$this->db->or_where('cmv_adresse', $this->input->post("search")); 
+			$this->db->or_where('cmv_tel', $this->input->post("search")); 
+		  }
+		  if(!empty($this->input->post("cmvtitre"))){
+			$this->db->or_where('cmv_titre', $this->input->post("cmvtitre"));
+		}
+		$query = $this->db->get("comite_villagois");
+		return $query->result();
+	}
+
+	public function printAp()
+	{
+		if(!empty($this->input->post("postefilter"))){
+			$this->db->where('eleve_poste', $this->input->post("postefilter")); 
+		  }
+		  if(!empty($this->input->post("anneefilter"))){
+			$this->db->or_where('eleve_date_entre', $this->input->post("anneefilter"));
+		}
+		$query = $this->db->get("eleve");
+		return $query->result();
+	}
+
+	public function printAgr()
+	{
+		if(!empty($this->input->post("search"))){
+			$this->db->like('agr_filiere', $this->input->post("agr_filiere")); 
+			$this->db->or_like('agr_parent', $this->input->post("agr_parent")); 
+		  }
+		$query = $this->db->get("agr");
+		return $query->result();
 	}
 
 	  public function getParentByTitre($titre)
