@@ -10,11 +10,12 @@ class Eleve_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		
+		
 
 	}
-
+	
 	public function index(){
-		$data['data'] = $this->eleve->getEleveOrSearchFilter();
+		//$data['data'] = $this->eleve->getEleveOrSearchFilter();
 		$data['poste'] = $this->poste->getAllPoste();
 		$session['session'] = $this->session;
 

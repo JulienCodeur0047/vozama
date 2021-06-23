@@ -7,6 +7,7 @@ class Dev_model extends CI_Model{
 	  
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('poste/Eleve_model','eleve');
+		$this->load->model('site/Site_model','site');
 	  }
 
 	  public function getDevOrSearchAp()
@@ -29,16 +30,35 @@ class Dev_model extends CI_Model{
 	  public function getDevOrSearchcmv()
 	  {
 		if(!empty($this->input->get("search"))){
-			$this->db->like('parent_name', $this->input->get("search"));
-			$this->db->or_like('parent_firstname', $this->input->get("search"));  
-			$this->db->or_like('parent_tel', $this->input->get("search"));  
-			$this->db->or_like('parent_site', $this->input->get("search"));  
-			$this->db->or_like('parent_adresse', $this->input->get("search"));  
-			$this->db->or_like('parent_titre', $this->input->get("search"));  
+			$this->db->like('cmv_name', $this->input->get("search"));
+			$this->db->or_like('cmv_firstname', $this->input->get("search"));  
+			$this->db->or_like('cmv_tel', $this->input->get("search"));  
+			$this->db->or_like('cmv_site', $this->input->get("search"));  
+			$this->db->or_like('cmv_adresse', $this->input->get("search"));  
+			$this->db->or_like('cmv_titre', $this->input->get("search"));  
 		  }
-		$query = $this->db->get("parent");
+		if(!empty($this->input->post("cmvtitre"))){
+			$this->db->like('cmv_titre', $this->input->post("cmvtitre"));
+		}
+		$query = $this->db->get("comite_villagois");
 		return $query->result();
 	  }
+
+	  public function insertCmv(){
+		$data = array(
+		'cmv_site' => $this->site->findSiteById($this->input->post('site_id'))->site_name,
+		'cmv_name' => $this->input->post('cmv_name'),
+		'cmv_firstname' => $this->input->post('cmv_firstname'),
+		'cmv_adresse' => $this->input->post('cmv_adress'),
+		'cmv_tel' => $this->input->post('cmv_tel'),
+		'cmv_gps' => $this->input->post('cmv_gps'),
+		'site_id' => $this->input->post('site_id'),
+		'cmv_titre' => $this->input->post('cmv_titre'),
+		'cmv_nbr_par_ger' => $this->input->post('cmv_nbr_par_ger'),
+		'cmv_nbr_enfant' => $this->input->post('cm_nbr_enfant'),
+		);
+		return $this->db->insert('comite_villagois', $data);
+	}
 
 	  public function getParentByTitre($titre)
 	  {

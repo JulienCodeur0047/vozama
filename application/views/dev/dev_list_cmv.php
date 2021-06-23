@@ -8,21 +8,14 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Comité villageois</h1>
-            <h1 style="margin-bottom: 21px;height: 16px;font-size: 13px;color: var(--gray);"><select name="titre" id="titre" style="font-size: 12px;width: 145px;color: var(--gray);height: 25px;border-radius: 2px;">
-                    <optgroup label="Titre">
-                        <option value selected>Filtre.Titre</option>
-                        <option value="President">President</option>
-                        <option value="Vice President">Vice President</option>
-                        <option value="Trésorier">Trésorier</option>
-                        <option value="Secrétaire">Secrétaire</option>
-                    </optgroup>
-                </select></h1>
+            <h1 style="margin-bottom: 21px;height: 16px;font-size: 13px;color: var(--gray);">
+			<a class="btn btn-light action-button" role="button" href="#filtercmv" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 4px;"><i class="fa fa-filter" style="font-size: 13px;"></i>  Filtre</a>
+			<a class="btn btn-light action-button" role="button" href="<?php echo base_url('devcmv');?>" style="margin-top: 2px;background: var(--teal);font-size: 12px;border-radius: 4px;"><i class="fa fa-refresh" style="font-size: 13px;"></i></a></h1>
             <div class="table-responsive" style="width: auto;font-size: 12px;">
                 <table class="table">
                     <thead>
                         <tr style="color: var(--gray);">
-                            <th style="width: 82px;">Nom</th>
-                            <th style="width: 90px;height: 44px;">Prénoms</th>
+                            <th style="width: 160px;">Nom & Prénoms</th>
                             <th style="width: 55px;">Adresse</th>
                             <th style="width: 62px;">Tel</th>
                             <th style="width: 73px;">Site</th>
@@ -32,15 +25,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($data as $parent) { ?>
+                    <?php foreach ($data as $cmv) { ?>
                         <tr>
-                            <td><?php echo $parent->parent_pere_name; ?> / <?php echo $parent->parent_mere_name; ?> </td>
-                            <td><?php echo $parent->parent_pere_firstname; ?> / <?php echo $parent->parent_mere_firstname; ?></td>
-                            <td><?php echo $parent->parent_address; ?></td>
-                            <td><?php echo $parent->parent_tel; ?></td>
-                            <td><?php echo $parent->parent_site; ?></td>
-                            <td><?php echo $parent->parent_coordonnee; ?></td>
-                            <td><?php echo $parent->parent_nbr_prt_gere; ?></td>
+                            <td><?php echo $cmv->cmv_name; ?> <?php echo $cmv->cmv_firstname ?> </td>
+                            <td><?php echo $cmv->cmv_adresse; ?></td>
+                            <td><?php echo $cmv->cmv_tel; ?></td>
+                            <td><?php echo $cmv->cmv_site; ?></td>
+                            <td><?php echo $cmv->cmv_gps; ?></td>
+                            <td><?php echo $cmv->cmv_nbr_par_ger; ?></td>
                             <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></button></td>
                         </tr>
                         <?php } ?>
@@ -53,17 +45,5 @@
 </section>
 <div>
 <?php $this->load->view('dev/modal_create_cmv'); ?>
+<?php $this->load->view('dev/modal_filter_cmv'); ?>
 </div>
-<script>
-$("#titre").change(function () {
-
-var valueSelected = $("#titre :selected").val();
-
-
-
-
-
-
-});
-
-</script>

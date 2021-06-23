@@ -31,19 +31,43 @@ class Dev_controller extends CI_Controller{
 
 	}
 
+	public function savecmv()
+	{
+		$this->load->library('form_validation');
+
+		//$this->form_validation->set_rules('site_id', 'site_id', 'required');
+		$this->form_validation->set_rules('cmv_name', 'cmv_name', 'required');
+		$this->form_validation->set_rules('cmv_titre', 'cmv_titre', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('devcmv'));
+		}else{
+		   $this->dev->insertCmv();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('devcmv'));
+		}
+	}
+	public function filtrecmv()
+	{
+		$data['data'] = $this->dev->FilterCmv();
+		$this->getSession();
+		$this->load->view('dev/dev_list_cmv',$data);
+		$this->load->view('theme/footer');
+	}
+
 	public function indexap(){
 		$data['data'] = $this->dev->getDevOrSearchAp();
 		$data['poste'] = $this->poste->getAllPoste();
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
+		$this->getSession();
 		$this->load->view('dev/dev_list',$data);
 		$this->load->view('theme/footer');
 	}
 	public function indexcmv()
 	{
 		$data['data'] = $this->dev->getDevOrSearchcmv();
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
+		$this->getSession();
 		$this->load->view('dev/dev_list_cmv',$data);
 		$this->load->view('theme/footer');
 	}
@@ -55,6 +79,11 @@ class Dev_controller extends CI_Controller{
 		$this->load->view('theme/footer');
 	}
 
+	public function getSession()
+	{
+		$session['session'] = $this->session;
+		$this->load->view('theme/header',$session);
+	}
 
 }
 ?>
