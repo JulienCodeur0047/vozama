@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 22 juin 2021 à 14:03
+-- Généré le : mer. 23 juin 2021 à 13:48
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -116,10 +116,17 @@ CREATE TABLE IF NOT EXISTS `comite_villagois` (
   `cmv_site` varchar(100) DEFAULT NULL,
   `site_id` int(10) DEFAULT NULL,
   `cmv_gps` varchar(300) DEFAULT NULL,
-  `cm_nbr_enfant` int(10) DEFAULT NULL,
-  `cm_nbr_par_ger` int(10) DEFAULT NULL,
+  `cmv_nbr_enfant` int(10) DEFAULT NULL,
+  `cmv_nbr_par_ger` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `comite_villagois`
+--
+
+INSERT INTO `comite_villagois` (`id`, `cmv_name`, `cmv_firstname`, `cmv_titre`, `cmv_adresse`, `cmv_tel`, `cmv_site`, `site_id`, `cmv_gps`, `cmv_nbr_enfant`, `cmv_nbr_par_ger`) VALUES
+(1, 'Julien Nivoarilanto', 'DD', 'President', 'VQ 16 A TER A Mandroseza', '0348778552', NULL, 0, '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -477,7 +484,14 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `parent_particip` varchar(100) DEFAULT NULL,
   `parent_filiere` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `parent`
+--
+
+INSERT INTO `parent` (`id`, `parent_pere_name`, `parent_pere_firstname`, `parent_mere_name`, `parent_mere_firstname`, `parent_pere_fonction`, `parent_mere_fonction`, `parent_pere_age`, `parent_mere_age`, `parent_address`, `parent_nbr_enfant`, `parent_nbr_sco_voz`, `parent_anne_entre_voz`, `parent_anne_sorti_voz`, `parent_classe_enfant`, `parent_titre`, `parent_nbr_prt_gere`, `parent_coordonnee`, `parent_site`, `parent_tel`, `site_id`, `poste_id`, `parent_poste`, `parent_particip`, `parent_filiere`) VALUES
+(1, 'Als', 'SS', 'DD', 'FF', 'FC', 'VV', 32, 40, 'vv', 3, 1, NULL, NULL, 'MMS', 'President', 3, NULL, 'A', '034', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
