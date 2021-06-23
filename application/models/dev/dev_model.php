@@ -29,16 +29,23 @@ class Dev_model extends CI_Model{
 	  public function getDevOrSearchcmv()
 	  {
 		if(!empty($this->input->get("search"))){
-			$this->db->like('cmv_name', $this->input->get("search"));
-			$this->db->or_like('cmv_firstname', $this->input->get("search"));  
-			$this->db->or_like('cmv_tel', $this->input->get("search"));  
-			$this->db->or_like('cmv_site', $this->input->get("search"));  
-			$this->db->or_like('cmv_adresse', $this->input->get("search"));  
+			$this->db->like('parent_name', $this->input->get("search"));
+			$this->db->or_like('parent_firstname', $this->input->get("search"));  
+			$this->db->or_like('parent_tel', $this->input->get("search"));  
+			$this->db->or_like('parent_site', $this->input->get("search"));  
+			$this->db->or_like('parent_adresse', $this->input->get("search"));  
+			$this->db->or_like('parent_titre', $this->input->get("search"));  
 		  }
-		$query = $this->db->get("comite_villagois");
+		$query = $this->db->get("parent");
 		return $query->result();
 	  }
 
+	  public function getParentByTitre($titre)
+	  {
+		$this->db->or_like('parent_titre', $titre); 
+		$query = $this->db->get("parent");
+		return $query->result();
+	  }
 	  public function getPoste($postSrt)
 	  {
 		$response = array();

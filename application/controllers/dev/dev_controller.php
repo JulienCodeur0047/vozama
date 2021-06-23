@@ -15,15 +15,21 @@ class Dev_controller extends CI_Controller{
 
 	}
 	
-	public function userList(){
-		// POST data
-		$postData = $this->input->post();
-	
-		// Get data
-		$data = $this->dev->getPoste($postData);
-	
-		echo json_encode($data);
-	  }
+	public function getParentByTitre($titre)
+	{
+		var_dump($titre);
+		die;
+		if ($titre == "") {
+			$this->indexcmv();
+		} else {
+			$data['data'] = $this->dev->getParentByTitre($titre);
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+			$this->load->view('dev/dev_list',$data);
+			$this->load->view('theme/footer');
+		}
+
+	}
 
 	public function indexap(){
 		$data['data'] = $this->dev->getDevOrSearchAp();

@@ -8,9 +8,13 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Comité villageois</h1>
-            <h1 style="margin-bottom: 21px;height: 16px;font-size: 13px;color: var(--gray);"><select name="poste_id" style="font-size: 12px;width: 145px;color: var(--gray);height: 25px;border-radius: 2px;">
-                    <optgroup label="Poste">
-                        <option value selected>Selec.Titre</option>
+            <h1 style="margin-bottom: 21px;height: 16px;font-size: 13px;color: var(--gray);"><select name="titre" id="titre" style="font-size: 12px;width: 145px;color: var(--gray);height: 25px;border-radius: 2px;">
+                    <optgroup label="Titre">
+                        <option value selected>Filtre.Titre</option>
+                        <option value="President">President</option>
+                        <option value="Vice President">Vice President</option>
+                        <option value="Trésorier">Trésorier</option>
+                        <option value="Secrétaire">Secrétaire</option>
                     </optgroup>
                 </select></h1>
             <div class="table-responsive" style="width: auto;font-size: 12px;">
@@ -28,16 +32,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($data as $parent) { ?>
                         <tr>
-                            <td>Cell 1</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 1</td>
-                            <td>Cell 1</td>
-                            <td>Cell 1</td>
+                            <td><?php echo $parent->parent_pere_name; ?> / <?php echo $parent->parent_mere_name; ?> </td>
+                            <td><?php echo $parent->parent_pere_firstname; ?> / <?php echo $parent->parent_mere_firstname; ?></td>
+                            <td><?php echo $parent->parent_address; ?></td>
+                            <td><?php echo $parent->parent_tel; ?></td>
+                            <td><?php echo $parent->parent_site; ?></td>
+                            <td><?php echo $parent->parent_coordonnee; ?></td>
+                            <td><?php echo $parent->parent_nbr_prt_gere; ?></td>
                             <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></button></td>
                         </tr>
+                        <?php } ?>
                         <tr></tr>
                     </tbody>
                 </table>
@@ -48,3 +54,16 @@
 <div>
 <?php $this->load->view('dev/modal_create_cmv'); ?>
 </div>
+<script>
+$("#titre").change(function () {
+
+var valueSelected = $("#titre :selected").val();
+
+
+
+
+
+
+});
+
+</script>
