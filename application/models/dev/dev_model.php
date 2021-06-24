@@ -70,6 +70,7 @@ class Dev_model extends CI_Model{
 	}
 
 	public function insertAgr(){
+		$id = $this->input->post('id');
 		$pere_name = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_name;
 		$pere_firstname = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_firstname;
 		$data = array(
@@ -82,7 +83,14 @@ class Dev_model extends CI_Model{
 		'agr_unite' => $this->input->post('agr_unite'),
 		'agr_formation' => $this->input->post('agr_formation'),
 		);
-		return $this->db->insert('agr', $data);
+		if(!empty($id)){
+			$this->db->where('id',$id);
+			return $this->db->update('agr',$data);
+		}else{
+			return $this->db->replace('agr', $data);
+		}
+
+		
 	}
 
 	public function deleteAgr($id){

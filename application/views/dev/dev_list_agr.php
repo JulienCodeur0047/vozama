@@ -30,7 +30,21 @@
                             <td><?php echo $agr->agr_date_d; ?></td>
                             <td><?php echo $agr->agr_date_suivi; ?></td>
                             <td><?php echo $agr->agr_formation; ?></td>
-                            <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></button>
+                            <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button>
+							<a class="btn btn-light btn-edit" href="#" 
+							data-id="<?= $agr->id;?>" 
+							data-agr_parent="<?= $agr->agr_parent;?>" 
+							data-agr_filiere="<?= $agr->agr_filiere;?>" 
+							data-agr_qte="<?= $agr->agr_qte;?>" 
+							data-agr_date_d="<?= $agr->agr_date_d;?>" 
+							data-agr_date_suivi="<?= $agr->agr_date_suivi;?>" 
+							data-agr_formation="<?= $agr->agr_formation;?>" 
+							data-parent_id="<?= $agr->parent_id;?>"
+							data-agr_unite="<?= $agr->agr_unite;?>"
+							
+							type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" 
+				
+							style="font-size: 12px;padding-top: 0px;"></i></a>
                             <a class="btn btn-light" role="button" 
                             onclick="return confirm('Voulez-vous supprimer le AGR <?php echo $agr->agr_filiere ?> ?');"
 							href="<?php echo base_url('deletedevagr/'.$agr->id)?>" 
@@ -47,4 +61,39 @@
 <div>
 <?php $this->load->view('dev/modal_create_agr'); ?>
 <?php $this->load->view('dev/modal_filter_print_agr'); ?>
+<?php $this->load->view('dev/modal_up_agr'); ?>
+
 </div>
+<script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script>
+    $(document).ready(function(){
+
+        // get Edit Product
+        $('.btn-edit').on('click',function(){
+            // get data from button edit
+            const id = $(this).data('id');
+            const agr_parent = $(this).data('agr_parent');
+            const agr_filiere = $(this).data('agr_filiere');
+            const agr_qte = $(this).data('agr_qte');
+            const agr_date_d = $(this).data('agr_date_d');
+            const agr_date_suivi = $(this).data('agr_date_suivi');
+            const agr_formation = $(this).data('agr_formation');
+            const parent_id = $(this).data('parent_id');
+            const agr_unite = $(this).data('agr_unite');
+            // Set data to Form Edit
+            $('.id').val(id);
+            $('.agr_parent').val(agr_parent).trigger('change');
+            $('.agr_qte').val(agr_qte);
+            $('.agr_filiere').val(agr_filiere);
+            $('.agr_date_d').val(agr_date_d);
+            $('.agr_date_suivi').val(agr_date_suivi);
+            $('.agr_formation').val(agr_formation);
+            $('.parent_id').val(parent_id);
+            $('.agr_unite').val(agr_unite).trigger('change');
+            // Call Modal Edit
+            $('#editagr').modal('show');
+        });
+        
+    });
+</script>
