@@ -5,7 +5,7 @@
                 <h6 class="modal-title">AGR</h6><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;padding: 6px;">
-            <?php echo form_open('updateagr') ?>
+            <?php echo form_open('saveagr') ?>
                 <form style="height: auto;" method="POST">
                     <div class="form-row">
                         <div class="col">
@@ -40,7 +40,7 @@
                                     <label style="font-size: 10px;color: var(--gray);height: 10px;margin-bottom: 0px;">Formation</label><input type="text" class="form-control agr_formation" style="font-size: 12px;margin-left: -1px;margin-right: 0px;width: 239px;height: 30px;padding-top: 4px;margin-bottom: 3px;" placeholder="Formation" name="agr_formation" /></div>
                             </div>
                         </div>
-                    </div><input type="text" class="form-control id invisible" style="font-size: 12px;margin-left: 83px;margin-right: 54px;width: 300px;height: 30px;padding-top: 4px;margin-bottom: 3px;" placeholder="Poste" />
+                    </div><input type="text" name="id" class="form-control id invisible" style="font-size: 12px;margin-left: 83px;margin-right: 54px;width: 300px;height: 30px;padding-top: 4px;margin-bottom: 3px;"  />
                 
             </div>
             <div class="modal-footer" style="height: 56px;padding: 8px;"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-size: 12px;">Annulé</button><button class="btn btn-primary" type="submit" style="font-size: 12px;">Enregistré</button></div>

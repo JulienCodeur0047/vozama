@@ -41,7 +41,7 @@ class Dev_controller extends CI_Controller{
 			echo "<script>alert('Ajout Error');</script>";
 			redirect(base_url('devcmv'));
 		}else{
-		   $this->dev->insertCmv();
+		   $this->dev->saveOrUpdateCmv();
 		   echo "<script>alert('Ajout Reussit');</script>";
 		   redirect(base_url('devcmv'));
 		}
@@ -56,7 +56,7 @@ class Dev_controller extends CI_Controller{
 			echo "<script>alert('Ajout Error');</script>";
 			redirect(base_url('devagr'));
 		}else{
-		   $this->dev->insertAgr();
+		   $this->dev->saveOrUpdateAgr();
 		   echo "<script>alert('Ajout Reussit');</script>";
 		   redirect(base_url('devagr'));
 		}

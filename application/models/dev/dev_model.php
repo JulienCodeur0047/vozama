@@ -53,23 +53,30 @@ class Dev_model extends CI_Model{
 		return $query->result();
 	  }
 
-	  public function insertCmv(){
+	  public function saveOrUpdateCmv(){
+		$id = $this->input->post('id');
+		$sitename = $this->site->findSiteById($this->input->post('site_id'))->site_name;
 		$data = array(
-		'cmv_site' => $this->site->findSiteById($this->input->post('site_id'))->site_name,
+		'cmv_site' => $sitename,
 		'cmv_name' => $this->input->post('cmv_name'),
 		'cmv_firstname' => $this->input->post('cmv_firstname'),
-		'cmv_adresse' => $this->input->post('cmv_adress'),
+		'cmv_adresse' => $this->input->post('cmv_adresse'),
 		'cmv_tel' => $this->input->post('cmv_tel'),
 		'cmv_gps' => $this->input->post('cmv_gps'),
 		'site_id' => $this->input->post('site_id'),
 		'cmv_titre' => $this->input->post('cmv_titre'),
 		'cmv_nbr_par_ger' => $this->input->post('cmv_nbr_par_ger'),
-		'cmv_nbr_enfant' => $this->input->post('cm_nbr_enfant'),
+		'cmv_nbr_enfant' => $this->input->post('cmv_nbr_enfant'),
 		);
-		return $this->db->insert('comite_villagois', $data);
+		if(!empty($id)){
+			$this->db->where('id',$id);
+			return $this->db->update('comite_villagois',$data);
+		}else{
+			return $this->db->insert('comite_villagois', $data);
+		}
 	}
 
-	public function insertAgr(){
+	public function saveOrUpdateAgr(){
 		$id = $this->input->post('id');
 		$pere_name = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_name;
 		$pere_firstname = $this->site->findParentById($this->input->post('parent_id'))->parent_pere_firstname;
@@ -87,7 +94,7 @@ class Dev_model extends CI_Model{
 			$this->db->where('id',$id);
 			return $this->db->update('agr',$data);
 		}else{
-			return $this->db->replace('agr', $data);
+			return $this->db->insert('agr', $data);
 		}
 
 		
