@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 27 juin 2021 à 17:19
+-- Généré le : lun. 28 juin 2021 à 21:06
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -104,11 +104,14 @@ CREATE TABLE IF NOT EXISTS `chambre` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `chr_type` varchar(100) DEFAULT NULL,
   `chr_numero` int(10) DEFAULT NULL,
-  `chr_prix` int(10) DEFAULT NULL,
+  `chr_prix_nuite` int(10) DEFAULT NULL,
+  `chr_prix_jour` int(10) DEFAULT NULL,
+  `chr_prix_horaire` int(10) DEFAULT NULL,
   `chr_nbr_lit_1_plce` int(10) DEFAULT '0',
   `chr_nbr_lit_2_plce` int(10) DEFAULT '0',
   `chr_tv` varchar(100) DEFAULT 'non',
   `chr_eau_chaude` varchar(100) DEFAULT 'non',
+  `chr_reserve` varchar(100) NOT NULL DEFAULT 'non',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -804,6 +807,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `res_repa_prix_total` int(10) DEFAULT NULL,
   `res_repa_u` varchar(100) DEFAULT 'non',
   `res_repa_nbr_complet` int(10) DEFAULT '3',
+  `res_nbr_hr` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -851,6 +855,36 @@ CREATE TABLE IF NOT EXISTS `site` (
 
 INSERT INTO `site` (`id`, `site_name`, `site_zone`) VALUES
 (1, 'Aba', 'SS');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `soc_network`
+--
+
+DROP TABLE IF EXISTS `soc_network`;
+CREATE TABLE IF NOT EXISTS `soc_network` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `socn_titre` varchar(100) DEFAULT NULL,
+  `socn_date_pub` date DEFAULT NULL,
+  `socn_hr_pub` time DEFAULT NULL,
+  `socn_lien_web` varchar(200) DEFAULT NULL,
+  `socn_vd_pub_nbr` int(10) DEFAULT NULL,
+  `socn_ph_pub_nbr` int(10) DEFAULT NULL,
+  `socn_vd_ref_pub` varchar(400) DEFAULT NULL,
+  `socn_ph_ref_pub` varchar(400) DEFAULT NULL,
+  `socn_article` varchar(2000) DEFAULT NULL,
+  `socn_platform` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `soc_network`
+--
+
+INSERT INTO `soc_network` (`id`, `socn_titre`, `socn_date_pub`, `socn_hr_pub`, `socn_lien_web`, `socn_vd_pub_nbr`, `socn_ph_pub_nbr`, `socn_vd_ref_pub`, `socn_ph_ref_pub`, `socn_article`, `socn_platform`) VALUES
+(1, 'RTT', '2021-06-17', '18:24:00', 'dfg', 2, 2, 'ff', 'ss', 'cz', 'Facebook'),
+(2, '12FF', '2021-06-11', '18:45:00', 'dsds', 4, 2, 'rfg', 'ujhjd', 'dsd', 'Facebook');
 
 -- --------------------------------------------------------
 
