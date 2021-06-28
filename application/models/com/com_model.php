@@ -134,6 +134,14 @@ class Com_model extends CI_Model{
 		  $query = $this->db->get("poste");
 		  return $query->result();
 	  }
+	  public function printRes()
+	  {
+		if(!empty($this->input->post("socn_platform"))){
+			$this->db->where('socn_platform', $this->input->post("socn_platform"));
+		}
+		  $query = $this->db->get("soc_network");
+		  return $query->result();
+	  }
 	  public function printPart()
 	  {
 		if(!empty($this->input->post("poste_partenariat"))){

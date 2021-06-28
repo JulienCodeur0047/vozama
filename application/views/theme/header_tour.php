@@ -4,13 +4,9 @@
         <div class="container"><a class="navbar-brand" href="#" style="margin-top: 9px;font-size: 14px;color: var(--gray);">Tourisme</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-top: 9px;">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Hôtel</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-size: 13px;">Touriste</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-size: 13px;">Touriste Log</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-size: 13px;">Visite de site vozama</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('tour')?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Hôtel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('tourtrst')?>" style="font-size: 13px;">Touriste</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('tourtrstlog')?>" style="font-size: 13px;">Touriste Log</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('tourvs')?>" style="font-size: 13px;">Visite de site vozama</a></li>
+                    
                 </ul>

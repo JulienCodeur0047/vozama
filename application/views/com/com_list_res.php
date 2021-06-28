@@ -1,7 +1,7 @@
 <?php $this->load->view('theme/header_com'); ?>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label><input type="search" class="form-control search-field" id="search-field" name="search" style="width: 399px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" /></div>
-                </form><a class="btn btn-light action-button" role="button" href="#newres" data-toggle="modal" style="margin-top: 2px;background: rgb(86, 198, 198);font-size: 12px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"><i class="fa fa-plus" style="font-size: 14px;"></i>  Nouveau</a><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
+                </form><a class="btn btn-light action-button" role="button" href="#newres" data-toggle="modal" style="margin-top: 2px;background: rgb(86, 198, 198);font-size: 12px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"><i class="fa fa-plus" style="font-size: 14px;"></i>  Nouveau</a><a class="btn btn-light action-button" role="button" href="#filterprintres" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
             </div>
         </div>
     </nav>
@@ -64,6 +64,7 @@
 <?php $this->load->view('com/modal_create_res'); ?>
 <?php $this->load->view('com/modal_filter_res'); ?>
 <?php $this->load->view('com/modal_create_res'); ?>
+<?php $this->load->view('com/modal_print_filter_res'); ?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script>
@@ -73,6 +74,12 @@
     $(document).ready(function(){
 
 		$('#newres').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
+        $('#filterprintres').on('hidden.bs.modal', function (e) {
   		$(this)
     	.find("input,textarea,select")
        	.val('')

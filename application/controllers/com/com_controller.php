@@ -102,7 +102,13 @@ class Com_controller extends CI_Controller{
 	{
 		$data['data'] = $this->com->printPart();
 		$html = $this->load->view('com/com_part_pdf',$data,true);
-		$this->pdf->createPDF($html,'listPostePartenare',false);
+		$this->pdf->createPDF($html,'listPostePartenaire',false);
+	}
+	public function printRes()
+	{
+		$data['data'] = $this->com->printRes();
+		$html = $this->load->view('com/com_res_pdf',$data,true);
+		$this->pdf->createPDF($html,'listcom',false);
 	}
 }
 ?>

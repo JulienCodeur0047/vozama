@@ -76,37 +76,39 @@ div.WordSection1
   line-height:normal'><b>Photo</b></p>
   </td>
  </tr>
+ <?php foreach ($data as $res) { ?>
  <tr>
   <td width=101 valign=top style='width:75.5pt;border:solid windowtext 1.0pt;
   border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_titre; ?></p>
   </td>
   <td width=101 valign=top style='width:75.5pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_platform; ?></p>
   </td>
   <td width=101 valign=top style='width:75.5pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_date_pub; ?> &nbsp; <?php echo $res->socn_hr_pub; ?></p>
   </td>
   <td width=101 valign=top style='width:75.5pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_lien_web; ?></p>
   </td>
   <td width=101 valign=top style='width:75.55pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_vd_pub_nbr; ?></p>
   </td>
   <td width=101 valign=top style='width:75.55pt;border-top:none;border-left:
   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
   padding:0cm 5.4pt 0cm 5.4pt'>
-  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'>&nbsp;</p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><?php echo $res->socn_ph_pub_nbr; ?></p>
   </td>
  </tr>
+ <?php }?>
 </table>
 
 <p class=MsoNormal>&nbsp;</p>

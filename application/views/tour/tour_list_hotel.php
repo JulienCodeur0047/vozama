@@ -1,7 +1,7 @@
 <?php $this->load->view('theme/header_tour'); ?>
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label><input type="search" class="form-control search-field" id="search-field" name="search" style="width: 309px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" /></div>
-                </form><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: rgb(86, 198, 198);font-size: 12px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"><i class="fa fa-plus" style="font-size: 14px;"></i>  Réservation</a><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
+                </form><a class="btn btn-light action-button" role="button" href="#reserv" data-toggle="modal" style="margin-top: 2px;background: rgb(86, 198, 198);font-size: 12px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;"><i class="fa fa-plus" style="font-size: 14px;"></i>  Réservation</a><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
             </div>
         </div>
     </nav>
@@ -13,17 +13,21 @@
                     <thead>
                         <tr style="color: var(--gray);">
                             <th style="width: 59px;">N<strong>° Chambre</strong></th>
-                            <th style="width: 70px;">Type</th>
                             <th style="width: 105px;height: 44px;">Date</th>
-                            <th style="width: 137px;height: 44px;">Client</th>
-                            <th style="width: 51px;height: 44px;">Client Nbr</th>
+                            <th style="width: 100px;height: 44px;">Client</th>
+                            <th style="width: 30px;height: 44px;">Client Nbr</th>
+                            <th style="width: 51px;height: 44px;">Avance</th>
+                            <th style="width: 51px;height: 44px;">Reste</th>
+                            <th style="width: 51px;height: 44px;">Total</th>
                             <th style="width: 44px;"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Cell 1</td>
-                            <td>Cell 1</td>
+                            <td>Cell 2</td>
+                            <td>Cell 2</td>
+                            <td>Cell 2</td>
                             <td>Cell 2</td>
                             <td>Cell 2</td>
                             <td>Cell 2</td>
@@ -36,3 +40,4 @@
         </div>
     </div>
 </section>
+<?php $this->load->view('tour/modal_create_reserv')?>
