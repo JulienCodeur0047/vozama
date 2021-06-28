@@ -30,10 +30,37 @@ class Com_controller extends CI_Controller{
 		$this->load->view('com/com_list_partenair',$data);
 		$this->load->view('theme/footer');
 	}
+	public function indexres()
+	{
+		$data['data'] = $this->com->getResOrSearch();
+		$this->getSession();
+		$this->load->view('com/com_list_res',$data);
+		$this->load->view('theme/footer');
+	}
 	public function getSession()
 	{
 		$session['session'] = $this->session;
 		$this->load->view('theme/header',$session);
+	}
+	public function deleteres($id)
+	{
+		$this->com->deleteRes($id);
+		redirect(base_url('comres'));
+	}
+	public function saveres()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('socn_titre', 'socn_titre', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('comres'));
+		}else{
+		   $this->com->saveOrUpdateRes();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('comres'));
+		}
 	}
 	public function saveparr()
 	{

@@ -6,5 +6,5 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('com'); ?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Parrainage</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('compart'); ?>" style="font-size: 13px;">Partenariat</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-size: 13px;">Réseaux sociaux</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('comres'); ?>" style="font-size: 13px;">Réseaux sociaux</a></li>
                 </ul>

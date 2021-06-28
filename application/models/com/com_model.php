@@ -6,17 +6,48 @@ class Com_model extends CI_Model{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 	  }
-	  public function getAllComSearch()
+
+	  public function saveOrUpdateRes()
 	  {
-		  # code...
+		$id = $this->input->post('id');
+		$data = array(
+		'socn_titre' => $this->input->post('socn_titre'),
+		'socn_article' => $this->input->post('socn_article'),
+		'socn_platform' => $this->input->post('socn_platform'),
+		'socn_date_pub' => $this->input->post('socn_date_pub'),
+		'socn_hr_pub' => $this->input->post('socn_hr_pub'),
+		'socn_vd_ref_pub' => $this->input->post('socn_vd_ref_pub'),
+		'socn_vd_pub_nbr' => $this->input->post('socn_vd_pub_nbr'),
+		'socn_ph_ref_pub' => $this->input->post('socn_ph_ref_pub'),
+		'socn_ph_pub_nbr' => $this->input->post('socn_ph_pub_nbr'),
+		'socn_lien_web' => $this->input->post('socn_lien_web'),
+		);
+		if(!empty($id)){
+			$this->db->where('id',$id);
+			return $this->db->update('soc_network',$data);
+		}else{
+			return $this->db->insert('soc_network', $data);
+		}
 	  }
-	  public function getComById($id)
+	  public function deleteRes($id)
 	  {
-		  # code...
+		return $this->db->delete('soc_network', array('id' => $id));
 	  }
-	  public function insertCom()
+	  public function getResOrSearch()
 	  {
-		  # code...
+		if(!empty($this->input->get("search"))){
+			$this->db->like('socn_titre', $this->input->get("search"));
+			$this->db->or_like('socn_article', $this->input->get("search")); 
+			$this->db->or_like('socn_platform', $this->input->get("search")); 
+			$this->db->or_like('socn_date_pub', $this->input->get("search")); 
+			$this->db->or_like('socn_hr_pub', $this->input->get("search")); 
+			$this->db->or_like('socn_lien_web', $this->input->get("search")); 
+		  }
+		if(!empty($this->input->post("socn_platform"))){
+			$this->db->where('socn_platform', $this->input->post("socn_platform"));
+		}
+		  $query = $this->db->get("soc_network");
+		  return $query->result();
 	  }
 	  public function saveParr()
 	  {
