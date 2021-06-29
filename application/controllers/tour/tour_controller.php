@@ -18,8 +18,8 @@ class Tour_controller extends CI_Controller{
 	}
     public function indexHtl()
     {
-		$data['data'] = $this->tour->getChmbreNotres();
-        $data['data'] = $this->tour->getChambreOrSearch();
+		$data['chmbre'] = $this->tour->getChmbreNotres();
+        $data['data'] = $this->tour->getChambreResOrSearch();
 		$this->getSession();
 		$this->load->view('tour/tour_list_hotel',$data);
 		$this->load->view('theme/footer');
@@ -47,6 +47,26 @@ class Tour_controller extends CI_Controller{
 	{
 		$session['session'] = $this->session;
 		$this->load->view('theme/header',$session);
+	}
+	public function saveReserv()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('res_cli_nom', 'res_cli_nom', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('tour'));
+		}else{
+		   $this->tour->saveReserv();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('tour'));
+		}
+	}
+	public function deletereserv($id,$idchmbr)
+	{
+		$this->tour->deleteReserv($id,$idchmbr);
+		redirect(base_url('tour'));
 	}
 }
 ?>
