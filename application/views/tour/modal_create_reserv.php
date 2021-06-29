@@ -19,7 +19,7 @@
                                         <th style="width: 29px;"></th>
                                         <th style="width: 68px;">No</th>
                                         <th>Nuit</th>
-                                        <th>Horaire</th>
+                                        <th>Jour</th>
                                         <th>Lit 1p</th>
                                         <th>Lit 2p</th>
                                         <th style="width: 66px;">tv</th>
@@ -27,16 +27,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+								<?php foreach ($data as $chmbr) { ?>
                                     <tr>
                                         <td><input type="checkbox" /></td>
-                                        <td>Cell 1</td>
-                                        <td>Cell 1</td>
-                                        <td>Cell 1</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 2</td>
-                                        <td>Cell 2</td>
+                                        <td><?php echo $chmbr->chr_numero;?></td>
+                                        <td><?php echo $chmbr->chr_prix_nuite;?></td>
+                                        <td><?php echo $chmbr->chr_prix_jour;?>1</td>
+                                        <td><?php echo $chmbr->chr_nbr_lit_1_plce;?></td>
+                                        <td><?php echo $chmbr->chr_nbr_lit_2_plce;?></td>
+                                        <td><?php echo $chmbr->chr_tv;?></td>
+                                        <td><?php echo $chmbr->chr_eau_chaude;?></td>
                                     </tr>
+								<?php }?>
                                     <tr></tr>
                                 </tbody>
                             </table>

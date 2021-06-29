@@ -23,16 +23,18 @@
                         </tr>
                     </thead>
                     <tbody>
+					<?php foreach ($data as $res) { ?>
                         <tr>
-                            <td>Cell 1</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
-                            <td>Cell 2</td>
+                            <td><?php echo $res->res_chr_num;?></td>
+                            <td><?php echo $res->res_date;?></td>
+                            <td><?php echo $res->res_cli_nom;?></td>
+                            <td><?php echo $res->res_cli_nbr;?></td>
+                            <td><?php echo $res->res_paye_avc;?></td>
+                            <td><?php echo $res->res_paye_reste;?></td>
+                            <td><?php echo $res->res_paye_total;?></td>
                             <td style="font-size: 12px;width: 30px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></button></td>
                         </tr>
+					<?php } ?>
                         <tr></tr>
                     </tbody>
                 </table>

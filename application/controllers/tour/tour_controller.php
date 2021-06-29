@@ -12,14 +12,16 @@ class Tour_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('com/Com_model','com');
+		$this->load->model('tour/Tour_model','tour');
 		
 
 	}
     public function indexHtl()
     {
-        //$data['data'] = $this->poste->getPostOrSearch();
+		$data['data'] = $this->tour->getChmbreNotres();
+        $data['data'] = $this->tour->getChambreOrSearch();
 		$this->getSession();
-		$this->load->view('tour/tour_list_hotel');
+		$this->load->view('tour/tour_list_hotel',$data);
 		$this->load->view('theme/footer');
     }
     public function indexTouriste()
