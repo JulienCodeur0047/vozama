@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 28 juin 2021 à 21:06
+-- Généré le : jeu. 01 juil. 2021 à 16:55
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -113,7 +113,15 @@ CREATE TABLE IF NOT EXISTS `chambre` (
   `chr_eau_chaude` varchar(100) DEFAULT 'non',
   `chr_reserve` varchar(100) NOT NULL DEFAULT 'non',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `chambre`
+--
+
+INSERT INTO `chambre` (`id`, `chr_type`, `chr_numero`, `chr_prix_nuite`, `chr_prix_jour`, `chr_prix_horaire`, `chr_nbr_lit_1_plce`, `chr_nbr_lit_2_plce`, `chr_tv`, `chr_eau_chaude`, `chr_reserve`) VALUES
+(1, 'A', 1, 25000, 10000, 5000, 0, 1, 'oui', 'non', 'non'),
+(2, 'N', 3, 20000, 5000, 2000, 1, 0, 'non', 'non', 'non');
 
 -- --------------------------------------------------------
 
@@ -360,6 +368,37 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL,
+  `start_event` date DEFAULT NULL,
+  `end_event` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start_event`, `end_event`) VALUES
+(11, 'A', '2021-07-20', '2021-07-23'),
+(16, 'LIK', '2021-07-07', '2021-07-08'),
+(17, 'RAKOTO', '2021-07-25', '2021-08-01'),
+(15, 'PLI', '2021-07-04', '2021-07-06'),
+(18, 'AX', '2021-06-27', '2021-06-27'),
+(19, 'LK', '2021-07-15', '2021-07-17'),
+(21, 'POLIM', '2021-07-01', '2021-07-01'),
+(22, 'vite', '2021-07-26', '2021-08-08'),
+(23, 'Manomboka', '2021-06-27', '2021-07-01'),
+(24, 'TApitra', '2021-06-27', '2021-07-01');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `fokotany`
 --
 
@@ -539,7 +578,14 @@ CREATE TABLE IF NOT EXISTS `passgard` (
   `pass_date_rem` date DEFAULT NULL,
   `pass_obejt` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `passgard`
+--
+
+INSERT INTO `passgard` (`id`, `pass_name_firstname`, `pass_date_dep`, `pass_hr_dep`, `pass_hr_rem`, `pass_date_rem`, `pass_obejt`) VALUES
+(3, 'Nivoarilanto Julien', '2021-07-22', '15:08:00', '15:09:00', '2021-07-14', 'Tablet');
 
 -- --------------------------------------------------------
 
@@ -791,6 +837,7 @@ DROP TABLE IF EXISTS `reservation`;
 CREATE TABLE IF NOT EXISTS `reservation` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `res_chr_num` int(10) DEFAULT NULL,
+  `chambre_id` int(10) DEFAULT NULL,
   `res_nbr_jr` int(10) DEFAULT NULL,
   `res_date` date DEFAULT NULL,
   `res_type` varchar(100) DEFAULT NULL,
@@ -809,7 +856,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `res_repa_nbr_complet` int(10) DEFAULT '3',
   `res_nbr_hr` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -920,7 +967,15 @@ CREATE TABLE IF NOT EXISTS `touriste` (
   `tour_gazette` varchar(100) DEFAULT 'non',
   `tour_address` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `touriste`
+--
+
+INSERT INTO `touriste` (`id`, `tour_name`, `tour_firstname`, `tour_date_birth`, `tour_nationalite`, `tour_lieu_nais`, `tour_email`, `tour_tel`, `tour_newsletter`, `tour_gazette`, `tour_address`) VALUES
+(1, 'EMINEM', 'A', '2007-02-16', 'Francais', 'A', 'ksjdkljs@gmail.com', '0233', '', '', 'ds'),
+(3, 'SDD', 'dd', '2021-06-10', 'Chinois', 'XX', 'sds', '9928', 'oui', 'oui', 'x');
 
 -- --------------------------------------------------------
 
@@ -979,7 +1034,14 @@ CREATE TABLE IF NOT EXISTS `visiteur` (
   `vis_objectif` varchar(100) DEFAULT NULL,
   `vis_num_badge` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `visiteur`
+--
+
+INSERT INTO `visiteur` (`id`, `vis_name`, `vis_firstname`, `vis_cin`, `vis_date`, `vis_hr_in`, `vis_hr_o`, `vis_objectif`, `vis_num_badge`) VALUES
+(2, 'OO', '', '890', '2021-07-14', '14:52:00', '18:50:00', 'yiu', 2);
 
 -- --------------------------------------------------------
 
@@ -1049,8 +1111,20 @@ CREATE TABLE IF NOT EXISTS `viste_site` (
   `vs_prix_total` int(10) DEFAULT NULL,
   `site_id` int(10) DEFAULT NULL,
   `vs_site` varchar(100) DEFAULT NULL,
+  `vs_nbr_jr` int(10) DEFAULT NULL,
+  `vs_dem_jr` int(10) DEFAULT NULL,
+  `vs_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `viste_site`
+--
+
+INSERT INTO `viste_site` (`id`, `vs_prix_jour`, `vs_prix_demi_jr`, `vs_prix_a_voiture`, `vs_prix_s_voiture`, `vs_nbr_jour`, `vs_prix_total`, `site_id`, `vs_site`, `vs_nbr_jr`, `vs_dem_jr`, `vs_date`) VALUES
+(1, 5000, 2000, 20000, 0, NULL, 54000, NULL, 'Aba', 1, 1, '2021-07-17'),
+(5, 8, 10, 11, 1, NULL, 120, NULL, 'Aba', 2, 2, '2021-07-24'),
+(7, 2, 26, 0, 0, NULL, 112, 1, 'Aba', 2, 2, '2021-07-17');
 
 -- --------------------------------------------------------
 

@@ -16,11 +16,9 @@
                     <div class="col-xl-3" style="width: 151px;">
                     <input type="number" style="font-size: 12px;width: 159px;margin: 0px;margin-top: 25px;" placeholder="Nbr Nuitée " name="res_nbr_jr" />
                     <input type="number" style="font-size: 12px;width: 159px;margin-top: 7px;" placeholder="Nbr Horaire" name="res_nbr_hr" />
-                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 7px;" placeholder="Prix repas" name="res_repa_complet" /></div>
+                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 7px;" placeholder="Prix repas" name="res_repa_prix_total" /></div>
                     <div class="col">
-                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 24px;margin-left: 16px;" placeholder="Payement en avance" name="res_paye_avc" /><label style="font-size: 12px;margin-left: 16px;">Ar (Avance)</label>
-                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 7px;margin-left: 16px;" placeholder="Payement Reste" name="res_paye_reste" /><label style="font-size: 12px;margin-left: 16px;">Ar (Reste)</label>
-                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 7px;margin-left: 16px;" placeholder="Total" name="res_paye_total" /><label style="font-size: 12px;margin-left: 16px;">Ar - TOTAL</label></div>
+                    <input type="number" style="font-size: 12px;width: 159px;margin-top: 24px;margin-left: 16px;" placeholder="Payement en avance" name="res_paye_avc" /><label style="font-size: 12px;margin-left: 16px;">Ar (Avance)</label></div>
                 </div>
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col" style="height: auto;margin-top: 11px;"><label style="font-size: 12px;margin: -4px;margin-left: 8px;">Chambre disponible<br /></label>
