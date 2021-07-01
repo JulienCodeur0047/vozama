@@ -49,3 +49,5 @@
 <div>
 <?php $this->load->view('visite_poste/modal_create_vp');?>
 </div>
+<script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
