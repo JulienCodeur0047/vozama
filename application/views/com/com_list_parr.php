@@ -80,7 +80,4 @@
         });
         
     });
-    $('#parrainage').on('hidden.bs.modal', function(event) {
-     $('#parrainage').empty();
-    });
 </script>
