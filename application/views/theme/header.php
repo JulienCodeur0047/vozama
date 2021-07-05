@@ -20,8 +20,8 @@
 	<link rel="icon" href="<?php echo base_url('assets/fonts/iconapp.ico') ?>">
 </head>
 
-<body style="background: rgba(223,231,241,0.95);height: 683px;">
-<header class="header-dark" style="height: 73px;background: rgb(255,255,255);padding-left: 0px;padding-bottom: 70px;">
+<body style="background: rgba(223,231,241,0.95);height: 683px;width: auto;">
+<header class="header-dark" style="height: 73px;background: rgb(255,255,255);padding-left: 0px;padding-bottom: 70px; width: auto;">
 <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
     <div class="container"><a class="navbar-brand" href="#" style="margin-right: 13px;color: var(--secondary);font-size: 20px;">vozama</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navcol-1">
@@ -49,15 +49,19 @@
 				case 8:
 						?> <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('sec')?>">Securité</a></li> <?php
 				break;
+				case 9:
+					?> <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('en')?>">Entreprise</a></li> <?php
+			break;
 				default:
-				?> 
-				<li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('alph')?>"><i class="fa fa-book" style="font-size: smaller;"></i> Alphabétisation</a></li>
-                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('env')?>"><i class="fa fa-tree" style="font-size: smaller;"></i> Environnement</a></li>
-                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('dev')?>"><i class="fa fa-dashboard" style="font-size: smaller;"></i> Développement</a></li>
-                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('suiv')?>"><i class="fa fa-address-card" style="font-size: smaller;"></i> Suivi et évaluation</a></li>
-                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('com')?>"><i class="fa fa-exchange" style="font-size: smaller;"></i> Communication</a></li>
-                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('tour')?>"><i class="fa fa-subway" style="font-size: smaller;"></i> Tourisme solidaire</a></li>
-				<li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('sec')?>"><i class="fa fa-user-secret" style="font-size: smaller;"></i> Securité </a></li>
+				?>
+				<li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('alph')?>"> Alphabétisation</a></li>
+                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('en')?>"> Entreprise</a></li>
+				<li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('env')?>"> Environnement</a></li>
+                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('dev')?>"> Développement</a></li>
+                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('suiv')?>"> Suivi et évaluation</a></li>
+                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('com')?>"> Communication</a></li>
+                <li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('tour')?>"> Tourisme solidaire</a></li>
+				<li class="nav-item" style="font-size: 13px;"><a class="nav-link" href="<?php echo base_url('sec')?>"> Securité </a></li>
 				 <?php
 			}
 			

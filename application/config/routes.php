@@ -89,6 +89,10 @@ $route['secplanupdate']['post'] = "sec/Sec_controller/update";
 $route['secplandel']['post'] = "sec/Sec_controller/delete";
 $route['secplaninsert']['post'] = "sec/Sec_controller/insert";
 #planning
+$route['en'] = "entre/En_controller/index";
+$route['enpers'] = "entre/En_controller/indexpers";
+$route['encong'] = "entre/En_controller/indexcong";
+$route['enbien'] = "entre/En_controller/indexbien";
 $route['secpass'] = "sec/Sec_controller/indexpass";
 $route['secsavevis']['post'] = "sec/Sec_controller/savevis";
 $route['secsavepass']['post'] = "sec/Sec_controller/savepass";

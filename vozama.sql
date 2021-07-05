@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 01 juil. 2021 à 16:55
+-- Généré le : lun. 05 juil. 2021 à 15:18
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -86,10 +86,12 @@ CREATE TABLE IF NOT EXISTS `bien` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bien_name` varchar(100) NOT NULL,
   `bien_date_arrive` date DEFAULT NULL,
-  `bien_responsable` varchar(100) DEFAULT NULL,
-  `bien_date_disfonctionement` date DEFAULT NULL,
+  `bien_resp` varchar(200) DEFAULT NULL,
+  `bien_date_disf` date DEFAULT NULL,
   `bien_type` varchar(100) DEFAULT NULL,
   `dep_id` int(10) NOT NULL,
+  `dep_dep` varchar(200) DEFAULT NULL,
+  `bien_mat` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -190,7 +192,6 @@ DROP TABLE IF EXISTS `conge`;
 CREATE TABLE IF NOT EXISTS `conge` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `conge_motif` varchar(100) DEFAULT NULL,
-  `conge_nbr` decimal(10,0) DEFAULT NULL,
   `conge_left` decimal(10,0) DEFAULT NULL,
   `conge_type` varchar(100) DEFAULT NULL,
   `conge_price` int(11) DEFAULT NULL,
@@ -201,6 +202,7 @@ CREATE TABLE IF NOT EXISTS `conge` (
   `conge_nbr_day` int(10) DEFAULT NULL,
   `conge_no_paid` varchar(100) DEFAULT NULL,
   `conge_pers_id` int(10) DEFAULT NULL,
+  `conge_date_reprise` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -243,7 +245,6 @@ CREATE TABLE IF NOT EXISTS `department` (
   `dep_name` varchar(100) NOT NULL,
   `dep_number` int(10) DEFAULT NULL,
   `dep_type` varchar(100) DEFAULT NULL,
-  `en_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -378,7 +379,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `start_event` date DEFAULT NULL,
   `end_event` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `events`
@@ -387,14 +388,15 @@ CREATE TABLE IF NOT EXISTS `events` (
 INSERT INTO `events` (`id`, `title`, `start_event`, `end_event`) VALUES
 (11, 'A', '2021-07-20', '2021-07-23'),
 (16, 'LIK', '2021-07-07', '2021-07-08'),
-(17, 'RAKOTO', '2021-07-25', '2021-08-01'),
+(17, 'RAKOTO', '2021-07-25', '2021-07-28'),
 (15, 'PLI', '2021-07-04', '2021-07-06'),
 (18, 'AX', '2021-06-27', '2021-06-27'),
 (19, 'LK', '2021-07-15', '2021-07-17'),
 (21, 'POLIM', '2021-07-01', '2021-07-01'),
 (22, 'vite', '2021-07-26', '2021-08-08'),
 (23, 'Manomboka', '2021-06-27', '2021-07-01'),
-(24, 'TApitra', '2021-06-27', '2021-07-01');
+(24, 'TApitra', '2021-06-27', '2021-07-01'),
+(25, 'RAKOTO', '2021-07-07', '2021-07-11');
 
 -- --------------------------------------------------------
 
@@ -651,7 +653,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `pers_address` varchar(100) DEFAULT NULL,
   `pers_sexe` varchar(100) NOT NULL,
   `pers_age` int(10) DEFAULT NULL,
-  `pers_married` varchar(100) DEFAULT NULL,
+  `pers_sm` varchar(100) DEFAULT NULL,
   `pers_phone` varchar(100) DEFAULT NULL,
   `pers_mail` varchar(100) DEFAULT NULL,
   `dep_id` int(10) NOT NULL,
@@ -661,6 +663,9 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `pers_date_gone` date DEFAULT NULL,
   `pers_date_renew` date DEFAULT NULL,
   `pers_cot_social` varchar(100) DEFAULT NULL,
+  `pers_dep` varchar(200) DEFAULT NULL,
+  `pers_nbr_conge` int(10) DEFAULT NULL,
+  `pers_dr_conge` double DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
