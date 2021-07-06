@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 06 juil. 2021 à 14:04
+-- Généré le : mar. 06 juil. 2021 à 19:03
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `conge` (
   `conge_date_end` date DEFAULT NULL,
   `conge_nbr_day` int(10) DEFAULT NULL,
   `conge_no_paid` varchar(100) DEFAULT NULL,
-  `conge_pers_id` int(10) DEFAULT NULL,
+  `pers_id` int(10) DEFAULT NULL,
   `conge_date_reprise` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -242,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `cotisation_social` (
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `dep_name` varchar(100) NOT NULL,
+  `dep_name` varchar(100) DEFAULT NULL,
   `dep_number` int(10) DEFAULT NULL,
   `dep_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -682,8 +682,8 @@ CREATE TABLE IF NOT EXISTS `personal` (
 --
 
 INSERT INTO `personal` (`id`, `pers_name`, `pers_firstname`, `pers_date_birth`, `pers_cin`, `pers_address`, `pers_sexe`, `pers_age`, `pers_sm`, `pers_phone`, `pers_mail`, `dep_id`, `pers_type`, `pers_contrat`, `pers_date_arrived`, `pers_date_gone`, `pers_date_renew`, `pers_cot_social`, `pers_dep`, `pers_nbr_conge`, `pers_dr_conge`) VALUES
-(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 30000),
-(2, 'APOS', 'Julien', '1993-01-05', '2233', 'VQ 16 A TER A Mandroseza', 'M', 28, 'Célibataire', '0348778552', 'juliennivoarilanto@gmail.com', 3, 'Cadre', 'Freelance', '2021-07-08', '2021-07-24', NULL, '20000', 'CROD', NULL, 5000);
+(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 2),
+(2, 'APOS', 'Julien', '1993-01-05', '2233', 'VQ 16 A TER A Mandroseza', 'M', 28, 'Célibataire', '0348778552', 'juliennivoarilanto@gmail.com', 3, 'Cadre', 'Freelance', '2021-07-08', '2021-07-24', NULL, '20000', 'CROD', NULL, 2.5);
 
 -- --------------------------------------------------------
 
