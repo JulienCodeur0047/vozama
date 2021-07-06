@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 05 juil. 2021 à 15:18
+-- Généré le : mar. 06 juil. 2021 à 14:04
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -246,7 +246,15 @@ CREATE TABLE IF NOT EXISTS `department` (
   `dep_number` int(10) DEFAULT NULL,
   `dep_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `department`
+--
+
+INSERT INTO `department` (`id`, `dep_name`, `dep_number`, `dep_type`) VALUES
+(2, 'ABD', 223, 'Trésorier'),
+(3, 'CROD', 5698, 'Administration');
 
 -- --------------------------------------------------------
 
@@ -646,20 +654,20 @@ CREATE TABLE IF NOT EXISTS `pere` (
 DROP TABLE IF EXISTS `personal`;
 CREATE TABLE IF NOT EXISTS `personal` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `pers_name` varchar(100) NOT NULL,
+  `pers_name` varchar(100) DEFAULT NULL,
   `pers_firstname` varchar(100) DEFAULT NULL,
-  `pers_date_birth` date NOT NULL,
+  `pers_date_birth` date DEFAULT NULL,
   `pers_cin` varchar(100) DEFAULT NULL,
   `pers_address` varchar(100) DEFAULT NULL,
-  `pers_sexe` varchar(100) NOT NULL,
+  `pers_sexe` varchar(100) DEFAULT NULL,
   `pers_age` int(10) DEFAULT NULL,
   `pers_sm` varchar(100) DEFAULT NULL,
   `pers_phone` varchar(100) DEFAULT NULL,
   `pers_mail` varchar(100) DEFAULT NULL,
-  `dep_id` int(10) NOT NULL,
+  `dep_id` int(10) DEFAULT NULL,
   `pers_type` varchar(100) DEFAULT NULL,
-  `pers_contrat` varchar(100) NOT NULL,
-  `pers_date_arrived` date NOT NULL,
+  `pers_contrat` varchar(100) DEFAULT NULL,
+  `pers_date_arrived` date DEFAULT NULL,
   `pers_date_gone` date DEFAULT NULL,
   `pers_date_renew` date DEFAULT NULL,
   `pers_cot_social` varchar(100) DEFAULT NULL,
@@ -667,7 +675,15 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `pers_nbr_conge` int(10) DEFAULT NULL,
   `pers_dr_conge` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `personal`
+--
+
+INSERT INTO `personal` (`id`, `pers_name`, `pers_firstname`, `pers_date_birth`, `pers_cin`, `pers_address`, `pers_sexe`, `pers_age`, `pers_sm`, `pers_phone`, `pers_mail`, `dep_id`, `pers_type`, `pers_contrat`, `pers_date_arrived`, `pers_date_gone`, `pers_date_renew`, `pers_cot_social`, `pers_dep`, `pers_nbr_conge`, `pers_dr_conge`) VALUES
+(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 30000),
+(2, 'APOS', 'Julien', '1993-01-05', '2233', 'VQ 16 A TER A Mandroseza', 'M', 28, 'Célibataire', '0348778552', 'juliennivoarilanto@gmail.com', 3, 'Cadre', 'Freelance', '2021-07-08', '2021-07-24', NULL, '20000', 'CROD', NULL, 5000);
 
 -- --------------------------------------------------------
 
@@ -935,7 +951,6 @@ CREATE TABLE IF NOT EXISTS `soc_network` (
 --
 
 INSERT INTO `soc_network` (`id`, `socn_titre`, `socn_date_pub`, `socn_hr_pub`, `socn_lien_web`, `socn_vd_pub_nbr`, `socn_ph_pub_nbr`, `socn_vd_ref_pub`, `socn_ph_ref_pub`, `socn_article`, `socn_platform`) VALUES
-(1, 'RTT', '2021-06-17', '18:24:00', 'dfg', 2, 2, 'ff', 'ss', 'cz', 'Facebook'),
 (2, '12FF', '2021-06-11', '18:45:00', 'dsds', 4, 2, 'rfg', 'ujhjd', 'dsd', 'Facebook');
 
 -- --------------------------------------------------------

@@ -93,6 +93,11 @@ $route['en'] = "entre/En_controller/index";
 $route['enpers'] = "entre/En_controller/indexpers";
 $route['encong'] = "entre/En_controller/indexcong";
 $route['enbien'] = "entre/En_controller/indexbien";
+$route['ensavedep']['post'] = "entre/En_controller/saveDep";
+$route['ensavepers']['post'] = "entre/En_controller/savePers";
+$route['enprintdep'] = "entre/En_controller/printDep";
+$route['endeletedep/(:any)'] = "entre/En_controller/deleteDep/$1";
+
 $route['secpass'] = "sec/Sec_controller/indexpass";
 $route['secsavevis']['post'] = "sec/Sec_controller/savevis";
 $route['secsavepass']['post'] = "sec/Sec_controller/savepass";

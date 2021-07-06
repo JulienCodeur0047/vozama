@@ -5,7 +5,7 @@
                 <h4 class="modal-title" style="font-size: 13px;">Département</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;">
-			<?php echo form_open('');?>
+			<?php echo form_open('ensavedep');?>
 			<form method="POST">
 			<input type="hidden" class="id" name="id"/>
                 <div class="row" style="height: auto;width: auto;">

@@ -5,7 +5,7 @@
                 <h4 class="modal-title" style="font-size: 13px;">Personnel ou Agent</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;">
-			<?php echo form_open('savepers');?>
+			<?php echo form_open('ensavepers');?>
 			<form method="POST">
 			<input type="hidden" class="id" name="id"/>
                 <div class="row" style="height: auto;width: auto;">
@@ -13,14 +13,14 @@
 					<input type="text" class="pers_name" style="font-size: 12px;width: 214px;" name="pers_name" /><label style="font-size: 12px;margin-bottom: 0px;">Prénoms</label>
 					<input type="text" class="pers_firstname" style="font-size: 12px;width: 214px;" name="pers_firstname" /><label style="font-size: 12px;margin-bottom: 0px;">Date de naissance</label>
 					<input type="date" class="pers_date_birth" style="width: 214px;font-size: 12px;" name="pers_date_birth" /><label style="font-size: 12px;margin-bottom: 0px;">Sexe</label>
-					<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_sm" name="pers_sm">
+					<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_sexe" name="pers_sexe">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
                                 <option value="M">M</option>
                                 <option value="F">F</option>
                             </optgroup>
                         </select><label style="font-size: 12px;margin-bottom: 0px;"><br /></label><label style="font-size: 12px;margin-bottom: 0px;">Situation matrimonial</label>
-						<select style="font-size: 12px;width: 214px;height: 24px;" class="tour_nationalite" name="tour_nationalite">
+						<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_sm" name="pers_sm">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
                                 <option value="Marié(e)">Marié(e)</option>
@@ -34,6 +34,9 @@
 					<select style="font-size: 12px;width: 214px;height: 24px;" class="dep_id" name="dep_id">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
+								<?php foreach ($dep as $dep) { ?>
+									<option value="<?php echo $dep->id;?>"><?php echo $dep->dep_name;?></option>
+								<?php }?>
                             </optgroup>
                         </select><label style="font-size: 12px;margin-bottom: 0px;">Type de Contrat</label>
 						<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_contrat" name="pers_contrat">
