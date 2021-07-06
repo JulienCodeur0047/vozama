@@ -17,17 +17,38 @@ class Entre_model extends CI_Model{
 		  $query = $this->db->get("department");
 		  return $query->result();
 	  }
+    public function getConOrSearch()
+	  {
+		if(!empty($this->input->get("search"))){
+			$this->db->like('conge_pers', $this->input->get("search"));
+			$this->db->or_like('conge_motif', $this->input->get("search")); 
+		  }
+		  $query = $this->db->get("conge");
+		  return $query->result();
+	  }
 
 		public function getPersOrSearch()
 	  {
+      $type = $this->input->post("pers_type");
+      $dep = $this->input->post("pers_dep");
+      $contrat = $this->input->post("pers_contrat");
 		if(!empty($this->input->get("search"))){
 			$this->db->like('pers_name', $this->input->get("search"));
-			$this->db->like('pers_firstname', $this->input->get("search"));
+			$this->db->or_like('pers_firstname', $this->input->get("search"));
 			$this->db->or_like('pers_type', $this->input->get("search")); 
 			$this->db->or_like('pers_contrat', $this->input->get("search")); 
 			$this->db->or_like('pers_dep', $this->input->get("search")); 
 			$this->db->or_like('pers_cot_social', $this->input->get("search")); 
 		  }
+      if(!empty($dep)){
+        $this->db->where('pers_dep', $dep);
+      }
+      if(!empty($type)){
+        $this->db->where('pers_type', $type);
+      }
+      if(!empty($contrat)){
+        $this->db->where('pers_contrat', $contrat);
+      }
 		  $query = $this->db->get("personal");
 		  return $query->result();
 	  }
@@ -78,9 +99,32 @@ class Entre_model extends CI_Model{
         return $this->db->insert('personal', $data);
       }
     }
+    public function saveOrUpdateCong()
+    {
+      $id = $this->input->post('id');
+			$persname = $this->findPersById($this->input->post('pers_id'))->pers_name;
+			$persfirstname = $this->findPersById($this->input->post('pers_id'))->pers_firstname;
+      $data = array(
+        'conge_motif' => $this->input->post('conge_motif'),
+        'pers_firstname' => $this->input->post('pers_firstname'),
+        'pers_sexe' => $this->input->post('pers_sexe'),
+        'pers_date_birth' => $this->input->post('pers_date_birth'),
+        );
+      if (!empty($id)) {
+        $this->db->where('id',$id);
+        return $this->db->update('personal',$data);
+      }else{
+        return $this->db->insert('personal', $data);
+      }
+    }
 		public function findDepById($id)
 		{
 			return $this->db->get_where('department', array('id' => $id))->row();
+
+		}
+    public function findPersById($id)
+		{
+			return $this->db->get_where('personal', array('id' => $id))->row();
 
 		}
 	  public function printDep()
@@ -88,9 +132,32 @@ class Entre_model extends CI_Model{
       $query = $this->db->get("department");
       return $query->result();
     }
+    public function getPers()
+    {
+      $query = $this->db->get("personal");
+      return $query->result();
+    }
     public function deleteDep($id)
     {
       return $this->db->delete('department', array('id' => $id));
+    }
+
+    public function printPers()
+    {
+      $type = $this->input->post("pers_type");
+      $dep = $this->input->post("pers_dep");
+      $contrat = $this->input->post("pers_contrat");
+      if(!empty($dep)){
+        $this->db->where('pers_dep', $dep);
+      }
+      if(!empty($type)){
+        $this->db->where('pers_type', $type);
+      }
+      if(!empty($contrat)){
+        $this->db->where('pers_contrat', $contrat);
+      }
+		  $query = $this->db->get("personal");
+		  return $query->result();
     }
 
 		public function calculateAge($date){

@@ -9,9 +9,12 @@
 			<form method="POST">
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col-lg-6 col-xl-10"><label style="font-size: 12px;margin-bottom: 0px;">Agent / Personnel</label>
-					<select style="font-size: 12px;width: 258px;height: 24px;" class="conge_pers_id" name="conge_pers_id">
+					<select style="font-size: 12px;width: 258px;height: 24px;" class="pers_id" name="pers_id">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
+                                <?php foreach ($pers as $pers) { ?>
+                                    <option value="<?php echo $pers->id; ?>"><?php echo $pers->pers_name;?> <?php echo $pers->pers_firstname;?></option>
+                                <?php  }?>
                             </optgroup>
                         </select><label style="font-size: 12px;margin-bottom: 0px;">Date début</label>
 						<input type="date" class="conge_date_start" style="width: 258px;font-size: 12px;" name="conge_date_start" /><label style="font-size: 12px;margin-bottom: 0px;">Date fin</label>

@@ -31,8 +31,10 @@ class En_controller extends CI_Controller{
 	  }
 	  public function indexcong()
 	  {
+		$data['data']= $this->en->getConOrSearch();
+		$data['pers']= $this->en->getPers();
 		$this->getSession();
-		$this->load->view('entre/en_list_cong');
+		$this->load->view('entre/en_list_cong',$data);
 		$this->load->view('theme/footer');
 	  }
 	  public function indexbien()
@@ -83,6 +85,12 @@ class En_controller extends CI_Controller{
 		  $data['data'] = $this->en->printDep();
 		  $html = $this->load->view('entre/en_dep_pdf',$data,true);
 		  $this->pdf->createPDF($html,'listdep',false);
+	  }
+	  public function printPers()
+	  {
+		  $data['data'] = $this->en->printPers();
+		  $html = $this->load->view('entre/en_pers_pdf',$data,true);
+		  $this->pdf->createPDF($html,'listpers',false);
 	  }
 	  public function deleteDep($id)
 	  {

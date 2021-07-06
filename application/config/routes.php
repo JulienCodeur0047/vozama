@@ -96,6 +96,7 @@ $route['enbien'] = "entre/En_controller/indexbien";
 $route['ensavedep']['post'] = "entre/En_controller/saveDep";
 $route['ensavepers']['post'] = "entre/En_controller/savePers";
 $route['enprintdep'] = "entre/En_controller/printDep";
+$route['enprintpers']['post'] = "entre/En_controller/printPers";
 $route['endeletedep/(:any)'] = "entre/En_controller/deleteDep/$1";
 
 $route['secpass'] = "sec/Sec_controller/indexpass";
