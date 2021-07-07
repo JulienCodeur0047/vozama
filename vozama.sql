@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 06 juil. 2021 à 19:03
+-- Généré le : mer. 07 juil. 2021 à 15:07
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -90,10 +90,18 @@ CREATE TABLE IF NOT EXISTS `bien` (
   `bien_date_disf` date DEFAULT NULL,
   `bien_type` varchar(100) DEFAULT NULL,
   `dep_id` int(10) NOT NULL,
-  `dep_dep` varchar(200) DEFAULT NULL,
+  `bien_dep` varchar(200) DEFAULT NULL,
   `bien_mat` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `bien`
+--
+
+INSERT INTO `bien` (`id`, `bien_name`, `bien_date_arrive`, `bien_resp`, `bien_date_disf`, `bien_type`, `dep_id`, `bien_dep`, `bien_mat`) VALUES
+(1, 'TOYOTA', '2021-07-02', 'RAKOTO', '2021-07-02', 'Auto-moto', 2, 'ABD', '1236FD'),
+(2, 'NISSAN', '2021-07-17', 'RABE', '2021-06-30', 'Auto-moto', 3, 'CROD', '6663654WWT');
 
 -- --------------------------------------------------------
 
@@ -192,19 +200,24 @@ DROP TABLE IF EXISTS `conge`;
 CREATE TABLE IF NOT EXISTS `conge` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `conge_motif` varchar(100) DEFAULT NULL,
-  `conge_left` decimal(10,0) DEFAULT NULL,
-  `conge_type` varchar(100) DEFAULT NULL,
-  `conge_price` int(11) DEFAULT NULL,
-  `conge_droit` decimal(30,0) DEFAULT NULL,
-  `conge_pers` varchar(100) DEFAULT NULL,
+  `conge_price` decimal(11,0) DEFAULT '0',
+  `conge_droit` decimal(30,0) DEFAULT '0',
+  `conge_pers` varchar(300) DEFAULT NULL,
   `conge_date_start` date DEFAULT NULL,
   `conge_date_end` date DEFAULT NULL,
-  `conge_nbr_day` int(10) DEFAULT NULL,
-  `conge_no_paid` varchar(100) DEFAULT NULL,
+  `conge_nbr_day` decimal(10,0) DEFAULT '0',
   `pers_id` int(10) DEFAULT NULL,
   `conge_date_reprise` date DEFAULT NULL,
+  `dep_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `conge`
+--
+
+INSERT INTO `conge` (`id`, `conge_motif`, `conge_price`, `conge_droit`, `conge_pers`, `conge_date_start`, `conge_date_end`, `conge_nbr_day`, `pers_id`, `conge_date_reprise`, `dep_id`) VALUES
+(1, 'Marary', '8000', '2000', 'APOS Julien', '2021-07-07', '2021-07-08', '4', 2, '2021-07-11', 3);
 
 -- --------------------------------------------------------
 
@@ -682,8 +695,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
 --
 
 INSERT INTO `personal` (`id`, `pers_name`, `pers_firstname`, `pers_date_birth`, `pers_cin`, `pers_address`, `pers_sexe`, `pers_age`, `pers_sm`, `pers_phone`, `pers_mail`, `dep_id`, `pers_type`, `pers_contrat`, `pers_date_arrived`, `pers_date_gone`, `pers_date_renew`, `pers_cot_social`, `pers_dep`, `pers_nbr_conge`, `pers_dr_conge`) VALUES
-(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 2),
-(2, 'APOS', 'Julien', '1993-01-05', '2233', 'VQ 16 A TER A Mandroseza', 'M', 28, 'Célibataire', '0348778552', 'juliennivoarilanto@gmail.com', 3, 'Cadre', 'Freelance', '2021-07-08', '2021-07-24', NULL, '20000', 'CROD', NULL, 2.5);
+(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 2);
 
 -- --------------------------------------------------------
 

@@ -95,9 +95,17 @@ $route['encong'] = "entre/En_controller/indexcong";
 $route['enbien'] = "entre/En_controller/indexbien";
 $route['ensavedep']['post'] = "entre/En_controller/saveDep";
 $route['ensavepers']['post'] = "entre/En_controller/savePers";
+$route['ensavecong']['post'] = "entre/En_controller/saveCong";
+$route['ensavebien']['post'] = "entre/En_controller/saveBien";
 $route['enprintdep'] = "entre/En_controller/printDep";
 $route['enprintpers']['post'] = "entre/En_controller/printPers";
+$route['enprintcong']['post'] = "entre/En_controller/printCong";
+$route['enprintbien']['post'] = "entre/En_controller/printBien";
+
 $route['endeletedep/(:any)'] = "entre/En_controller/deleteDep/$1";
+$route['endeletepers/(:any)'] = "entre/En_controller/deletePers/$1";
+$route['endeletecong/(:any)'] = "entre/En_controller/deleteCong/$1";
+$route['endeletebien/(:any)'] = "entre/En_controller/deleteBien/$1";
 
 $route['secpass'] = "sec/Sec_controller/indexpass";
 $route['secsavevis']['post'] = "sec/Sec_controller/savevis";

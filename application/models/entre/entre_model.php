@@ -19,11 +19,36 @@ class Entre_model extends CI_Model{
 	  }
     public function getConOrSearch()
 	  {
-		if(!empty($this->input->get("search"))){
-			$this->db->like('conge_pers', $this->input->get("search"));
-			$this->db->or_like('conge_motif', $this->input->get("search")); 
-		  }
+			$dep = $this->input->post("dep_id");
+			if(!empty($this->input->get("search"))){
+				$this->db->like('conge_pers', $this->input->get("search"));
+				$this->db->or_like('conge_motif', $this->input->get("search")); 
+				}
+			if(!empty($dep)){
+        $this->db->where('dep_id', $dep);
+      }
 		  $query = $this->db->get("conge");
+		  return $query->result();
+	  }
+		public function getBienOrSearch()
+	  {
+			$dep = $this->input->post("dep_id");
+			$type = $this->input->post("bien_type");
+
+			if(!empty($this->input->get("search"))){
+				$this->db->like('bien_name', $this->input->get("search"));
+				$this->db->or_like('bien_resp', $this->input->get("search")); 
+				$this->db->or_like('bien_type', $this->input->get("search")); 
+				$this->db->or_like('bien_dep', $this->input->get("search")); 
+				$this->db->or_like('bien_mat', $this->input->get("search")); 
+				}
+				if(!empty($dep)){
+					$this->db->where('dep_id', $dep);
+				}
+				if(!empty($type)){
+					$this->db->where('bien_type', $type);
+				}
+		  $query = $this->db->get("bien");
 		  return $query->result();
 	  }
 
@@ -99,22 +124,55 @@ class Entre_model extends CI_Model{
         return $this->db->insert('personal', $data);
       }
     }
-    public function saveOrUpdateCong()
+		public function saveOrUpdateBien()
     {
       $id = $this->input->post('id');
-			$persname = $this->findPersById($this->input->post('pers_id'))->pers_name;
-			$persfirstname = $this->findPersById($this->input->post('pers_id'))->pers_firstname;
+			$depname = $this->findDepById($this->input->post('dep_id'))->dep_name;
       $data = array(
-        'conge_motif' => $this->input->post('conge_motif'),
-        'pers_firstname' => $this->input->post('pers_firstname'),
-        'pers_sexe' => $this->input->post('pers_sexe'),
-        'pers_date_birth' => $this->input->post('pers_date_birth'),
+        'bien_name' => $this->input->post('bien_name'),
+        'bien_date_arrive' => $this->input->post('bien_date_arrive'),
+        'bien_resp' => $this->input->post('bien_resp'),
+        'bien_date_disf' => $this->input->post('bien_date_disf'),
+        'bien_type' => $this->input->post('bien_type'),
+        'dep_id' => $this->input->post('dep_id'),
+        'bien_dep' => $depname,
+        'bien_mat' => $this->input->post('bien_mat'),
         );
       if (!empty($id)) {
         $this->db->where('id',$id);
-        return $this->db->update('personal',$data);
+        return $this->db->update('bien',$data);
       }else{
-        return $this->db->insert('personal', $data);
+        return $this->db->insert('bien', $data);
+      }
+    }
+    public function saveOrUpdateCong()
+    {
+      $id = $this->input->post('id');
+			$currentpers = $this->findPersById($this->input->post('pers_id'));
+			$persname = $currentpers->pers_name;
+			$persfirstname = $currentpers->pers_firstname;
+			$dep_id = $currentpers->dep_id;
+
+			$nbrjr = $this->input->post('conge_nbr_day');
+			$prixdroit = $this->input->post('conge_droit');
+			$prixcong = $prixdroit*$nbrjr;
+      $data = array(
+        'conge_motif' => $this->input->post('conge_motif'),
+        'conge_pers' => $persname." ".$persfirstname,
+				'pers_id' => $this->input->post('pers_id'),
+        'conge_date_start' => $this->input->post('conge_date_start'),
+        'conge_date_end' => $this->input->post('conge_date_end'),
+				'conge_date_reprise' => $this->input->post('conge_date_reprise'),
+        'conge_nbr_day' => $nbrjr,
+        'conge_price' => $prixcong,
+        'conge_droit' => $prixdroit,
+        'dep_id' => $dep_id,
+        );
+      if (!empty($id)) {
+        $this->db->where('id',$id);
+        return $this->db->update('conge',$data);
+      }else{
+        return $this->db->insert('conge', $data);
       }
     }
 		public function findDepById($id)
@@ -141,7 +199,18 @@ class Entre_model extends CI_Model{
     {
       return $this->db->delete('department', array('id' => $id));
     }
-
+		public function deletePers($id)
+    {
+      return $this->db->delete('personal', array('id' => $id));
+    }
+		public function deleteCong($id)
+    {
+      return $this->db->delete('conge', array('id' => $id));
+    }
+		public function deleteBien($id)
+    {
+      return $this->db->delete('bien', array('id' => $id));
+    }
     public function printPers()
     {
       $type = $this->input->post("pers_type");
@@ -159,7 +228,28 @@ class Entre_model extends CI_Model{
 		  $query = $this->db->get("personal");
 		  return $query->result();
     }
-
+		public function printCong()
+		{
+			$dep = $this->input->post("dep_id");
+			if(!empty($dep)){
+        $this->db->where('dep_id', $dep);
+      }
+		  $query = $this->db->get("conge");
+		  return $query->result();
+		}
+		public function printBien()
+		{
+			$dep = $this->input->post("dep_id");
+			$type = $this->input->post("bien_type");
+			if(!empty($dep)){
+				$this->db->where('dep_id', $dep);
+			}
+			if(!empty($type)){
+				$this->db->where('bien_type', $type);
+			}
+		  $query = $this->db->get("bien");
+		  return $query->result();
+		}
 		public function calculateAge($date){
 			$now = new DateTime('now');
 			$from = new DateTime($date);

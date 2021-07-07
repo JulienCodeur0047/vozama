@@ -69,7 +69,7 @@
 			</ul>
             <form class="form-inline mr-auto" target="_self">
                 <div class="form-group"><label for="search-field"></label></div>
-            </form><a class="btn btn-light action-button" role="button" href="<?php echo base_url('logout')?>" style="color: var(--blue);background: var(--red);font-size: 13px;"><i class="fa fa-power-off"></i></a>
+            </form><a class="btn btn-light action-button" role="button" href="<?php echo base_url('logout')?>" style="color: var(--blue);background: var(--gray);font-size: 14px;"><i class="fa fa-sign-out"></i></a>
         </div>
     </div>
 </nav>

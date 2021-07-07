@@ -33,14 +33,17 @@ class En_controller extends CI_Controller{
 	  {
 		$data['data']= $this->en->getConOrSearch();
 		$data['pers']= $this->en->getPers();
+		$data['dep'] = $this->en->printDep();
 		$this->getSession();
 		$this->load->view('entre/en_list_cong',$data);
 		$this->load->view('theme/footer');
 	  }
 	  public function indexbien()
 	  {
+		$data['data']= $this->en->getBienOrSearch();
+		$data['dep'] = $this->en->printDep();
 		$this->getSession();
-		$this->load->view('entre/en_list_bien');
+		$this->load->view('entre/en_list_bien',$data);
 		$this->load->view('theme/footer');
 	  }
 	  public function getSession()
@@ -80,6 +83,39 @@ class En_controller extends CI_Controller{
 			 redirect(base_url('enpers'));
 		  }
 	  }
+	  public function saveBien()
+	  {
+		  $this->load->library('form_validation');
+		  $this->form_validation->set_rules('bien_name', 'bien_name', 'required');
+  
+		  if ($this->form_validation->run() == FALSE){
+			  $this->session->set_flashdata('errors', validation_errors());
+			  echo "<script>alert('Ajout Error');</script>";
+			  redirect(base_url('enbien'));
+		  }else{
+			 $this->en->saveOrUpdateBien();
+			 echo "<script>alert('Ajout Reussit');</script>";
+			 redirect(base_url('enbien'));
+		  }
+	  }
+	  public function saveCong()
+	  {
+		  $this->load->library('form_validation');
+		  $this->form_validation->set_rules('pers_id', 'pers_id', 'required');
+		  $this->form_validation->set_rules('conge_date_start', 'conge_date_start', 'required');
+		  $this->form_validation->set_rules('conge_nbr_day', 'conge_nbr_day', 'required');
+		  $this->form_validation->set_rules('conge_droit', 'conge_droit', 'required');
+  
+		  if ($this->form_validation->run() == FALSE){
+			  $this->session->set_flashdata('errors', validation_errors());
+			  echo "<script>alert('Ajout Error');</script>";
+			  redirect(base_url('encong'));
+		  }else{
+			 $this->en->saveOrUpdateCong();
+			 echo "<script>alert('Ajout Reussit');</script>";
+			 redirect(base_url('encong'));
+		  }
+	  }
 	  public function printDep()
 	  {
 		  $data['data'] = $this->en->printDep();
@@ -92,9 +128,36 @@ class En_controller extends CI_Controller{
 		  $html = $this->load->view('entre/en_pers_pdf',$data,true);
 		  $this->pdf->createPDF($html,'listpers',false);
 	  }
+	  public function printCong()
+	  {
+		  $data['data'] = $this->en->printCong();
+		  $html = $this->load->view('entre/en_cong_pdf',$data,true);
+		  $this->pdf->createPDF($html,'listcong',false);
+	  }
+	  public function printBien()
+	  {
+		  $data['data'] = $this->en->printBien();
+		  $html = $this->load->view('entre/en_bien_pdf',$data,true);
+		  $this->pdf->createPDF($html,'listcong',false);
+	  }
 	  public function deleteDep($id)
 	  {
 		  $this->en->deleteDep($id);
 		  redirect(base_url('en'));
+	  }
+	  public function deletePers($id)
+	  {
+		  $this->en->deletePers($id);
+		  redirect(base_url('enpers'));
+	  }
+	  public function deleteCong($id)
+	  {
+		  $this->en->deleteCong($id);
+		  redirect(base_url('encong'));
+	  }
+	  public function deleteBien($id)
+	  {
+		  $this->en->deleteBien($id);
+		  redirect(base_url('enbien'));
 	  }
 }

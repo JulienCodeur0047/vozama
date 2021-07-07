@@ -5,8 +5,9 @@
                 <h4 class="modal-title" style="font-size: 13px;">Congé personnel</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;">
-			<?php echo form_open('saveconge');?>
+			<?php echo form_open('ensavecong');?>
 			<form method="POST">
+			<input type="hidden" name="id" class="id"/>
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col-lg-6 col-xl-10"><label style="font-size: 12px;margin-bottom: 0px;">Agent / Personnel</label>
 					<select style="font-size: 12px;width: 258px;height: 24px;" class="pers_id" name="pers_id">
@@ -19,8 +20,13 @@
                         </select><label style="font-size: 12px;margin-bottom: 0px;">Date début</label>
 						<input type="date" class="conge_date_start" style="width: 258px;font-size: 12px;" name="conge_date_start" /><label style="font-size: 12px;margin-bottom: 0px;">Date fin</label>
 						<input type="date" class="conge_date_end" style="width: 258px;font-size: 12px;" name="conge_date_end" /><label style="font-size: 12px;margin-bottom: 0px;">Date reprise de travail</label>
-						<input type="date" class="conge_date_reprise" style="width: 258px;font-size: 12px;" name="conge_date_reprise" /><label style="font-size: 12px;margin-bottom: 0px;"><br /></label><label style="font-size: 12px;margin-bottom: 0px;">Nombre de jour</label>
-						<input type="number" class="conge_nbr_day" style="font-size: 12px;width: 258px;" name="conge_nbr_day" /><label style="font-size: 12px;margin-bottom: 0px;">Raison de congé</label>
+						<input type="date" class="conge_date_reprise" style="width: 258px;font-size: 12px;" name="conge_date_reprise" />
+						<label style="font-size: 12px;margin-bottom: 0px;"><br /></label>
+						<label style="font-size: 12px;margin-bottom: 0px;">Nombre de jour</label>
+						<input type="number" class="conge_nbr_day" step="any" style="font-size: 12px;width: 258px;" name="conge_nbr_day" />
+						<label style="font-size: 12px;margin-bottom: 0px;">Prix-droit d'un congé</label>
+						<input type="number" class="conge_droit" step="any" style="font-size: 12px;width: 258px;" name="conge_droit" />
+						<label style="font-size: 12px;margin-bottom: 0px;">Raison du congé</label>
 						<input type="text" class="conge_motif" style="font-size: 12px;width: 258px;" name="conge_motif" /></div>
                 </div>
             </div>

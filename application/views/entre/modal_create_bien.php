@@ -5,7 +5,7 @@
                 <h4 class="modal-title" style="font-size: 13px;">Bien</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;">
-			<?php echo form_open('savebien');?>
+			<?php echo form_open('ensavebien');?>
 			<form method="POST">
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col-lg-6"><label style="font-size: 12px;margin-bottom: 0px;">Libellé ou Nom</label>
@@ -30,6 +30,9 @@
 					<select style="font-size: 12px;width: 214px;height: 24px;" class="dep_id" name="dep_id">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
+								<?php foreach ($dep as $dep) { ?>
+									<option value="<?php echo $dep->id;?>"><?php echo $dep->dep_name;?></option>
+								<?php }?>
                             </optgroup>
                         </select><label style="font-size: 12px;margin-bottom: 0px;margin-top: 7px;">Responsable</label>
 						<input type="text" class="bien_resp" style="font-size: 12px;width: 214px;" name="bien_resp" /><label style="font-size: 12px;margin-bottom: 0px;">Date de disfonctionnement</label>
