@@ -13,12 +13,14 @@ class Eleve_model extends CI_Model{
 			$this->db->like('eleve_name', $this->input->get("search"));
 			$this->db->or_like('eleve_firstname', $this->input->get("search"));  
 			$this->db->or_like('eleve_matricule', $this->input->get("search"));  
+			$this->db->or_like('eleve_poste', $this->input->get("search"));  
+			$this->db->or_like('eleve_secteur', $this->input->get("search"));  
 		  }
-		if(!empty($this->input->get("postefilter"))){
-			$this->db->like('eleve_poste', $this->input->get("postefilter"));
+		if(!empty($this->input->post("site_id"))){
+			$this->db->where('site_id', $this->input->post("site_id"));
 		  }
-		if(!empty($this->input->get("secteurfilter"))){
-			$this->db->like('eleve_secteur', $this->input->get("secteurfilter")); 
+		if(!empty($this->input->post("poste_id"))){
+			$this->db->where('poste_id', $this->input->post("poste_id")); 
 		  }
 		$query = $this->db->get("eleve");
 		return $query->result();
@@ -63,6 +65,8 @@ class Eleve_model extends CI_Model{
 	}
 
 	public function saveOrUpdateEleve(){
+		$id = $this->input->post('id');
+
 		$parent = $this->insertParentGetId();
 		$parent_mom = $parent->parent_mere_name;
 		$parent_pop = $parent->parent_pere_name;
@@ -92,7 +96,13 @@ class Eleve_model extends CI_Model{
 			'eleve_num_copie' => $this->input->post('eleve_num_copie'),
 			'eleve_abr' => $this->input->post('eleve_abr'),
 			);
-			return $this->db->insert('eleve', $data);
+			
+			if (!empty($id)) {
+				$this->db->where('id',$id);
+				return $this->db->update('eleve',$data);
+			  }else{
+				return $this->db->insert('eleve', $data);
+			  }
 	}
 
 	public function insertParentGetId()

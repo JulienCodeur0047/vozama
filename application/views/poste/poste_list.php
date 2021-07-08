@@ -2,13 +2,16 @@
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label><input type="search" class="form-control search-field" id="search-field" name="search" style="width: 309px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" /></div>
                 </form><a class="btn btn-light action-button" role="button" href="<?php echo base_url('createposte')?>" style="margin-top: 2px;background: rgb(86, 198, 198);font-size: 12px;border-radius: 0px;"><i class="fa fa-plus" style="font-size: 14px;"></i>&nbsp;Nouveau</a>
-				<a class="btn btn-light action-button" role="button" href="<?php echo base_url('printposte')?>" style="margin-top: 2px;background: var(--gray);font-size: 12px;margin-left: 0px;border-radius: 0px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
+				<a class="btn btn-light action-button" role="button" href="#filterprintpost" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;margin-left: 0px;border-radius: 0px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
             </div>
         </div>
     </nav>
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 10px;height: 16px;font-size: 15px;color: var(--gray);">Liste de postes</h1>
+			<a class="btn btn-light action-button" role="button" href="#filterpost" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 4px;"><i class="fa fa-filter" style="font-size: 13px;"></i>  Filtre</a>
+			<a class="btn btn-light action-button" role="button" href="<?php echo base_url('alph');?>" style="margin-top: 2px;background: var(--teal);font-size: 12px;border-radius: 4px;"><i class="fa fa-refresh" style="font-size: 13px;"></i></a></h1> 
+           
             <div class="table-responsive" style="width: auto;font-size: 12px;">
                 <table class="table">
                     <thead>
@@ -49,5 +52,7 @@
         </div>
     </div>
 </section>
+<?php $this->load->view('poste/modal_filter');?>
+<?php $this->load->view('poste/modal_print_filter');?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>

@@ -17,6 +17,8 @@ class Eleve_controller extends CI_Controller{
 	public function index(){
 		$data['data'] = $this->eleve->getEleveOrSearchFilter();
 		$data['poste'] = $this->poste->getAllPoste();
+		$data['site'] = $this->poste->getSiteLookUp();
+		$data['secteur'] = $this->poste->getSecteurLookUp();
 		$session['session'] = $this->session;
 
 		$this->load->view('theme/header',$session);      

@@ -40,8 +40,7 @@ div.WordSection1
 
 <div class=WordSection1>
 
-<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Liste de
-visite de poste </span></b></p>
+<p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%'>Liste d'élève </span></b></p>
 
 <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
  style='border-collapse:collapse;border:none'>

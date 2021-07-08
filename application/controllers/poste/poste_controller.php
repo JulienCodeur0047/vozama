@@ -18,6 +18,8 @@ class Poste_controller extends CI_Controller{
 
 	public function index(){
 		$data['data'] = $this->poste->getPostOrSearch();
+		$data['secteur'] = $this->poste->getSecteurLookUp();
+		$data['site'] = $this->poste->getSiteLookUp();
 		$session['session'] = $this->session;
 
 		$this->load->view('theme/header',$session);       
@@ -33,7 +35,7 @@ class Poste_controller extends CI_Controller{
 	public function printListPosteToPdf()
 	{
 		$this->load->library('pdf');
-		$data['data'] = $this->poste->getAllPoste();
+		$data['data'] = $this->poste->getPostOrSearch();
 		$html = $this->load->view('poste/poste_pdf',$data,true);
 		$this->pdf->createPDF($html,'listPoste',false);
 	}

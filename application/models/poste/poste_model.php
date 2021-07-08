@@ -195,6 +195,12 @@ class Poste_model extends CI_Model{
 		if(!empty($this->input->post("poste_part_contrat"))){
 			$this->db->where('poste_part_contrat', $this->input->post("poste_part_contrat"));
 		}
+		if(!empty($this->input->post("site_id"))){
+			$this->db->where('site_id', $this->input->post("site_id"));
+		}
+		if(!empty($this->input->post("poste_secteur"))){
+			$this->db->where('poste_secteur', $this->input->post("poste_secteur")); 
+		}
 		  $query = $this->db->get("poste");
 		  return $query->result();
 	}
