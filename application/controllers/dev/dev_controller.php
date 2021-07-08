@@ -101,7 +101,7 @@ class Dev_controller extends CI_Controller{
 	}
 	public function deleteAP($id){
 		$this->eleve->deleteEleve($id);
-		redirect(base_url('devagr'));
+		redirect(base_url('dev'));
 	}
 	public function indexap(){
 		
