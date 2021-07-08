@@ -67,6 +67,7 @@ $route['printap']['post'] = "dev/Dev_controller/printAp";
 $route['printagr']['post'] = "dev/Dev_controller/printAgr";
 $route['devParentbyT(:any)'] = "dev/Dev_controller/getParentByTitre/$1";
 $route['devac'] = "dev/Dev_controller/userList";
+$route['devdelap'] = "dev/Dev_controller/deleteAP";
 $route['suiv'] = "suiv/Suiv_controller/indexpr";
 $route['suivel'] = "suiv/Suiv_controller/indexel";
 $route['suivec'] = "suiv/Suiv_controller/indexec";

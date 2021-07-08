@@ -99,6 +99,10 @@ class Dev_controller extends CI_Controller{
 		$this->dev->deleteAgr($id);
 		redirect(base_url('devagr'));
 	}
+	public function deleteAP($id){
+		$this->eleve->deleteEleve($id);
+		redirect(base_url('devagr'));
+	}
 	public function indexap(){
 		
 		$data['data'] = $this->dev->getDevOrSearchAp();
@@ -128,6 +132,5 @@ class Dev_controller extends CI_Controller{
 		$session['session'] = $this->session;
 		$this->load->view('theme/header',$session);
 	}
-
 }
 ?>
