@@ -86,6 +86,10 @@ $route['sec'] = "sec/Sec_controller/indexvst";
 $route['secplan'] = "sec/Sec_controller/indexplan";
 #parent
 $route['pare'] = "parent/Parent_controller/index";
+$route['paresave']['post'] = "parent/Parent_controller/saveparent";
+$route['printparent']['post'] = "parent/Parent_controller/printParent";
+$route['paredelete/(:any)'] = "parent/Parent_controller/deleteparent/$1";
+
 #palnning
 $route['secplanload'] = "sec/Sec_controller/load";
 $route['secplanupdate']['post'] = "sec/Sec_controller/update";
