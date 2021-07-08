@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 08 juil. 2021 à 08:39
+-- Généré le : jeu. 08 juil. 2021 à 19:13
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -559,8 +559,8 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `parent_address` varchar(100) DEFAULT NULL,
   `parent_nbr_enfant` int(10) DEFAULT NULL,
   `parent_nbr_sco_voz` int(10) DEFAULT NULL,
-  `parent_anne_entre_voz` int(10) DEFAULT NULL,
-  `parent_anne_sorti_voz` int(10) DEFAULT NULL,
+  `parent_anne_entre_voz` date DEFAULT NULL,
+  `parent_anne_sorti_voz` date DEFAULT NULL,
   `parent_classe_enfant` varchar(200) DEFAULT NULL,
   `parent_titre` varchar(100) DEFAULT NULL,
   `parent_nbr_prt_gere` int(10) DEFAULT NULL,
@@ -573,14 +573,14 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `parent_particip` varchar(100) DEFAULT NULL,
   `parent_filiere` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `parent`
 --
 
 INSERT INTO `parent` (`id`, `parent_pere_name`, `parent_mere_name`, `parent_pere_fonction`, `parent_pere_age`, `parent_mere_age`, `parent_address`, `parent_nbr_enfant`, `parent_nbr_sco_voz`, `parent_anne_entre_voz`, `parent_anne_sorti_voz`, `parent_classe_enfant`, `parent_titre`, `parent_nbr_prt_gere`, `parent_coordonnee`, `parent_site`, `parent_tel`, `site_id`, `poste_id`, `parent_poste`, `parent_particip`, `parent_filiere`) VALUES
-(1, 'Als', 'DD', 'FC', 32, 40, 'vv', 3, 1, NULL, NULL, 'MMS', 'President', 3, NULL, 'A', '034', NULL, NULL, NULL, NULL, NULL);
+(1, 'Als', 'DD', 'FC', 32, 40, 'vv', 3, 1, '2021-07-17', '2021-07-17', 'MMS', 'President', 3, NULL, NULL, '034', 1, 5, '367', NULL, NULL);
 
 -- --------------------------------------------------------
 
