@@ -7,5 +7,5 @@
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('alph')?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Poste</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('vp')?>" style="font-size: 13px;">Visite de poste</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('el')?>" style="font-size: 13px;">Eleve</a></li>
-					<li class="nav-item"><a class="nav-link" href="#" style="font-size: 13px;">Parent</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('pare')?>" style="font-size: 13px;">Parent</a></li>
 				</ul>

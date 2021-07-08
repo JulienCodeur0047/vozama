@@ -84,6 +84,8 @@ $route['compart'] = "com/Com_controller/indexpart";
 $route['comres'] = "com/Com_controller/indexres";
 $route['sec'] = "sec/Sec_controller/indexvst";
 $route['secplan'] = "sec/Sec_controller/indexplan";
+#parent
+$route['pare'] = "parent/Parent_controller/index";
 #palnning
 $route['secplanload'] = "sec/Sec_controller/load";
 $route['secplanupdate']['post'] = "sec/Sec_controller/update";
