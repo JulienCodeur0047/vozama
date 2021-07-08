@@ -15,7 +15,7 @@ class Eleve_controller extends CI_Controller{
 	}
 	
 	public function index(){
-		//$data['data'] = $this->eleve->getEleveOrSearchFilter();
+		$data['data'] = $this->eleve->getEleveOrSearchFilter();
 		$data['poste'] = $this->poste->getAllPoste();
 		$session['session'] = $this->session;
 
@@ -57,7 +57,7 @@ class Eleve_controller extends CI_Controller{
 			echo "<script>alert('Ajout Error');</script>";
 			redirect(base_url('el'));
 		}else{
-		   $this->eleve->insertEleveAll();
+		   $this->eleve->saveOrUpdateEleve();
 		   echo "<script>alert('Ajout Reussit');</script>";
 		   redirect(base_url('el'));
 		}

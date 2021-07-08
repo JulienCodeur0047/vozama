@@ -62,7 +62,11 @@ class Eleve_model extends CI_Model{
 		return $this->db->insert('eleve', $data);
 	}
 
-	public function insertEleveAll(){
+	public function saveOrUpdateEleve(){
+		$parent = $this->insertParentGetId();
+		$parent_mom = $parent->parent_mere_name;
+		$parent_pop = $parent->parent_pere_name;
+		$parent_id = $parent->id;
 		$data = array(
 			'eleve_matricule' => $this->input->post('eleve_matricule'),
 			'eleve_name' => $this->input->post('eleve_name'),
@@ -75,8 +79,9 @@ class Eleve_model extends CI_Model{
 			'eleve_date_entre' => $this->input->post('eleve_date_entre'),
 			'eleve_age' => $this->calculateAge($this->input->post('eleve_date_birth')),
 			'poste_id' => $this->input->post('poste_id'),
-			'eleve_mom' => $this->input->post('eleve_mom'),
-			'eleve_dad' => $this->input->post('poste_dad'),
+			'eleve_mom' => $parent_mom,
+			'eleve_dad' => $parent_pop,
+			'parent_id' => $parent_id,
 			'eleve_prof_parents' => $this->input->post('eleve_prof_parents'),
 			'eleve_situation' => $this->input->post('eleve_situation'),
 			'eleve_classe' => $this->input->post('eleve_classe'),
@@ -90,6 +95,38 @@ class Eleve_model extends CI_Model{
 			return $this->db->insert('eleve', $data);
 	}
 
+	public function insertParentGetId()
+	{
+		$getCurrentParent = $this->findParentByName($this->input->post('eleve_mom'),$this->input->post('eleve_dad'));
+		$data = array(
+			'parent_mere_name' => $this->input->post('eleve_mom'),
+			'parent_pere_name' => $this->input->post('eleve_dad'),
+			'parent_pere_fonction' => $this->input->post('eleve_prof_parents'),
+			);
+		if($getCurrentParent == null) {
+			$this->db->insert('parent', $data);
+			$id = $this->db->insert_id();
+			return $this->db->get_where('parent', array('id' => $id))->row();
+		}else {
+			$id = $getCurrentParent->id;
+			return $this->db->get_where('parent', array('id' => $id))->row();
+		}
+	}
+
+	public function findParentByName($mom, $dad)
+	{
+		$dada = $this->db->get_where('parent', array('parent_pere_name' => $dad))->row();
+		$momo = $this->db->get_where('parent', array('parent_mere_name' => $mom))->row();
+		if (empty($dada)&&empty($momo)) {
+			return null;
+		}else {
+			if (!empty($dada)) {
+				return $dada;
+			}if (!empty($momo)) {
+				return $momo;
+			}
+		}
+	}
 	public function deleteEleve($id){
 		return $this->db->delete('eleve', array('id' => $id));
 	}

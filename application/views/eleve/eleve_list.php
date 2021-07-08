@@ -42,7 +42,29 @@
                             <td><?php echo $eleve->eleve_age; ?></td>
                             <td><?php echo $eleve->eleve_classe; ?></td>
                             <td><?php echo $eleve->eleve_sexe; ?></td>
-                            <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></button><button class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></button></td>
+                            <td style="font-size: 12px;">
+                            
+                            <a class="btn btn-light btn-edit" 
+                            data-id="<?php echo $eleve->id; ?>"
+                            data-eleve_secteur="<?php echo $eleve->eleve_secteur; ?>"
+                            data-eleve_matricule="<?php echo $eleve->eleve_matricule; ?>"
+                            data-eleve_secteur="<?php echo $eleve->eleve_secteur; ?>"
+                            data-eleve_poste="<?php echo $eleve->eleve_poste; ?>"
+                            data-eleve_name="<?php echo $eleve->eleve_name; ?>"
+                            data-eleve_firstname="<?php echo $eleve->eleve_firstname; ?>"
+                            data-eleve_age="<?php echo $eleve->eleve_age; ?>"
+                            data-eleve_classe="<?php echo $eleve->eleve_classe; ?>"
+                            data-eleve_date_entre="<?php echo $eleve->eleve_date_entre; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            data-id="<?php echo $eleve->eleve_matricule; ?>"
+                            type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
+                            <a class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></a></td>
                         </tr>
 					<?php } ?>
                         <tr></tr>
@@ -55,3 +77,6 @@
 <div>
 <?php $this->load->view('eleve/modal_create_eleve');?>
 </div>
+<script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+
