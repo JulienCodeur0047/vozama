@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/fonts/font-awesome.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/Login-Form-Clean.css') ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css') ?>">
+	<link rel="icon" href="<?php echo base_url('assets/fonts/iconapp.ico') ?>">
 </head>
 
 <body style="background: rgba(223,231,241,0.95);height: 683px;">
