@@ -14,7 +14,7 @@
                                 <?php foreach ($poste as $poste) {?>
                                     <option value="<?php echo $poste->id;?>"><?php echo $poste->poste_name;?></option>
                                 <?php }?>
-                            </optgroup>
+                            </optgroup> 
                         </select><label style="margin-bottom: -4px;font-size: 11px;">Site</label><select style="font-size: 12px;width: 250px;color: var(--gray);height: 25px;border-radius: 2px;" name="site_id">
                             <optgroup label="Site">
                                 <option value selected>Select.</option>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 08 juil. 2021 à 19:13
+-- Généré le : ven. 09 juil. 2021 à 09:01
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -522,6 +522,56 @@ CREATE TABLE IF NOT EXISTS `niveau` (
   `niveau_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `note`
+--
+
+DROP TABLE IF EXISTS `note`;
+CREATE TABLE IF NOT EXISTS `note` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `eleve_id` int(10) DEFAULT NULL,
+  `note_eleve` varchar(500) DEFAULT NULL,
+  `note_année` date DEFAULT NULL,
+  `1M1` double DEFAULT NULL,
+  `1M2` double DEFAULT NULL,
+  `1M3` double DEFAULT NULL,
+  `1M4` double DEFAULT NULL,
+  `1M5` double DEFAULT NULL,
+  `1M6` double DEFAULT NULL,
+  `1M7` double DEFAULT NULL,
+  `1M8` double DEFAULT NULL,
+  `2M1` double DEFAULT NULL,
+  `2M2` double DEFAULT NULL,
+  `2M3` double DEFAULT NULL,
+  `2M4` double DEFAULT NULL,
+  `2M5` double DEFAULT NULL,
+  `2M6` double DEFAULT NULL,
+  `2M7` double DEFAULT NULL,
+  `2M8` double DEFAULT NULL,
+  `3M1` double DEFAULT NULL,
+  `3M2` double DEFAULT NULL,
+  `3M3` double DEFAULT NULL,
+  `3M4` double DEFAULT NULL,
+  `3M5` double DEFAULT NULL,
+  `3M6` double DEFAULT NULL,
+  `3M7` double DEFAULT NULL,
+  `3M8` double DEFAULT NULL,
+  `1MO` double DEFAULT NULL,
+  `2MO` double DEFAULT NULL,
+  `3MO` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `note`
+--
+
+INSERT INTO `note` (`id`, `eleve_id`, `note_eleve`, `note_année`, `1M1`, `1M2`, `1M3`, `1M4`, `1M5`, `1M6`, `1M7`, `1M8`, `2M1`, `2M2`, `2M3`, `2M4`, `2M5`, `2M6`, `2M7`, `2M8`, `3M1`, `3M2`, `3M3`, `3M4`, `3M5`, `3M6`, `3M7`, `3M8`, `1MO`, `2MO`, `3MO`) VALUES
+(1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12.5, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0),
+(2, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 7, 9, 0, 0, 0, 0, 0, NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
