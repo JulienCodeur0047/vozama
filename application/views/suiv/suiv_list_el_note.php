@@ -123,15 +123,15 @@
 										<input type="hidden" name="id" class="id"/>
 										<input type="hidden" name="eleve_id" class="eleve_id" value="<?php echo $el->id?>"/>
 										<input type="hidden" name="eleve_note" class="eleve_note" value="<?php echo $el->eleve_name?> <?php echo $el->eleve_firstname?>"/>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M1" class="3M1"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M2" class="3M2"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M3" class="3M3"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M4" class="3M4"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M5" class="3M5"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M6" class="3M6"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M7" class="3M7"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M8" class="3M8"  step="0.5" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3MO" class="3MO"  step="0.5" /></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M1" class="3M1"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M2" class="3M2"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M3" class="3M3"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M4" class="3M4"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M5" class="3M5"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M6" class="3M6"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M7" class="3M7"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M8" class="3M8"  step="0.5" min="" max="20"/></td>
+                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3MO" class="3MO"  step="0.5" min="" max="20"/></td>
                                         <td style="width: 50px;padding: 0px;text-align: center;">
 										<button class="btn btn-primary" type="submit" style="font-size: 10px;background: var(--teal);border-width: 0px;border-radius: 7px;">ok</button>
 									</form>
