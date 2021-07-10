@@ -6,152 +6,94 @@
         </div>
     </nav>
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
-        <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
-            <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Élève / Note</h1>
-            <div style="font-size: 12px;">
-                <ul role="tablist" class="nav nav-tabs">
-                    <li role="presentation" class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" href="#tab-1">1er trimestre</a></li>
-                    <li role="presentation" class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" href="#tab-2">2eme trimestre</a></li>
-                    <li role="presentation" class="nav-item"><a role="tab" data-toggle="tab" class="nav-link active" href="#tab-3">3eme trimestre</a></li>
-                    <li role="presentation" class="nav-item"><a role="tab" data-toggle="tab" class="nav-link" href="#tab-4">moyenne generale</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane" id="tab-1">
-                        <p>Content for tab 1.</p>
-                        <div class="table-responsive" style="width: auto;font-size: 12px;">
-                            <table class="table">
-                                <thead style="width: 1144px;height: 20px;">
-                                    <tr style="color: var(--gray);">
-                                        <th style="width: 265px;height: 38px;">Nom-Prénoms</th>
-                                        <th style="width: 30px;height: 44px;text-align: center;"><input type="checkbox" />   M-1</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><br /><input type="checkbox" />   M-2</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-3</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-4</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-5</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-6</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-7</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-8</th>
-                                        <th style="width: 26px;height: 44px;text-align: center;">Moyenne</th>
-                                        <th style="width: 13px;height: 44px;text-align: center;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-									<?php foreach ($eleve as $el) { ?>
-                                    <tr>
-                                        <td style="width: 37px;"><?php echo $el->eleve_name?> <?php echo $el->eleve_firstname?></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><button class="btn btn-primary" type="button" style="font-size: 10px;background: var(--teal);border-width: 0px;border-radius: 7px;">ok</button></td>
-                                    </tr>
-									<?php }?>
-                                    <tr></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="tab-2">
-                        <div class="table-responsive" style="width: auto;font-size: 12px;">
-                            <table class="table">
-                                <thead style="width: 1144px;height: 20px;">
-                                    <tr style="color: var(--gray);">
-                                        <th style="width: 265px;height: 38px;">Nom-Prénoms</th>
-                                        <th style="width: 30px;height: 44px;text-align: center;"><input type="checkbox" />   M-1</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><br /><input type="checkbox" />   M-2</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-3</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-4</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-5</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-6</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-7</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-8</th>
-                                        <th style="width: 26px;height: 44px;text-align: center;">Moyenne</th>
-                                        <th style="width: 13px;height: 44px;text-align: center;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-								<?php foreach ($eleve as $el) { ?>
-                                    <tr>
-                                        <td style="width: 37px;"><?php echo $el->eleve_name?> <?php echo $el->eleve_firstname?></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="text" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" /></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><button class="btn btn-primary" type="button" style="font-size: 10px;background: var(--teal);border-width: 0px;border-radius: 7px;">ok</button></td>
-                                    </tr>
-									<?php }?>
-                                    <tr></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane active" id="tab-3">
-                        <p>Content for tab 3.</p>
-                        <div class="table-responsive" style="width: auto;font-size: 12px;">
-                            <table class="table">
-                                <thead style="width: 1144px;height: 20px;">
-                                    <tr style="color: var(--gray);">
-                                        <th style="width: 265px;height: 38px;">Nom-Prénoms</th>
-                                        <th style="width: 30px;height: 44px;text-align: center;"><input type="checkbox" />   M-1</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><br /><input type="checkbox" />   M-2</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-3</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-4</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-5</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-6</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-7</th>
-                                        <th style="width: 50px;height: 44px;text-align: center;"><input type="checkbox" />   M-8</th>
-                                        <th style="width: 26px;height: 44px;text-align: center;">Moyenne</th>
-                                        <th style="width: 13px;height: 44px;text-align: center;"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-								<?php foreach ($eleve as $el) { ?>
-                                    <tr>
-                                        <td style="width: 37px;"><?php echo $el->eleve_name?> <?php echo $el->eleve_firstname?></td> 
-									<?php echo form_open('savenote');?> 
-									<form method="POST">
-										<input type="hidden" name="id" class="id"/>
-										<input type="hidden" name="eleve_id" class="eleve_id" value="<?php echo $el->id?>"/>
-										<input type="hidden" name="eleve_note" class="eleve_note" value="<?php echo $el->eleve_name?> <?php echo $el->eleve_firstname?>"/>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M1" class="3M1"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M2" class="3M2"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M3" class="3M3"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M4" class="3M4"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M5" class="3M5"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M6" class="3M6"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M7" class="3M7"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3M8" class="3M8"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;"><input type="number" style="width: 47px;border-width: 0px;" placeholder="0" inputmode="numeric" name="3MO" class="3MO"  step="0.5" min="" max="20"/></td>
-                                        <td style="width: 50px;padding: 0px;text-align: center;">
-										<button class="btn btn-primary" type="submit" style="font-size: 10px;background: var(--teal);border-width: 0px;border-radius: 7px;">ok</button>
-									</form>
-									<?php echo form_close(); ?> </td>
-                                    </tr>
-									<?php }?>
-                                    <tr></tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div role="tabpanel" class="tab-pane" id="tab-4">
-                        <p>Tab content.</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+    <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
+    <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Élève / Note</h1>
+    <div class="table-responsive table-bordered" style="font-size: 11px;">
+        <table class="table table-striped table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 244px;">Nom &amp; Prénoms</th>
+                    <th style="width: 75px;">Classe</th>
+                    <th style="width: 75px;">Myn Trim I</th>
+                    <th style="width: 75px;">Myn Trim II</th>
+                    <th style="width: 75px;">Myn Trim II</th>
+                    <th style="width: 75px;">Myn General</th>
+                    <th style="width: 120px;">Situation</th>
+                    <th style="width: 48px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($eleve as $el) {?>
+                <tr>
+                    <td><?php echo $el->eleve_name?> <?php echo $el->eleve_firstname;?></td>
+                    <td style="width: 75px;"><?php echo $el->eleve_classe?></td>
+                    <td style="width: 75px;"><?php echo $el->eleve_m1?></td>
+                    <td style="width: 75px;"><?php echo $el->eleve_m2?></td>
+                    <td style="width: 75px;"><?php echo $el->eleve_m3?></td>
+                    <td style="width: 75px;"><?php echo $el->eleve_mg?></td>
+                    <td><?php echo $el->eleve_situation?></td>
+                    <td style="padding-top: 1.8px;padding-bottom: 2.8px;">
+                    <a class="btn btn-dark btn-sm btn-edit" 
+                    href="#" data-toggle="modal"
+                    data-id="<?php echo $el->id?>"
+                    <?php $note = base_url('getnote/'.$el->id); ?>
+                    data-note=" <?php echo $note?> "
+                    data-eleve_name="<?php echo $el->eleve_name?>"
+                    data-eleve_firstname="<?php echo $el->eleve_firstname?>"
+                    data-eleve_classe="<?php echo $el->eleve_classe?>"
+                    data-eleve_m1="<?php echo $el->eleve_m1?>"
+                    data-eleve_m2="<?php echo $el->eleve_m2?>"
+                    data-eleve_m3="<?php echo $el->eleve_m3?>"
+                    data-eleve_mg="<?php echo $el->eleve_mg?>"
+                    type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px;">note</a></td>
+                </tr>
+                <?php }?>
+            </tbody>
+        </table>
+    </div>
+</div>
     </div>
 </section>
+<?php $this->load->view('suiv/modal_note')?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
+<script>
+    $(document).ready(function(){
 
+		$('#note').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
+        // get Edit Product
+        $('.btn-edit').on('click',function(){
+            // get data from button edit
+            const id = $(this).data('id');
+            const eleve_name = $(this).data('eleve_name');
+            const eleve_firstname = $(this).data('eleve_firstname');
+            const eleve_classe = $(this).data('eleve_classe');
+            const eleve_m1 = $(this).data('eleve_m1');
+            const eleve_m2 = $(this).data('eleve_m2');
+            const eleve_m3 = $(this).data('eleve_m3');
+            const eleve_mg = $(this).data('eleve_mg');
+            const note = $(this).data('note');
+
+            // Set data to Form Edit
+            $('.id').val(id);
+            $('.eleve_name').val(eleve_name);
+            $('.eleve_firstname').val(eleve_firstname).trigger('change');
+            $('.eleve_classe').val(eleve_classe).trigger('change');
+            $('.eleve_m1').val(eleve_m1);
+            $('.eleve_m2').val(eleve_m2);
+            $('.eleve_m3').val(eleve_m3);
+            $('.eleve_mg').val(eleve_mg);
+            $('.note').val(note);
+            // Call Modal Edit
+            $('#note').modal('show');
+        });
+		
+        
+    });
+
+</script>

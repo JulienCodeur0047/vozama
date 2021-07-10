@@ -50,9 +50,11 @@ class Suiv_controller extends CI_Controller{
 	}
 	public function saveNote()
 	{
-		
 		   $this->suivi->saveOrUpdateNote();
 		   redirect(base_url('suivel'));
-		
+	}
+	public function getNoteEleve($id)
+	{
+		return $data['data'] = $this->suivi->getNote($id);
 	}
 }

@@ -91,6 +91,8 @@ $route['printparent']['post'] = "parent/Parent_controller/printParent";
 $route['paredelete/(:any)'] = "parent/Parent_controller/deleteparent/$1";
 #suivi
 $route['savenote']['post'] = "suiv/Suiv_controller/saveNote";
+$route['getnote/(:any)'] = "suiv/Suiv_controller/getNoteEleve/$1";
+
 #palnning
 $route['secplanload'] = "sec/Sec_controller/load";
 $route['secplanupdate']['post'] = "sec/Sec_controller/update";
