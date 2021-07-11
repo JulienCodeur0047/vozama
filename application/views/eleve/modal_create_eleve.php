@@ -55,8 +55,9 @@
                                 <div class="col" style="width: 100px;"><label style="font-size: 10px;color: var(--gray);height: 10px;margin-bottom: 0px;">Classe</label>
 								<select class="form-control eleve_classe" style="width: 210px;height: 30px;font-size: 12px;color: var(--gray);" name="eleve_classe">
                                         <optgroup label="Classe">
-                                            <option value="T0" selected>T0</option>
-                                            <option value>T1</option>
+                                            <option value selected>slect.Classe</option>
+                                            <option value="T0">T0</option>
+                                            <option value="T1">T1</option>
                                         </optgroup>
                                     </select><label style="font-size: 10px;color: var(--gray);height: 10px;margin-bottom: 0px;">Classe l&#39;an passé</label><select class="form-control eleve_classe_passe" style="width: 210px;height: 30px;font-size: 12px;color: var(--gray);" name="eleve_classe_passe">
                                         <optgroup label="Classe">

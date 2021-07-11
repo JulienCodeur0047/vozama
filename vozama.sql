@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 09 juil. 2021 à 14:31
+-- Généré le : Dim 11 juil. 2021 à 20:33
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -359,7 +359,12 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `eleve_classe_passe` varchar(100) DEFAULT NULL,
   `eleve_nbr_fs` int(10) DEFAULT NULL,
   `eleve_num_copie` varchar(100) DEFAULT NULL,
-  `eleve_abr` int(10) DEFAULT NULL,
+  `eleve_abr` double DEFAULT NULL,
+  `eleve_m1` double DEFAULT NULL,
+  `eleve_m2` double DEFAULT NULL,
+  `eleve_m3` double DEFAULT NULL,
+  `eleve_mg` int(11) DEFAULT NULL,
+  `eleve_date_mo` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
@@ -367,11 +372,10 @@ CREATE TABLE IF NOT EXISTS `eleve` (
 -- Déchargement des données de la table `eleve`
 --
 
-INSERT INTO `eleve` (`id`, `eleve_name`, `eleve_firstname`, `eleve_matricule`, `eleve_sexe`, `eleve_date_birth`, `eleve_adresse`, `eleve_cin`, `eleve_phone`, `eleve_participation`, `eleve_date_abandon`, `eleve_date_retour`, `eleve_date_entre`, `eleve_age`, `eleve_lieu_naissance`, `eleve_religion`, `eleve_copie`, `eleve_secteur`, `eleve_classe`, `eleve_situation`, `parent_id`, `poste_id`, `site_id`, `eleve_parent`, `eleve_poste`, `eleve_site`, `eleve_mom`, `eleve_dad`, `eleve_prof_parents`, `eleve_classe_passe`, `eleve_nbr_fs`, `eleve_num_copie`, `eleve_abr`) VALUES
-(11, 'Lanto', 'Julien', '88-R9E', 'M', '2011-07-11', 'Rue Marx Dormoy', NULL, NULL, NULL, NULL, NULL, '2021-05-07', 9, 'Fianarantsoa', NULL, NULL, NULL, '', 'Marié', NULL, 6, NULL, NULL, 'dsd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(12, 'Juliano', 'Martin', '88-R9', 'M', '1999-06-11', 'Rue Marx Dormoy', NULL, NULL, NULL, NULL, NULL, '2018-01-13', 21, 'Fianarantsoa', NULL, NULL, NULL, 'TD2', '', NULL, 4, NULL, NULL, 'Add', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(13, 'Nivoarilanto', 'Julien', '56-90P', 'M', '2021-04-29', 'VQ 16 A TER A Mandroseza', NULL, NULL, NULL, '0000-00-00', NULL, '0000-00-00', 0, 'pppp', 'Catholique', NULL, NULL, 'T0', 'Passant', NULL, 9, NULL, NULL, 'PPls', NULL, '', NULL, '', 'T0', NULL, '', 0),
-(14, 'OOPA', 'DD', '998sdf', 'F', '2007-02-02', 'SSA', NULL, NULL, NULL, '2021-05-06', NULL, '2021-04-08', 14, 'Pasd', 'Catholique', 'oui', NULL, '', 'Nouveau', NULL, 8, NULL, NULL, 'XX01', NULL, 'WAD', NULL, 'CCV', 'T0', NULL, '7', 9);
+INSERT INTO `eleve` (`id`, `eleve_name`, `eleve_firstname`, `eleve_matricule`, `eleve_sexe`, `eleve_date_birth`, `eleve_adresse`, `eleve_cin`, `eleve_phone`, `eleve_participation`, `eleve_date_abandon`, `eleve_date_retour`, `eleve_date_entre`, `eleve_age`, `eleve_lieu_naissance`, `eleve_religion`, `eleve_copie`, `eleve_secteur`, `eleve_classe`, `eleve_situation`, `parent_id`, `poste_id`, `site_id`, `eleve_parent`, `eleve_poste`, `eleve_site`, `eleve_mom`, `eleve_dad`, `eleve_prof_parents`, `eleve_classe_passe`, `eleve_nbr_fs`, `eleve_num_copie`, `eleve_abr`, `eleve_m1`, `eleve_m2`, `eleve_m3`, `eleve_mg`, `eleve_date_mo`) VALUES
+(11, 'Lanto', 'Julien', '88-R9E', 'M', '0000-00-00', 'Rue Marx Dormoy', NULL, NULL, NULL, '0000-00-00', NULL, '2021-05-07', 0, 'Fianarantsoa', NULL, NULL, NULL, 'T0', 'Redoublant', 5, 0, NULL, NULL, NULL, NULL, '', '', '', NULL, NULL, '', 0, 8.6666666666667, 14.833333333333, 14, 13, NULL),
+(12, 'Juliano', 'Martin', '88-R9', 'M', '0000-00-00', 'Rue Marx Dormoy', NULL, NULL, NULL, '0000-00-00', NULL, '2018-01-13', 0, 'Fianarantsoa', NULL, NULL, NULL, 'T1', 'Passant', 5, 4, NULL, NULL, 'Add', NULL, '', '', '', NULL, NULL, '', 0, 12, NULL, NULL, 4, NULL),
+(14, 'OOPA', 'DD', '998sdf', 'F', '0000-00-00', 'SSA', NULL, NULL, NULL, '2021-05-06', NULL, '2021-04-08', 0, 'Pasd', 'Catholique', NULL, NULL, '', 'Nouveau', 5, 8, NULL, NULL, 'XX01', NULL, '', '', 'CCV', NULL, NULL, '7', 9, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -534,7 +538,8 @@ CREATE TABLE IF NOT EXISTS `note` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `eleve_id` int(10) DEFAULT NULL,
   `note_eleve` varchar(500) DEFAULT NULL,
-  `note_année` date DEFAULT NULL,
+  `note_date` date DEFAULT NULL,
+  `note_el_classe` varchar(100) DEFAULT NULL,
   `1M1` double DEFAULT NULL,
   `1M2` double DEFAULT NULL,
   `1M3` double DEFAULT NULL,
@@ -562,16 +567,63 @@ CREATE TABLE IF NOT EXISTS `note` (
   `1MO` double DEFAULT NULL,
   `2MO` double DEFAULT NULL,
   `3MO` double DEFAULT NULL,
+  `MG` double DEFAULT NULL,
+  `MP` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `note`
 --
 
-INSERT INTO `note` (`id`, `eleve_id`, `note_eleve`, `note_année`, `1M1`, `1M2`, `1M3`, `1M4`, `1M5`, `1M6`, `1M7`, `1M8`, `2M1`, `2M2`, `2M3`, `2M4`, `2M5`, `2M6`, `2M7`, `2M8`, `3M1`, `3M2`, `3M3`, `3M4`, `3M5`, `3M6`, `3M7`, `3M8`, `1MO`, `2MO`, `3MO`) VALUES
-(1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12.5, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0),
-(2, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 7, 9, 0, 0, 0, 0, 0, NULL, NULL, 0);
+INSERT INTO `note` (`id`, `eleve_id`, `note_eleve`, `note_date`, `note_el_classe`, `1M1`, `1M2`, `1M3`, `1M4`, `1M5`, `1M6`, `1M7`, `1M8`, `2M1`, `2M2`, `2M3`, `2M4`, `2M5`, `2M6`, `2M7`, `2M8`, `3M1`, `3M2`, `3M3`, `3M4`, `3M5`, `3M6`, `3M7`, `3M8`, `1MO`, `2MO`, `3MO`, `MG`, `MP`) VALUES
+(1, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12.5, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, NULL, NULL),
+(2, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, 7, 9, 0, 0, 0, 0, 0, NULL, NULL, 0, NULL, NULL),
+(3, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 12, 13, 10, 10.5, 14, 15, 16, 12, NULL, NULL, 12.8125, NULL, NULL),
+(4, 12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 13, 12, 0, 0, 0, 0, 0, 0, NULL, NULL, 12.5, NULL, NULL),
+(5, 11, 'Lanto Julien', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 12, 2, 0, 0, 0, 0, 0, NULL, NULL, 7, NULL, NULL),
+(6, 11, 'Lanto Julien', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1.5, 0, 2, 1.5, 0, 0, 0, NULL, NULL, 1.6666666666667, NULL, NULL),
+(7, 12, 'Juliano Martin', '2021-07-09', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 3, 1.5, 3, 0, 0, 0, NULL, NULL, 2.375, NULL, NULL),
+(8, NULL, 'Juliano Martin', '2021-07-11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6, 13, 10, 0, 0, 0, 0, 0, NULL, NULL, 9, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `note_eleve`
+--
+
+DROP TABLE IF EXISTS `note_eleve`;
+CREATE TABLE IF NOT EXISTS `note_eleve` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `eleve_id` int(10) DEFAULT NULL,
+  `note_eleve` varchar(300) DEFAULT NULL,
+  `note_eleve_classe` varchar(100) DEFAULT NULL,
+  `note_trimestre` int(10) DEFAULT NULL,
+  `note_trimestre_annee` int(10) DEFAULT NULL,
+  `note_mat1` double DEFAULT NULL,
+  `note_mat2` double DEFAULT NULL,
+  `note_mat3` double DEFAULT NULL,
+  `note_mat4` double DEFAULT NULL,
+  `note_mat5` double DEFAULT NULL,
+  `note_mat6` double DEFAULT NULL,
+  `note_mat7` double DEFAULT NULL,
+  `note_mat8` double DEFAULT NULL,
+  `note_moyenne` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `note_eleve`
+--
+
+INSERT INTO `note_eleve` (`id`, `eleve_id`, `note_eleve`, `note_eleve_classe`, `note_trimestre`, `note_trimestre_annee`, `note_mat1`, `note_mat2`, `note_mat3`, `note_mat4`, `note_mat5`, `note_mat6`, `note_mat7`, `note_mat8`, `note_moyenne`) VALUES
+(1, 11, 'Lanto Julien', NULL, 1, 2020, 10.5, 13, 15, 9.5, 0, 0, 0, 0, 12),
+(2, 12, 'Juliano Martin', NULL, 2, 2020, 2, 1.5, 2, 0, 0, 0, 0, 0, 1.8333333333333),
+(3, 12, 'Juliano Martin', 'T1', 1, 2004, 6.5, 11, 0, 0, 0, 0, 5.5, 0, 7.6666666666667),
+(4, 12, 'Juliano Martin', 'T1', 2, 2012, 11, 9, 14, 12.5, 0, 0, 0, 0, 11.625),
+(5, 11, 'Lanto Julien', 'T0', 1, 2022, 4, 12, 10, 0, 0, 0, 0, 0, 8.6666666666667),
+(6, 11, 'Lanto Julien', 'T0', 2, 2022, 15, 0, 15, 0, 0, 14.5, 0, 0, 14.833333333333),
+(7, 11, 'Lanto Julien', 'T0', 3, 2022, 14, 13.5, 0, 13, 0, 0, 0, 15.5, 14);
 
 -- --------------------------------------------------------
 
@@ -623,14 +675,15 @@ CREATE TABLE IF NOT EXISTS `parent` (
   `parent_particip` varchar(100) DEFAULT NULL,
   `parent_filiere` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `parent`
 --
 
 INSERT INTO `parent` (`id`, `parent_pere_name`, `parent_mere_name`, `parent_pere_fonction`, `parent_pere_age`, `parent_mere_age`, `parent_address`, `parent_nbr_enfant`, `parent_nbr_sco_voz`, `parent_anne_entre_voz`, `parent_anne_sorti_voz`, `parent_classe_enfant`, `parent_titre`, `parent_nbr_prt_gere`, `parent_coordonnee`, `parent_site`, `parent_tel`, `site_id`, `poste_id`, `parent_poste`, `parent_particip`, `parent_filiere`) VALUES
-(1, 'Als', 'DD', 'FC', 32, 40, 'vv', 3, 1, '2021-07-17', '2021-07-17', 'MMS', 'President', 3, NULL, NULL, '034', 1, 5, '367', NULL, NULL);
+(1, 'Als', 'DD', 'FC', 32, 40, 'vv', 3, 1, '2021-07-17', '2021-07-17', 'MMS', 'President', 3, NULL, NULL, '034', 1, 5, '367', NULL, NULL),
+(5, '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

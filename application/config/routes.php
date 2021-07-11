@@ -68,10 +68,12 @@ $route['printagr']['post'] = "dev/Dev_controller/printAgr";
 $route['devParentbyT(:any)'] = "dev/Dev_controller/getParentByTitre/$1";
 $route['devac'] = "dev/Dev_controller/userList";
 $route['devdelap/(:any)'] = "dev/Dev_controller/deleteAP/$1";
-$route['suiv'] = "suiv/Suiv_controller/indexpr";
+$route['suiv'] = "suiv/Suiv_controller/indexel";
 $route['suivel'] = "suiv/Suiv_controller/indexel";
 $route['suivec'] = "suiv/Suiv_controller/indexec";
 $route['suivmn'] = "suiv/Suiv_controller/indexmn";
+$route['suivdn'] = "suiv/Suiv_controller/indexdn";
+
 $route['com'] = "com/Com_controller/indexparr";
 $route['comsaveparr']['post'] = "com/Com_controller/saveparr";
 $route['comsavepart']['post'] = "com/Com_controller/savepart";

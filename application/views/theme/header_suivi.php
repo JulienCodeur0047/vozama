@@ -4,12 +4,10 @@
         <div class="container"><a class="navbar-brand" href="#" style="margin-top: 9px;font-size: 14px;color: var(--gray);">Suivi et évaluation</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-top: 9px;">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suiv')?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Parent</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="<?php echo base_url('suiv')?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Parent</a></li>-->
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivel')?>" style="font-size: 13px;">Élève</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivdn')?>" style="font-size: 13px;">Detail Note</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivec')?>" style="font-size: 13px;">Ecolage</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivmn') ?>" style="font-size: 13px;">Moniteur</a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
+                
                 </ul>
