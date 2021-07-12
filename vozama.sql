@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 12 juil. 2021 à 09:37
+-- Généré le : lun. 12 juil. 2021 à 13:59
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -518,14 +518,15 @@ CREATE TABLE IF NOT EXISTS `moniteur` (
   `moniteur_date_nais` date DEFAULT NULL,
   `poste_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `moniteur`
 --
 
 INSERT INTO `moniteur` (`id`, `moniteur_matricule`, `moniteur_name`, `moniteur_firstname`, `moniteur_etat`, `moniteur_address`, `moniteur_poste`, `moniteur_religion`, `moniteur_profession`, `moniteur_date_entre_voz`, `moniteur_date_nais`, `poste_id`) VALUES
-(1, '22/-Fr45', 'Rakoto', 'Nad', 'Marie', 'Talatamaty', 'A', 'Autre', 'KA', '2020-10-12', NULL, NULL);
+(1, '22/-Fr45', 'Rakoto', 'Nad', 'Marie', 'Talatamaty', 'A', 'Autre', 'KA', '2020-10-12', NULL, NULL),
+(2, 'fsfs223s', 'Nivoarilanto', 'Julien', 'Célibataire', 'VQ 16 A TER A Mandroseza', 'XZ', 'sfsf', 'sffsf', '2021-07-16', '2021-07-08', 10);
 
 -- --------------------------------------------------------
 
@@ -809,7 +810,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
 --
 
 INSERT INTO `personal` (`id`, `pers_name`, `pers_firstname`, `pers_date_birth`, `pers_cin`, `pers_address`, `pers_sexe`, `pers_age`, `pers_sm`, `pers_phone`, `pers_mail`, `dep_id`, `pers_type`, `pers_contrat`, `pers_date_arrived`, `pers_date_gone`, `pers_date_renew`, `pers_cot_social`, `pers_dep`, `pers_nbr_conge`, `pers_dr_conge`) VALUES
-(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 2);
+(1, 'Nivoarilanto', 'Julien', '2014-01-02', '2233', 'VQ 16 A TER A Mandroseza', 'F', 7, 'Marié(e)', '0348778552', 'juliennivoarilanto@gmail.com', 2, 'Cadre', 'CDI', '2021-07-01', '2021-07-24', NULL, '20000', 'ABD', NULL, 2.5);
 
 -- --------------------------------------------------------
 
@@ -1033,7 +1034,7 @@ CREATE TABLE IF NOT EXISTS `secteur` (
   `secteur_name` varchar(100) DEFAULT NULL,
   `sacteur_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `secteur`
@@ -1043,7 +1044,8 @@ INSERT INTO `secteur` (`id`, `secteur_name`, `sacteur_code`) VALUES
 (4, 'Vakoa', 'V001'),
 (2, 'Androy', 'A002'),
 (3, 'Talata Iboaka', 'T001'),
-(5, 'Alakamisy Ambohimaha', 'A003');
+(5, 'Alakamisy Ambohimaha', 'A003'),
+(6, 'Avaratra', NULL);
 
 -- --------------------------------------------------------
 
@@ -1107,7 +1109,14 @@ CREATE TABLE IF NOT EXISTS `sous_prefecture` (
   `sous_pref_name` varchar(100) DEFAULT NULL,
   `sous_pref_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `sous_prefecture`
+--
+
+INSERT INTO `sous_prefecture` (`id`, `sous_pref_name`, `sous_pref_code`) VALUES
+(1, 'AZERTY', NULL);
 
 -- --------------------------------------------------------
 
@@ -1300,7 +1309,7 @@ CREATE TABLE IF NOT EXISTS `zone` (
   `zone_name` varchar(100) DEFAULT NULL,
   `zone_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `zone`
@@ -1313,7 +1322,8 @@ INSERT INTO `zone` (`id`, `zone_name`, `zone_code`) VALUES
 (4, 'Banlieu', 'B001'),
 (5, 'FA', 'F001'),
 (6, 'Fandrandava', 'F002'),
-(7, 'Sevaina', 'S001');
+(7, 'Sevaina', 'S001'),
+(8, 'SUD-EST', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
