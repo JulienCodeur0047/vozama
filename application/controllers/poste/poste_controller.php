@@ -118,7 +118,22 @@ class Poste_controller extends CI_Controller{
 		   redirect(base_url('alph'));
 		}
 	}
+	public function saveEglise()
+	{ 
+		$this->load->library('form_validation');
 
+		$this->form_validation->set_rules('eglise_name', 'eglise_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveEglise();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
 	public function update($id){
 		$this->load->library('form_validation');
 

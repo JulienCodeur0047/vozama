@@ -148,6 +148,8 @@ $route['printvp'] = "visite_poste/Visite_poste_controller/printlistvp";
 $route['el'] = "eleve/Eleve_controller/index";
 $route['printeleve']['post'] = "eleve/Eleve_controller/printlistel";
 $route['createposte'] = "poste/Poste_controller/create";
+$route['saveeglise']['post'] = "poste/Poste_controller/saveEglise";
+
 $route['saveposte']['post'] = "poste/Poste_controller/save";
 $route['savepep']['post'] = "environnement/Env_controller/savepep";
 $route['savecmv']['post'] = "dev/Dev_controller/savecmv";

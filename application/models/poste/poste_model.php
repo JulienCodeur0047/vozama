@@ -168,6 +168,12 @@ class Poste_model extends CI_Model{
             return $this->db->update('poste',$data);
         }
 	}
+	public function saveEglise()
+	{
+		$data = array(
+            'eglise_name' => $this->input->post('eglise_name'),);
+			return $this->db->insert('eglise',$data);
+	}
 	public function getPostOrSearch(){
 		if(!empty($this->input->get("search"))){
 			$this->db->like('poste_name', $this->input->get("search"));
