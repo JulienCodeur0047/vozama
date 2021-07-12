@@ -31,7 +31,11 @@ class Poste_controller extends CI_Controller{
 		$this->poste->deletePoste($id);
 		redirect(base_url('alph'));
 	}
-
+	public function deleteeleve($id){
+		$this->poste->deleteEleve($id);
+		redirect(base_url('el'));
+	}
+	
 	public function printListPosteToPdf()
 	{
 		$this->load->library('pdf');

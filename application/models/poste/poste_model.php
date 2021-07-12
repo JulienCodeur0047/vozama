@@ -102,7 +102,9 @@ class Poste_model extends CI_Model{
 	public function deletePoste($id){
 		return $this->db->delete('poste', array('id' => $id));
 	}
-
+	public function deleteEleve($id){
+		return $this->db->delete('eleve', array('id' => $id));
+	}
 	public function findPoste($id){
 		return $this->db->get_where('poste', array('id' => $id))->row();
 	}

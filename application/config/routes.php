@@ -175,6 +175,7 @@ $route['updatevp/(:any)']['post'] = "visite_poste/Visite_poste_controller/update
 $route['editv(:num)'] = "visite_poste/Visite_poste_controller/edit/$1";
 $route['deleteVp/(:any)'] = "visite_poste/Visite_poste_controller/delete/$1";
 $route['deletePoste/(:any)'] = "poste/Poste_controller/delete/$1";
+$route['deleteeleve/(:any)'] = "poste/Poste_controller/deleteeleve/$1";
 $route['deletedevcmv/(:any)'] = "dev/Dev_controller/deleteCmv/$1";
 $route['deletedevagr/(:any)'] = "dev/Dev_controller/deleteAgr/$1";
 $route['deleteElevePoste/(:any)/(:num)'] = "eleve/Eleve_controller/deleteElevePoste/$1/$2";
