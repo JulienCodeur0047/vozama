@@ -174,6 +174,78 @@ class Poste_model extends CI_Model{
             'eglise_name' => $this->input->post('eglise_name'),);
 			return $this->db->insert('eglise',$data);
 	}
+	public function saveSecteur()
+	{
+		$data = array(
+            'secteur_name' => $this->input->post('secteur_name'),);
+			return $this->db->insert('secteur',$data);
+	}
+	public function saveZone()
+	{
+		$data = array(
+            'zone_name' => $this->input->post('zone_name'),);
+			return $this->db->insert('zone',$data);
+	}
+	public function saveRegion()
+	{
+		$data = array(
+            'region_name' => $this->input->post('region_name'),);
+			return $this->db->insert('region',$data);
+	}
+	public function saveCisco()
+	{
+		$data = array(
+            'cisco_name' => $this->input->post('cisco_name'),);
+			return $this->db->insert('cisco',$data);
+	}
+	public function saveCommune()
+	{
+		$data = array(
+            'commune_name' => $this->input->post('commune_name'),);
+			return $this->db->insert('commune',$data);
+	}
+	public function saveNiveau()
+	{
+		$data = array(
+            'niveau_name' => $this->input->post('niveau_name'),);
+			return $this->db->insert('niveau',$data);
+	}
+	public function saveFkt()
+	{
+		$data = array(
+            'fkt_name' => $this->input->post('fkt_name'),);
+			return $this->db->insert('fokotany',$data);
+	}
+	public function saveDistrict()
+	{
+		$data = array(
+            'district_name' => $this->input->post('district_name'),);
+			return $this->db->insert('district',$data);
+	}
+	public function savePref()
+	{
+		$data = array(
+            'sous_pref_name' => $this->input->post('sous_pref_name'),);
+			return $this->db->insert('sous_prefecture',$data);
+	}
+	public function saveMoniteur()
+	{
+		$data = array(
+            'moniteur_name' => $this->input->post('moniteur_name'),);
+			return $this->db->insert('moniteur',$data);
+	}
+	public function saveInspecteur()
+	{
+		$data = array(
+            'insp_name' => $this->input->post('insp_name'),);
+			return $this->db->insert('inspecteur',$data);
+	}
+	public function savePere()
+	{
+		$data = array(
+            'pere_name' => $this->input->post('pere_name'),);
+			return $this->db->insert('pere',$data);
+	}
 	public function getPostOrSearch(){
 		if(!empty($this->input->get("search"))){
 			$this->db->like('poste_name', $this->input->get("search"));

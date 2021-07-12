@@ -73,6 +73,7 @@ $route['suivel'] = "suiv/Suiv_controller/indexel";
 $route['suivec'] = "suiv/Suiv_controller/indexec";
 $route['suivmn'] = "suiv/Suiv_controller/indexmn";
 $route['suivdn'] = "suiv/Suiv_controller/indexdn";
+$route['suivsavemoniteur']['post'] = "suiv/Suiv_controller/saveMoniteur";
 
 $route['com'] = "com/Com_controller/indexparr";
 $route['comsaveparr']['post'] = "com/Com_controller/saveparr";
@@ -149,6 +150,18 @@ $route['el'] = "eleve/Eleve_controller/index";
 $route['printeleve']['post'] = "eleve/Eleve_controller/printlistel";
 $route['createposte'] = "poste/Poste_controller/create";
 $route['saveeglise']['post'] = "poste/Poste_controller/saveEglise";
+$route['savesecteur']['post'] = "poste/Poste_controller/saveSecteur";
+$route['savezone']['post'] = "poste/Poste_controller/saveZone";
+$route['saveregion']['post'] = "poste/Poste_controller/saveRegion";
+$route['savecisco']['post'] = "poste/Poste_controller/saveCisco";
+$route['savecomune']['post'] = "poste/Poste_controller/saveCommune";
+$route['saveniveau']['post'] = "poste/Poste_controller/saveNiveau";
+$route['savefkt']['post'] = "poste/Poste_controller/saveFkt";
+$route['savedistrict']['post'] = "poste/Poste_controller/saveDistrict";
+$route['savepere']['post'] = "poste/Poste_controller/savePere";
+$route['savepref']['post'] = "poste/Poste_controller/savePref";
+$route['savemoniteur']['post'] = "poste/Poste_controller/saveMoniteur";
+$route['saveinspe']['post'] = "poste/Poste_controller/saveInspecteur";
 
 $route['saveposte']['post'] = "poste/Poste_controller/save";
 $route['savepep']['post'] = "environnement/Env_controller/savepep";

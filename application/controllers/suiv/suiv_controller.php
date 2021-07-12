@@ -40,8 +40,10 @@ class Suiv_controller extends CI_Controller{
 	}
 	public function indexmn()
 	{
+		$data['data'] = $this->suivi->getOrSearchMoniteur();
+		$data['poste'] = $this->poste->getAllPoste();
 		$this->getSession();    
-		$this->load->view('suiv/suiv_list_moniteur');    
+		$this->load->view('suiv/suiv_list_moniteur',$data);    
 		$this->load->view('theme/footer');    
 	}
 
@@ -71,6 +73,21 @@ class Suiv_controller extends CI_Controller{
 			$this->suivi->saveOrUpdateNote();
 		   echo "<script>alert('Ajout Reussit');</script>";
 		   redirect(base_url('suivdn'));
+		}
+	}
+	public function saveMoniteur()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('moniteur_name', 'moniteur_name', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('suivmn'));
+		}else{
+			$this->suivi->saveOrUpdateMoniteur();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('suivmn'));
 		}
 	}
 	public function saveEcolage()

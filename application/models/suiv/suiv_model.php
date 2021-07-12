@@ -66,6 +66,17 @@ class Suiv_model extends CI_Model{
 		  $query = $this->db->get("ecolage");
 		  return $query->result();
 	}
+	public function getOrSearchMoniteur()
+	{
+      if(!empty($this->input->get("search"))){
+			$this->db->like('moniteur_matricule', $this->input->get("search"));
+			$this->db->or_like('moniteur_name', $this->input->get("search")); 
+			$this->db->or_like('moniteur_firstname', $this->input->get("search")); 
+			$this->db->or_like('moniteur_poste', $this->input->get("search")); 
+		  }
+		  $query = $this->db->get("moniteur");
+		  return $query->result();
+	}
 	public function getSearchEleve()
 	{
       if(!empty($this->input->get("search"))){
@@ -130,6 +141,29 @@ class Suiv_model extends CI_Model{
 			return $this->db->update('ecolage',$data);
 		}else{
 			return $this->db->insert('ecolage', $data);
+		}
+	}
+	public function saveOrUpdateMoniteur()
+	{
+		$id = $this->input->post('id');
+		$data = array(
+			'moniteur_matricule' => $this->input->post('moniteur_matricule'),
+			'moniteur_name' => $this->input->post('moniteur_name'),
+			'moniteur_firstname' => $this->input->post('moniteur_firstname'),
+			'moniteur_etat' => $this->input->post('moniteur_etat'),
+			'moniteur_address' => $this->input->post('moniteur_address'),
+			'moniteur_religion' => $this->input->post('moniteur_religion'),
+			'moniteur_profession' => $this->input->post('moniteur_profession'),
+			'moniteur_date_entre_voz' => $this->input->post('moniteur_date_entre_voz'),
+			'moniteur_date_nais' => $this->input->post('moniteur_date_nais'),
+			'poste_id' => $this->input->post('poste_id'),
+			'moniteur_poste' => $this->poste->findPoste($this->input->post('poste_id'))->poste_name, //xx
+		);
+		if (!empty($id)) {
+			$this->db->where('id',$id);
+			return $this->db->update('moniteur',$data);
+		}else{
+			return $this->db->insert('moniteur', $data);
 		}
 	}
 }

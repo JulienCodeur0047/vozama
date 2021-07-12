@@ -117,7 +117,7 @@
                             <optgroup label="Sous prefecture">
                                 <option value="" selected>Selec. Sous prefecture</option>
                                 <?php foreach($sous_pref as $sous_pref){ ?>
-                				<option value="<?php echo $psous_pref->sous_pref_name; ?>"><?php echo $psous_pref->sous_pref_name; ?></option>
+                				<option value="<?php echo $sous_pref->sous_pref_name; ?>"><?php echo $sous_pref->sous_pref_name; ?></option>
 								<?php } ?>
                             </optgroup>
                         </select><a href="#newpref" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>

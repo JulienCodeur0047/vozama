@@ -134,6 +134,198 @@ class Poste_controller extends CI_Controller{
 		   redirect(base_url('createposte'),'refresh');
 		}
 	}
+	public function saveSecteur()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('secteur_name', 'secteur_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveSecteur();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveZone()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('zone_name', 'zone_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveZone();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveRegion()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('region_name', 'region_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveRegion();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveCisco()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('cisco_name', 'cisco_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveCisco();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveCommune()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('commune_name', 'commune_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveCommune();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveNiveau()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('niveau_name', 'niveau_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveNiveau();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveFkt()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('fkt_name', 'fkt_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveFkt();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveDistrict()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('district_name', 'district_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveDistrict();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function savePref()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('sous_pref_name', 'sous_pref_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->savePref();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveMoniteur()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('moniteur_name', 'moniteur_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveMoniteur();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function saveInspecteur()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('insp_name', 'insp_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->saveInspecteur();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
+	public function savePere()
+	{ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('pere_name', 'pere_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('createposte'));
+		}else{
+		   $this->poste->savePere();
+		   redirect(base_url('createposte'),'refresh');
+		}
+	}
 	public function update($id){
 		$this->load->library('form_validation');
 

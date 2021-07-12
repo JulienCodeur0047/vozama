@@ -28,7 +28,7 @@
                             </optgroup>
                         </select><label style="font-size: 12px;margin-bottom: 0px;">CIN</label>
 						<input type="text" class="pers_cin" style="font-size: 12px;width: 214px;" name="pers_cin" /><label style="font-size: 12px;margin-bottom: 0px;">Adresse</label>
-						<input type="text" class="pers_address" style="font-size: 12px;width: 214px;" name="pers_address" /><label style="font-size: 12px;margin-bottom: 0px;margin-top: 7px;">Clitisation Social</label>
+						<input type="text" class="pers_address" style="font-size: 12px;width: 214px;" name="pers_address" /><label style="font-size: 12px;margin-bottom: 0px;margin-top: 7px;">Cotisation Social</label>
 						<input type="text" class="pers_cot_social" style="font-size: 12px;width: 214px;" name="pers_cot_social" /></div>
                     <div class="col-lg-6"><label style="font-size: 12px;margin-bottom: 0px;">Département</label>
 					<select style="font-size: 12px;width: 214px;height: 24px;" class="dep_id" name="dep_id">
@@ -62,7 +62,7 @@
 						<label style="font-size: 12px;margin-bottom: 0px;">Date de fin de contrat</label>
 						<input type="date" class="pers_date_gone" style="width: 214px;font-size: 12px;" name="pers_date_gone" />
 						<label style="font-size: 12px;margin-bottom: 0px;">Droit de congé / mois</label>
-						<input type="number" step="any" class="pers_dr_conge" style="font-size: 12px;width: 214px;" name="pers_dr_conge" /></div>
+						<input type="number" step="0.5" class="pers_dr_conge" style="font-size: 12px;width: 214px;" name="pers_dr_conge" /></div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">Enregistrer</button></div>
