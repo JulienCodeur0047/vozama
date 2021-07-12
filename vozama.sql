@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 11 juil. 2021 à 20:33
+-- Généré le : lun. 12 juil. 2021 à 09:37
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -317,7 +317,21 @@ CREATE TABLE IF NOT EXISTS `eglise` (
   `eglise_name` varchar(100) DEFAULT NULL,
   `eglise_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `eglise`
+--
+
+INSERT INTO `eglise` (`id`, `eglise_name`, `eglise_code`) VALUES
+(1, 'FJKM', NULL),
+(2, 'TTR', NULL),
+(3, 'PS', NULL),
+(4, 'AZ', NULL),
+(5, 'ZX', NULL),
+(6, 'CV', NULL),
+(7, 'XXC', NULL),
+(8, 'QW', NULL);
 
 -- --------------------------------------------------------
 
@@ -958,7 +972,23 @@ CREATE TABLE IF NOT EXISTS `region` (
   `region_name` varchar(100) DEFAULT NULL,
   `region_code` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `region`
+--
+
+INSERT INTO `region` (`id`, `region_name`, `region_code`) VALUES
+(1, 'Analamanga', NULL),
+(2, 'Haute Matsiatra', NULL),
+(3, 'Betsiboka', NULL),
+(5, 'Vatovavy fitovinany', NULL),
+(6, 'Amoron\'i mania', NULL),
+(7, 'Vakinakaratra', NULL),
+(8, 'Itasy', NULL),
+(9, 'Boeny', NULL),
+(10, 'Sava', NULL),
+(11, 'Diana', NULL);
 
 -- --------------------------------------------------------
 
