@@ -45,8 +45,10 @@
                     <td><?php echo $dn->note_mat8;?></td>
                     <td><?php echo $dn->note_moyenne;?></td>
                     <td style="padding-top: 1.8px;padding-bottom: 2.8px;">
-                    <a class="btn btn-dark btn-sm btn-edit" 
-                    href="#" data-toggle="modal"
+                    <a class="btn btn-dark btn-sm" 
+					onclick="return confirm('Voulez-vous supprimer la note de <?php echo $dn->note_eleve;?> classe : <?php echo $dn->note_eleve_classe;?> trimestre <?php echo $dn->note_trimestre;?> ?');"
+					href="<?php echo base_url('suivdeldn/'.$dn->id)?>" 
+                            
                     type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px;">supprimer</a></td>
                 </tr>
                 <?php }?>
@@ -56,37 +58,5 @@
 </div>
     </div>
 </section>
-<!--<?php $this->load->view('suiv/modal_note')?>-->
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
-<!--<script>
-    $(document).ready(function(){
-
-		$('#note').on('hidden.bs.modal', function (e) {
-  		$(this)
-    	.find("input,textarea,select")
-       	.val('')
-       	.end()
-		});
-        // get Edit Product
-        $('.btn-edit').on('click',function(){
-            // get data from button edit
-            const id = $(this).data('id');
-            const eleve_name = $(this).data('eleve_name');
-            const eleve_firstname = $(this).data('eleve_firstname');
-            const eleve_classe = $(this).data('eleve_classe');
-            const note = $(this).data('note');
-
-            // Set data to Form Edit
-            $('.id').val(id);
-            $('.note_eleve').val(eleve_name+" " +eleve_firstname);
-            $('.eleve_classe').val(eleve_classe);
-            $('.note').val(note);
-            // Call Modal Edit
-            $('#note').modal('show');
-        });
-		
-        
-    });
-
-</script> -->

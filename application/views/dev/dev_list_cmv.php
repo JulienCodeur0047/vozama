@@ -33,7 +33,8 @@
                             <td><?php echo $cmv->cmv_site; ?></td>
                             <td><?php echo $cmv->cmv_gps; ?></td>
                             <td><?php echo $cmv->cmv_nbr_par_ger; ?></td>
-                            <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button>
+                            <td style="font-size: 12px;">
+							
 							<a class="btn btn-light btn-edit" href="#" 
 							data-id="<?php echo $cmv->id; ?>"
 							data-cmv_name="<?php echo $cmv->cmv_name; ?>"

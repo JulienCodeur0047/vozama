@@ -30,7 +30,8 @@
                             <td><?php echo $agr->agr_date_d; ?></td>
                             <td><?php echo $agr->agr_date_suivi; ?></td>
                             <td><?php echo $agr->agr_formation; ?></td>
-                            <td style="font-size: 12px;"><button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button>
+                            <td style="font-size: 12px;">
+							
 							<a class="btn btn-light btn-edit" href="#" 
 							data-id="<?= $agr->id;?>" 
 							data-agr_parent="<?= $agr->agr_parent;?>" 

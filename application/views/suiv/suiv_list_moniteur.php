@@ -27,8 +27,23 @@
                             <td><?php echo $moniteur->moniteur_poste;?></td>
                             <td><?php echo $moniteur->moniteur_date_entre_voz;?></td>
                             <td style="font-size: 12px;width: 30px;">
-							<a class="btn btn-light" type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
-							<a class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></a></td>
+							<a class="btn btn-light btn-edit" type="button" 
+							data-id="<?php echo $moniteur->id;?>"
+							data-moniteur_etat="<?php echo $moniteur->moniteur_etat;?>"
+							data-moniteur_name="<?php echo $moniteur->moniteur_name;?>"
+							data-moniteur_firstname="<?php echo $moniteur->moniteur_firstname;?>"
+							data-moniteur_date_entre_voz="<?php echo $moniteur->moniteur_date_entre_voz;?>"
+							data-moniteur_matricule="<?php echo $moniteur->moniteur_matricule;?>"
+							data-moniteur_address="<?php echo $moniteur->moniteur_address;?>"
+							data-moniteur_date_nais="<?php echo $moniteur->moniteur_date_nais;?>"
+							data-moniteur_religion="<?php echo $moniteur->moniteur_religion;?>"
+							data-moniteur_profession="<?php echo $moniteur->moniteur_profession;?>"
+							data-poste_id="<?php echo $moniteur->poste_id;?>"
+							style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
+							<a class="btn btn-light"
+							onclick="return confirm('Voulez-vous supprimer moniteur: MTRICULE: <?php echo $moniteur->moniteur_matricule;?> <?php echo $moniteur->moniteur_name;?> <?php echo $moniteur->moniteur_firstname;?> ?');"
+							href="<?php echo base_url('suivdelmn/'.$moniteur->id)?>" 
+							type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></a></td>
                         </tr>
 						<?php }?>
                         <tr></tr>
@@ -41,3 +56,44 @@
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <?php $this->load->view('suiv/modal_create_moniteur');?>
+<script>
+    $(document).ready(function(){
+
+		$('#newmoniteur').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
+        // get Edit Product
+        $('.btn-edit').on('click',function(){
+            // get data from button edit
+            const id = $(this).data('id');
+            const moniteur_name = $(this).data('moniteur_name');
+            const moniteur_firstname = $(this).data('moniteur_firstname');
+            const moniteur_date_entre_voz = $(this).data('moniteur_date_entre_voz');
+            const moniteur_matricule = $(this).data('moniteur_matricule');
+            const moniteur_address = $(this).data('moniteur_address');
+            const moniteur_date_nais = $(this).data('moniteur_date_nais');
+            const moniteur_religion = $(this).data('moniteur_religion');
+            const moniteur_profession = $(this).data('moniteur_profession');
+            const poste_id = $(this).data('poste_id');
+            const moniteur_etat = $(this).data('moniteur_etat');
+            // Set data to Form Edit
+            $('.id').val(id);
+            $('.moniteur_name').val(moniteur_name);
+            $('.moniteur_firstname').val(moniteur_firstname);
+            $('.moniteur_date_entre_voz').val(moniteur_date_entre_voz);
+            $('.moniteur_matricule').val(moniteur_matricule);
+            $('.moniteur_address').val(moniteur_address);
+            $('.moniteur_date_nais').val(moniteur_date_nais);
+            $('.moniteur_religion').val(moniteur_religion);
+            $('.moniteur_profession').val(moniteur_profession);
+            $('.poste_id').val(poste_id).trigger('change');
+            $('.moniteur_etat').val(moniteur_etat).trigger('change');
+            // Call Modal Edit
+            $('#newmoniteur').modal('show');
+        });
+        
+    });
+</script>

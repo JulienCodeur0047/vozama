@@ -7,16 +7,25 @@
             <div class="modal-body">
 				<?php echo form_open('suivsavemoniteur');?>
 				<form method="POST" >
+					<input type="hidden" name="id" class="id"/>
                 <div class="row">
-                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Nom</label><input type="text" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_name" /><label style="margin-bottom: 5px;margin-top: 7px;">Prénoms</label><input type="text" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_firstname" /><label style="margin-bottom: 5px;margin-top: 7px;">Matricule</label><input type="text" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_matricule" /><label style="margin-bottom: 5px;margin-top: 7px;">Adresse</label><input type="text" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_address" /></div>
-                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Date de naissance</label><input type="date" style="width: 136px;" name="moniteur_date_nais" /><label style="margin-bottom: 5px;margin-top: 7px;">Etat matrimonial</label><select style="width: 136px;" name="moniteur_etat">
+                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Nom</label>
+					<input type="text" class="moniteur_name" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_name" /><label style="margin-bottom: 5px;margin-top: 7px;">Prénoms</label>
+					<input type="text" class="moniteur_firstname" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_firstname" /><label style="margin-bottom: 5px;margin-top: 7px;">Matricule</label>
+					<input type="text" class="moniteur_matricule" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_matricule" /><label style="margin-bottom: 5px;margin-top: 7px;">Adresse</label>
+					<input type="text" class="moniteur_address" style="width: 136px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_address" /></div>
+                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Date de naissance</label>
+					<input type="date" class="moniteur_date_nais" style="width: 136px;" name="moniteur_date_nais" /><label style="margin-bottom: 5px;margin-top: 7px;">Etat matrimonial</label>
+					<select class="moniteur_etat" style="width: 136px;" name="moniteur_etat">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
                                 <option value="Célibataire">Célibataire</option>
                                 <option value="Marié(e)">Marié(e)</option>
                             </optgroup>
-                        </select><label style="margin-bottom: 5px;margin-top: 7px;">Date entré au vozama</label><input type="date" style="width: 136px;" name="moniteur_date_entre_voz" /></div>
-                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Poste</label><select style="width: 133px;" name="poste_id">
+                        </select><label style="margin-bottom: 5px;margin-top: 7px;">Date entré au vozama</label>
+						<input type="date" class="moniteur_date_entre_voz" style="width: 136px;" name="moniteur_date_entre_voz" /></div>
+                    <div class="col"><label style="margin-bottom: 5px;margin-top: 7px;">Poste</label>
+					<select class="poste_id" style="width: 133px;" name="poste_id">
                             <optgroup label="This is a group">
                                 <option valueselected>select.</option>
 								<?php foreach ($poste as $poste) {?>
@@ -24,10 +33,15 @@
 								<?php }?>
                                 <option value="14"></option>
                             </optgroup>
-                        </select><label style="margin-bottom: 5px;margin-top: 7px;">Religion</label><input type="text" style="width: 134px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_religion" /><label style="margin-bottom: 5px;margin-top: 7px;">Profession</label><input type="text" style="width: 134px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_profession" /></div>
+                        </select>
+						<label style="margin-bottom: 5px;margin-top: 7px;">Religion</label>
+						<input type="text" class="moniteur_religion" style="width: 134px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_religion" /><label style="margin-bottom: 5px;margin-top: 7px;">Profession</label>
+						<input type="text" class="moniteur_profession" style="width: 134px;border-radius: 1px;border-width: 0px;border-color: var(--secondary);border-bottom-width: 1px;" name="moniteur_profession" /></div>
                 </div>
             </div>
-            <div class="modal-footer" style="height: 55px;padding-top: 9px;"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-size: 11px;">Annulé</button><button class="btn btn-primary" type="submit" style="font-size: 11px;">Enregistrer</button></div>
+            <div class="modal-footer" style="height: 55px;padding-top: 9px;">
+			<button class="btn btn-light" type="button" data-dismiss="modal" style="font-size: 11px;">Annulé</button>
+			<button class="btn btn-primary" type="submit" style="font-size: 11px;">Enregistrer</button></div>
 			</form>
 			<?php echo form_close();?>
 		</div>

@@ -102,5 +102,15 @@ class Env_controller extends CI_Controller{
 			$this->env->updatepep($data, $id);
 			redirect(base_url('env'));
 		}
+		public function deletePepiniere($id)
+		{
+			$this->env->deletePepiniere($id);
+			redirect(base_url('env'));
+		}
+		public function deleteAep($id)
+		{
+			$this->env->deletePepiniere($id);
+			redirect(base_url('envaep'));
+		}
 
 }

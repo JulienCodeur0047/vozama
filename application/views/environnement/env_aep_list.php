@@ -31,7 +31,7 @@
                             <td><?php echo $aep->aep_parrain;?></td>
                             <td><?php echo $aep->aep_description;?></td>
                             <td style="font-size: 12px;">
-							<button class="btn btn-light" type="button" style="margin-right: 0px;height: 34px;padding-top: 3px;margin-top: -7px;border-radius: 0px;border-top-left-radius: 4px;border-bottom-left-radius: 4px;background: rgb(234,234,234);"><i class="fa fa-eye" style="font-size: 12px;"></i></button>
+							
 							<a class="btn btn-light btn-edit" href="#" 
 							data-id="<?= $aep->id;?>" 
 							data-aep_description="<?= $aep->aep_description;?>" 
@@ -40,7 +40,10 @@
 							data-aep_date="<?= $aep->aep_date;?>" 
 							data-aep_parrain="<?= $aep->aep_parrain;?>" 
 							type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
-							<button class="btn btn-light" type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></button></td>
+							<a class="btn btn-light" 
+							onclick="return confirm('Voulez-vous supprimer: <?php echo $aep->id;?> ?');"
+							href="<?php echo base_url('envdelaep/'.$aep->id)?>"
+							type="button" style="background: rgb(210,128,136);width: 38px;height: 34px;margin-top: -7px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-trash-o" style="font-size: 12px;width: 12px;padding-bottom: 0px;"></i></a></td>
                         </tr>
 					<?php } ?>
                         <tr></tr>

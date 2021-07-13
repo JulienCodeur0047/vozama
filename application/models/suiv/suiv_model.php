@@ -166,5 +166,11 @@ class Suiv_model extends CI_Model{
 			return $this->db->insert('moniteur', $data);
 		}
 	}
+	public function deleteDn($id){
+		return $this->db->delete('note_eleve', array('id' => $id));
+	}
+	public function deleteMoniteur($id){
+		return $this->db->delete('moniteur', array('id' => $id));
+	}
 }
 ?>

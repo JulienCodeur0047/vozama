@@ -61,6 +61,10 @@ $route['home'] = "Login_controller/welcome";
 $route['alph'] = "poste/Poste_controller/index";
 $route['printposte']['post'] = "poste/Poste_controller/printListPosteToPdf";
 $route['env'] = "environnement/Env_controller/indexPep";
+$route['envdelpep/(:any)'] = "environnement/Env_controller/deletePepiniere/$1";
+$route['envdelaep/(:any)'] = "environnement/Env_controller/deleteAep/$1";
+
+
 $route['dev'] = "dev/Dev_controller/indexap";
 $route['printcmv']['post'] = "dev/Dev_controller/printCmv";
 $route['printap']['post'] = "dev/Dev_controller/printAp";
@@ -74,6 +78,10 @@ $route['suivec'] = "suiv/Suiv_controller/indexec";
 $route['suivmn'] = "suiv/Suiv_controller/indexmn";
 $route['suivdn'] = "suiv/Suiv_controller/indexdn";
 $route['suivsavemoniteur']['post'] = "suiv/Suiv_controller/saveMoniteur";
+$route['suivdeldn/(:any)'] = "suiv/Suiv_controller/deleteDn/$1";
+$route['suivdelmn/(:any)'] = "suiv/Suiv_controller/deleteMoniteur/$1";
+
+
 
 $route['com'] = "com/Com_controller/indexparr";
 $route['comsaveparr']['post'] = "com/Com_controller/saveparr";

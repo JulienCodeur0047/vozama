@@ -69,5 +69,11 @@ class Env_model extends CI_Model{
 		$this->db->where('id',$id);
         return $this->db->update('pepiniere',$data);
 	}
+	public function deletePepiniere($id){
+		return $this->db->delete('pepiniere', array('id' => $id));
+	}
+	public function deleteAep($id){
+		return $this->db->delete('aep', array('id' => $id));
+	}
 }
 ?>

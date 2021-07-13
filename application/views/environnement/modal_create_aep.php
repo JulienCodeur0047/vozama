@@ -23,7 +23,7 @@
                                 <option value="<?php echo $site->id;?>"><?php echo $site->site_name;?></option>
 								<?php } ?>
                             </optgroup>
-                        </select><label style="margin-bottom: -4px;font-size: 11px;">Description</label><input type="text" style="width: 216px;font-size: 13px;height: 101px;" name="aep_description" /></div>
+                        </select><label style="margin-bottom: -4px;font-size: 11px;">Description</label><textarea type="text" style="width: 216px;font-size: 13px;height: 101px;" name="aep_description"></textarea></div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 53px;padding: 5px;"><button class="btn btn-light" type="button" data-dismiss="modal" style="font-size: 14px;">Close</button><button class="btn btn-primary" type="submit" style="font-size: 14px;">Save</button></div>

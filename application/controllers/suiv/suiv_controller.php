@@ -105,4 +105,14 @@ class Suiv_controller extends CI_Controller{
 		   redirect(base_url('suivec'));
 		}
 	}
+	public function deleteDn($id)
+	{
+		$this->suivi->deleteDn($id);
+		redirect(base_url('suivdn'));
+	}
+	public function deleteMoniteur($id)
+	{
+		$this->suivi->deleteMoniteur($id);
+		redirect(base_url('suivmn'));
+	}
 }
