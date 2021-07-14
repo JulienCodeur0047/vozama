@@ -8,6 +8,6 @@
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivel')?>" style="font-size: 13px;">Élève</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivdn')?>" style="font-size: 13px;">Detail Note</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivec')?>" style="font-size: 13px;">Ecolage</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivmn') ?>" style="font-size: 13px;">Moniteur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivmon') ?>" style="font-size: 13px;">Liste Moniteur</a></li>
                 
                 </ul>

@@ -8,4 +8,5 @@
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('vp')?>" style="font-size: 13px;">Visite de poste</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('el')?>" style="font-size: 13px;">Eleve</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('pare')?>" style="font-size: 13px;">Parent</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('suivmn') ?>" style="font-size: 13px;">Moniteur</a></li>
 				</ul>

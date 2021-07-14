@@ -76,6 +76,7 @@ $route['suiv'] = "suiv/Suiv_controller/indexel";
 $route['suivel'] = "suiv/Suiv_controller/indexel";
 $route['suivec'] = "suiv/Suiv_controller/indexec";
 $route['suivmn'] = "suiv/Suiv_controller/indexmn";
+$route['suivmon'] = "suiv/Suiv_controller/indexmoniteur";
 $route['suivdn'] = "suiv/Suiv_controller/indexdn";
 $route['suivsavemoniteur']['post'] = "suiv/Suiv_controller/saveMoniteur";
 $route['suivdeldn/(:any)'] = "suiv/Suiv_controller/deleteDn/$1";

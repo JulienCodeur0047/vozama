@@ -46,6 +46,13 @@ class Suiv_controller extends CI_Controller{
 		$this->load->view('suiv/suiv_list_moniteur',$data);    
 		$this->load->view('theme/footer');    
 	}
+	public function indexmoniteur()
+	{
+		$data['data'] = $this->suivi->getOrSearchMoniteur();
+		$this->getSession();    
+		$this->load->view('suiv/suiv_list_mn',$data);    
+		$this->load->view('theme/footer');    
+	}
 
 	public function indexdn()
 	{

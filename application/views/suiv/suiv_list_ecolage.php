@@ -8,9 +8,42 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Historique de payement d&#39;Ecolage</h1>
-            <div class="table-responsive" style="width: auto;font-size: 12px;">
-                <table class="table">
-                    <thead>
+            <div class="row">
+                <div class="col-xl-4"><label style="margin-left: 11px;font-size: 12px;color: var(--gray);">Liste d&#39;élève</label>
+                    <div class="table-responsive table-bordered" style="width: auto;font-size: 12px;margin-left: 11px;">
+                        <table class="table table-striped table-bordered table-sm">
+                            <thead style="height: 34px;">
+                                <tr style="color: var(--gray);">
+                                    <th style="width: 178px;">Nom & Prénoms</th>
+                                    <th style="width: 65px;">Classe</th>
+                                    <th style="width: 55px;height: 44px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+								<?php foreach ($eleve as $el) {?>
+                                <tr>
+                                    <td><?php echo $el->eleve_name;?> <?php echo $el->eleve_firstname;?></td>
+                                    <td><?php echo $el->eleve_classe;?></td>
+                                    <td>
+										<a class="btn btn-light" href="#" 
+										data-id="<?php echo $el->id;?>"
+										data-id="<?php echo $el->eleve_name;?>"
+										data-id="<?php echo $el->eleve_firstname;?>"
+										data-id="<?php echo $el->eleve_classe;?>"
+										data-id=""
+										data-id=""
+										type="button" style="background: #66d7d7;width: 38px;height: 21px;margin-top: 0px;padding: 0px;padding-top: 0px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;font-size: 12px;"><i class="fa fa-money" style="font-size: 12px;width: 12px;padding-bottom: 0px;height: 7px;"></i></a></td>
+                                </tr>
+								<?php }?>
+                                <tr></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-xl-8" style="padding-left: 0px;"><label style="font-size: 12px;color: var(--gray);">Liste d&#39;écolage payé</label>
+                    <div class="table-responsive table-bordered" style="width: auto;font-size: 12px;margin-right: 8px;">
+                        <table class="table table-striped table-bordered table-sm">
+						<thead>
                         <tr style="color: var(--gray);">
                             <th style="width: 178px;">Nom Prénoms</th>
                             <th style="width: 104px;">Mois</th>
@@ -34,8 +67,10 @@
                         </tr>
                         <?php }?>
                         <tr></tr>
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
