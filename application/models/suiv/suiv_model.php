@@ -135,13 +135,25 @@ class Suiv_model extends CI_Model{
 			'eco_montant' => $this->input->post('eco_montant'),
 			'eco_libelle_type' => $this->input->post('eco_libelle_type'),
 			'eco_observation' => $this->input->post('eco_observation'),
+
+			'eco_poste' => $this->input->post('eco_poste'),
+			'poste_id' => $this->input->post('poste_id'),
+			'eco_annee' => $this->input->post('eco_annee'),
+			'eco_date' => $this->input->post('eco_date'),
+			'eco_el_classe' => $this->input->post('eco_el_classe'),
+
+
 		);
-		if (!empty($id)) {
-			$this->db->where('id',$id);
-			return $this->db->update('ecolage',$data);
-		}else{
+
+		if(!empty($this->checkEcolage($idEleve,
+		$this->input->post('eco_mois'),
+		$this->input->post('eco_annee')))){
+			return "Existe";
+		}else {
 			return $this->db->insert('ecolage', $data);
 		}
+			
+		
 	}
 	public function saveOrUpdateMoniteur()
 	{
@@ -171,6 +183,14 @@ class Suiv_model extends CI_Model{
 	}
 	public function deleteMoniteur($id){
 		return $this->db->delete('moniteur', array('id' => $id));
+	}
+	public function checkEcolage($idEl, $mois, $annee)
+	{
+		$this->db->where('eleve_id',$idEl);
+		$this->db->where('eco_mois',$mois);
+		$this->db->where('eco_annee',$annee);
+		$query = $this->db->get('ecolage');
+		return $query->result();
 	}
 }
 ?>

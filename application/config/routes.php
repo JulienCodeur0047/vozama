@@ -103,6 +103,7 @@ $route['printparent']['post'] = "parent/Parent_controller/printParent";
 $route['paredelete/(:any)'] = "parent/Parent_controller/deleteparent/$1";
 #suivi
 $route['savenote']['post'] = "suiv/Suiv_controller/saveNote";
+$route['saveeco']['post'] = "suiv/Suiv_controller/saveEcolage";
 $route['getnote/(:any)'] = "suiv/Suiv_controller/getNoteEleve/$1";
 
 #palnning
