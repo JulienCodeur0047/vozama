@@ -148,9 +148,9 @@ class Suiv_model extends CI_Model{
 		if(!empty($this->checkEcolage($idEleve,
 		$this->input->post('eco_mois'),
 		$this->input->post('eco_annee')))){
-			return "Existe";
+			return "Ecolage mois de ". $this->input->post('eco_mois') ." ".$this->input->post('eco_annee') ." pour l'eleve selectionner est deja payer";
 		}else {
-			return $this->db->insert('ecolage', $data);
+			$this->db->insert('ecolage', $data);
 		}
 			
 		

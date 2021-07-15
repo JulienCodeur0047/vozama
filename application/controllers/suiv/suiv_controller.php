@@ -106,18 +106,14 @@ class Suiv_controller extends CI_Controller{
 
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
-			//print "<script>confirm('Ajout Error');</script>";
-			$message = "erreur";
+			$message = "Veuillez saisir le Type d'ecolage";
 			$success = " <script type=\"text/javascript\">document.location = \" ".base_url('suivec')."?message=".$message."&class=warning\";</script>";
 			print $success;
-			//redirect(base_url('suivec'));
 		}else{
 			$msg = $this->suivi->saveOrUpdateEcolage();
 			$message = $msg;
 			$success = " <script type=\"text/javascript\">document.location = \" ".base_url('suivec')."?message=".$message."&class=success\";</script>";
 			print $success;
-		  // echo "<script>alert('Ajout Reussit');</script>";
-		   //redirect(base_url('suivec'));
 		}
 	}
 	public function deleteDn($id)

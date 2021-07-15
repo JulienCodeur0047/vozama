@@ -50,12 +50,12 @@
                         <?php $class = isset($_GET['class']) ? $_GET['class'] : "success";?>
                         <div class="alert alert-block alert-<?php echo $class; ?>">
                             <button type="button" class="close" data-dismiss="alert">
-							<a href="<?php echo base_url('suivec')?>"><i class="fa fa-close"></i></a>
+							<a href="<?php echo base_url('suivec')?>" type="button"><i style="font-size: 13px;" class="fa fa-close"></i></a>
                             </button>
 
                             <i class="icon-ok red"></i>
 
-                            <strong class="red">
+                            <strong class="red" style="font-size: 12px;">
                                 <?php echo $message = $_GET['message']; ?>
                             </strong>
                         </div>
