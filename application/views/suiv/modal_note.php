@@ -11,7 +11,7 @@
                     <div class="col">
                         <input type="hidden" name="eleve_id" class="eleve_id"/>
 						<input type="hidden" name="poste_id" class="poste_id"/>
-						<input type="hidden" name="eleve_poste" class="eleve_poste"/>
+						<input type="hidden" name="note_poste" class="eleve_poste"/>
                         <input type="text" class="note_eleve" name="note_eleve" style="font-size: 12px;width: 193px;border-width: 0px;" readonly /><label style="font-size: 12px;margin-left: 20px;">Classe: </label>
                         <input type="text" class="note_eleve_classe" name="note_eleve_classe" style="font-size: 12px;width: 57px;border-width: 0px;" readonly />
                         </div>

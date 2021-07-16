@@ -9,6 +9,8 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Moniteur</h1>
+			<a class="btn btn-light action-button" role="button" href="#filtermn" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 4px;"><i class="fa fa-filter" style="font-size: 13px;"></i>  Filtre</a>
+	<a class="btn btn-light action-button" role="button" href="<?php echo base_url('suivmon');?>" style="margin-top: 2px;background: var(--teal);font-size: 12px;border-radius: 4px;"><i class="fa fa-refresh" style="font-size: 13px;"></i></a></h1> 
             <div class="table-responsive" style="width: auto;font-size: 12px;">
                 <table class="table">
                     <thead>
@@ -37,5 +39,6 @@
         </div>
     </div>
 </section>
+<?php $this->load->view('suiv/modal_filter_mn')?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>

@@ -27,6 +27,8 @@ class Suiv_model extends CI_Model{
 			'note_eleve_classe' => $this->input->post('note_eleve_classe'),
 			'note_trimestre' => $this->input->post('note_trimestre'),
 			'note_trimestre_annee' => $this->input->post('note_trimestre_annee'),
+			'poste_id' => $this->input->post('poste_id'),
+			'note_poste' => $this->input->post('note_poste'),
 			//TRIMESTRE
 			'note_mat1' => $this->input->post('note_mat1'),
 			'note_mat2' => $this->input->post('note_mat2'),
@@ -89,6 +91,9 @@ class Suiv_model extends CI_Model{
 			$this->db->or_like('moniteur_firstname', $this->input->get("search")); 
 			$this->db->or_like('moniteur_poste', $this->input->get("search")); 
 		  }
+		  if( !empty($this->input->post("poste_id")) ){
+			$this->db->where('poste_id',$this->input->post("poste_id"));
+		}
 		  $query = $this->db->get("moniteur");
 		  return $query->result();
 	}

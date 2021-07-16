@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 15 juil. 2021 à 17:34
+-- Généré le : ven. 16 juil. 2021 à 14:04
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -249,10 +249,10 @@ CREATE TABLE IF NOT EXISTS `ecolage` (
   `eco_observation` varchar(300) DEFAULT NULL,
   `eco_el_nom` varchar(100) DEFAULT NULL,
   `eco_el_prenoms` varchar(100) DEFAULT NULL,
+  `eco_annee` int(10) DEFAULT NULL,
   `poste_id` int(10) DEFAULT NULL,
   `eco_poste` varchar(150) DEFAULT NULL,
-  `eco_annee` int(10) DEFAULT NULL,
-  `eco_el_classe` varchar(150) DEFAULT NULL,
+  `eco_el_classe` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -494,6 +494,8 @@ CREATE TABLE IF NOT EXISTS `note_eleve` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `eleve_id` int(10) DEFAULT NULL,
   `note_eleve` varchar(300) DEFAULT NULL,
+  `poste_id` int(10) DEFAULT NULL,
+  `note_poste` varchar(150) DEFAULT NULL,
   `note_eleve_classe` varchar(100) DEFAULT NULL,
   `note_trimestre` int(10) DEFAULT NULL,
   `note_trimestre_annee` int(10) DEFAULT NULL,
