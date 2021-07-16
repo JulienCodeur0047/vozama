@@ -1,6 +1,4 @@
-
 <?php $this->load->view('theme/header_suivi'); ?>
-
                 <form class="form-inline mr-auto" target="_self">
                     <div class="form-group"><label for="search-field"><i class="fa fa-search" style="margin-left: 18px;"></i></label><input type="search" class="form-control search-field" id="search-field" name="search" style="width: 309px;margin-left: 9px;background: rgb(255,255,255);border-radius: 1px;font-size: 13px;color: rgb(51,51,51);border-width: 1px;border-color: #cccccc;" placeholder="Recherche" /></div>
                 </form><a class="btn btn-light action-button" role="button" href="#" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 0px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;"><i class="fa fa-print" style="font-size: 14px;"></i></a>
@@ -46,21 +44,15 @@
                     <div class="table-responsive table-bordered" style="width: auto;font-size: 12px;margin-right: 8px;">
 					<?php
                 if(isset($_GET['message']) && !empty($_GET['message'])): ?>
-                 
                         <?php $class = isset($_GET['class']) ? $_GET['class'] : "success";?>
                         <div class="alert alert-block alert-<?php echo $class; ?>">
-                            <button type="button" class="close" data-dismiss="alert">
-							<a href="<?php echo base_url('suivec')?>" type="button"><i style="font-size: 13px;" class="fa fa-close"></i></a>
-                            </button>
-
-                            <i class="icon-ok red"></i>
-
+							<a href="<?php echo base_url('suivec')?>" type="button" class="close">
+							<i style="font-size: 18px; margin-bottom: 12px;" class="fa fa-close"></i>
+							</a>
                             <strong class="red" style="font-size: 12px;">
                                 <?php echo $message = $_GET['message']; ?>
-                            </strong>
+                            </strong> 
                         </div>
-					
-
                 <?php endif; ?>
                         <table class="table table-striped table-bordered table-sm">
 						<thead>
@@ -101,6 +93,12 @@
 <script>
     $(document).ready(function(){
 
+		$('#payecolage').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
         // get Edit Product
         $('.btn-edit').on('click',function(){
             // get data from button edit

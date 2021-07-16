@@ -8,6 +8,8 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
     <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
     <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Élève / Note</h1>
+	<a class="btn btn-light action-button" role="button" href="#filterelnote" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 4px;"><i class="fa fa-filter" style="font-size: 13px;"></i>  Filtre</a>
+	<a class="btn btn-light action-button" role="button" href="<?php echo base_url('suivel');?>" style="margin-top: 2px;background: var(--teal);font-size: 12px;border-radius: 4px;"><i class="fa fa-refresh" style="font-size: 13px;"></i></a></h1> 
     <div class="table-responsive table-bordered" style="font-size: 11px;">
         <table class="table table-striped table-bordered table-sm">
             <thead>
@@ -47,12 +49,19 @@
     </div>
 </section>
 <?php $this->load->view('suiv/modal_note')?>
+<?php $this->load->view('suiv/modal_filter_eleve_note')?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script>
     $(document).ready(function(){
 
 		$('#note').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
+		$('#filterelnote').on('hidden.bs.modal', function (e) {
   		$(this)
     	.find("input,textarea,select")
        	.val('')

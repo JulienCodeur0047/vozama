@@ -16,7 +16,6 @@
                     <thead>
                         <tr style="color: var(--gray);">
                             <th style="width: 143px;">Matricule</th>
-                            <th style="width: 223px;">Secteur</th>
                             <th style="width: 223px;">Poste</th>
                             <th style="width: 188px;">Nom</th>
                             <th style="width: 232px;">Prénoms</th>
@@ -30,7 +29,6 @@
 					<?php foreach ($data as $eleve) { ?>
                         <tr>
                             <td><?php echo $eleve->eleve_matricule; ?></td>
-                            <td><?php echo $eleve->eleve_secteur; ?></td>
                             <td><?php echo $eleve->eleve_poste; ?></td>
                             <td><?php echo $eleve->eleve_name; ?></td>
                             <td><?php echo $eleve->eleve_firstname; ?></td>

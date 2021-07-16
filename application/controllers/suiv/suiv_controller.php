@@ -26,6 +26,7 @@ class Suiv_controller extends CI_Controller{
 	public function indexel()
 	{
 		$data['eleve'] = $this->eleve->getEleveOrSearchFilter();
+		$data['poste'] = $this->poste->getAllPoste();
 		$this->getSession();        
 		$this->load->view('suiv/suiv_list_el_note',$data);    
 		$this->load->view('theme/footer');    
