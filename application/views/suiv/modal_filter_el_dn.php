@@ -15,7 +15,7 @@
 						<?php }?>
                     </optgroup>
                 </select><label style="margin-bottom: 1px;margin-top: 5px;">Classe</label>
-				<select style="width: 261px;height: 27px;" name="eleve_classe">
+				<select style="width: 261px;height: 27px;" name="note_eleve_classe">
                     <optgroup label="Classe">
                         <option value selected>Select.classe</option>
                         <option value="T0">T0</option>
@@ -23,7 +23,7 @@
                     </optgroup>
                 </select>
 				<label style="margin-bottom: 1px;margin-top: 5px;">Trimestre</label>
-				<select style="width: 261px;height: 27px;">
+				<select style="width: 261px;height: 27px;" name="note_trimestre">
                     <optgroup label="This is a group">
                         <option value selected>Select. Trimestre</option>
                         <option value="1">Trimestre 1</option>

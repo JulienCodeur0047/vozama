@@ -35,6 +35,7 @@ class Suiv_controller extends CI_Controller{
 	{
 		$data['data'] = $this->suivi->getOrSearchEcolage();
 		$data['eleve'] = $this->suivi->getSearchEleve();
+		$data['poste'] = $this->poste->getAllPoste();
 		$this->getSession();        
 		$this->load->view('suiv/suiv_list_ecolage',$data);    
 		$this->load->view('theme/footer');    
@@ -58,6 +59,7 @@ class Suiv_controller extends CI_Controller{
 	public function indexdn()
 	{
 		$data['data'] = $this->suivi->getOrSearchNote();
+		$data['poste'] = $this->poste->getAllPoste();
 		$this->getSession();    
 		$this->load->view('suiv/suiv_list_detail_note',$data);    
 		$this->load->view('theme/footer'); 

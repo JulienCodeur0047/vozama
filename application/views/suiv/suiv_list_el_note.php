@@ -39,6 +39,10 @@
                     data-eleve_name="<?php echo $el->eleve_name?>"
                     data-eleve_firstname="<?php echo $el->eleve_firstname?>"
                     data-note_eleve_classe="<?php echo $el->eleve_classe?>"
+
+                    data-poste_id="<?php echo $el->poste_id?>"
+                    data-eleve_poste="<?php echo $el->eleve_poste?>"
+
                     type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px;">note</a></td>
                 </tr>
                 <?php }?>
@@ -74,12 +78,16 @@
             const eleve_name = $(this).data('eleve_name');
             const eleve_firstname = $(this).data('eleve_firstname');
             const note_eleve_classe = $(this).data('note_eleve_classe');
+            const poste_id = $(this).data('poste_id');
+            const eleve_poste = $(this).data('eleve_poste');
 
             // Set data to Form Edit
             $('.eleve_id').val(eleve_id);
             $('.note_eleve').val(eleve_name+" " +eleve_firstname);
             $('.note_eleve_classe').val(note_eleve_classe);
             $('.note').val(note);
+            $('.poste_id').val(poste_id);
+            $('.eleve_poste').val(eleve_poste);
             // Call Modal Edit
             $('#note').modal('show');
         });

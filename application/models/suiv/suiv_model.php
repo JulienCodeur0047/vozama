@@ -53,10 +53,13 @@ class Suiv_model extends CI_Model{
 			$this->db->or_like('note_trimestre_annee', $this->input->get("search")); 
 		  }
 		if( !empty($this->input->post("poste_id")) ){
-			$this->db->where($this->input->post("poste_id"));
+			$this->db->where('poste_id',$this->input->post("poste_id"));
 		}
-		if( !empty($this->input->post("eleve_classe")) ){
-			$this->db->where($this->input->post("eleve_classe"));
+		if( !empty($this->input->post("note_eleve_classe")) ){
+			$this->db->where('note_eleve_classe',$this->input->post("eleve_classe"));
+		}
+		if( !empty($this->input->post("note_trimestre")) ){
+			$this->db->where('note_trimestre',$this->input->post("note_trimestre"));
 		}
 		  $query = $this->db->get("note_eleve");
 		  return $query->result();
@@ -69,6 +72,12 @@ class Suiv_model extends CI_Model{
 			$this->db->or_like('eco_mois', $this->input->get("search")); 
 			$this->db->or_like('eco_type', $this->input->get("search")); 
 		  }
+		if( !empty($this->input->post("poste_id")) ){
+			$this->db->where('poste_id',$this->input->post("poste_id"));
+		}
+		if( !empty($this->input->post("eleve_classe")) ){
+			$this->db->where('eco_el_classe',$this->input->post("eleve_classe"));
+		}
 		  $query = $this->db->get("ecolage");
 		  return $query->result();
 	}
@@ -90,10 +99,10 @@ class Suiv_model extends CI_Model{
 			$this->db->or_like('eleve_firstname', $this->input->get("search")); 
 		  }
 	if( !empty($this->input->post("poste_id")) ){
-		$this->db->where($this->input->post("poste_id"));
+		$this->db->where('poste_id',$this->input->post("poste_id"));
 	}
 	if( !empty($this->input->post("eleve_classe")) ){
-		$this->db->where($this->input->post("eleve_classe"));
+		$this->db->where('eleve_classe',$this->input->post("eleve_classe"));
 	}
 		  $query = $this->db->get("eleve");
 		  	return $query->result();
