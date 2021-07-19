@@ -43,7 +43,12 @@
                     data-poste_id="<?php echo $el->poste_id?>"
                     data-eleve_poste="<?php echo $el->eleve_poste?>"
 
-                    type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px;">note</a></td>
+                    type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px;">note</a>
+                    <a class="btn btn-light btn-sm" 
+                    onclick="return confirm('Voulez-vous Reinitialiser la note de <?php echo $el->eleve_name?> <?php echo $el->eleve_name?> en cours \n pour une nouvelle enregistrement scolaire ? \n NB : Noter que les notes sont déjà enregistrés dans le détail')"
+					href="<?php echo base_url('suivresetnote/'.$el->id)?>" 
+                      
+                    type="button" style="font-size: 12px;height: 23px;padding-top: 0px;padding-right: 2px;padding-bottom: 4px;padding-left: 2px; background-color: var(--teal);">reinit. 0</a></td>
                 </tr>
                 <?php }?>
             </tbody>

@@ -143,8 +143,15 @@ class Suiv_model extends CI_Model{
 		$this->db->where('id',$id);
 		return $this->db->update('eleve',$data);
 	}
-	public function saveElNote()
+	public function resetElNote($id)
 	{
+		$data = array(
+			'eleve_m1' => NULL,
+			'eleve_m2' => NULL,
+			'eleve_m3' => NULL,
+			'eleve_mg' => NULL);
+			$this->db->where('id',$id);
+			return $this->db->update('eleve',$data);
 		
 	}
 	public function saveOrUpdateEcolage()
@@ -218,5 +225,9 @@ class Suiv_model extends CI_Model{
 		$query = $this->db->get('ecolage');
 		return $query->result();
 	}
+
+	public function deleteEcolage($id){
+		return $this->db->delete('ecolage', array('id' => $id));
+	  }
 }
 ?>

@@ -81,8 +81,7 @@ $route['suivdn'] = "suiv/Suiv_controller/indexdn";
 $route['suivsavemoniteur']['post'] = "suiv/Suiv_controller/saveMoniteur";
 $route['suivdeldn/(:any)'] = "suiv/Suiv_controller/deleteDn/$1";
 $route['suivdelmn/(:any)'] = "suiv/Suiv_controller/deleteMoniteur/$1";
-
-
+$route['suivresetnote/(:any)'] = "suiv/Suiv_controller/resetNote/$1";
 
 $route['com'] = "com/Com_controller/indexparr";
 $route['comsaveparr']['post'] = "com/Com_controller/saveparr";

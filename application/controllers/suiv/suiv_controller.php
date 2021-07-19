@@ -130,4 +130,9 @@ class Suiv_controller extends CI_Controller{
 		$this->suivi->deleteMoniteur($id);
 		redirect(base_url('suivmn'));
 	}
+	public function resetNote($id)
+	{
+		$this->suivi->resetElNote($id);
+		redirect(base_url('suivel'));
+	}
 }
