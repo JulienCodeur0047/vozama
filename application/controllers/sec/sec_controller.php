@@ -13,7 +13,6 @@ class Sec_controller extends CI_Controller{
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('com/Com_model','com');
 		$this->load->model('sec/Sec_model','sec');
-
 	}
     public function indexvst()
     {
