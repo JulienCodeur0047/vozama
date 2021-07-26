@@ -70,7 +70,7 @@
                 <option value="<?php echo $fkt->fkt_name; ?>"><?php echo $fkt->fkt_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="Quartier" name="poste_quartier" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_district">
+        </select><input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="Zap" name="poste_quartier" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_district">
             <optgroup label="District">
                 <option value="<?php echo $poste->poste_district; ?>" selected><?php echo $poste->poste_district; ?><?php echo ($poste->poste_district=="" ? "Selec. District" : '');?></option>
 				<?php foreach($district as $district){ ?>
@@ -102,13 +102,6 @@
                                 <option value="<?php echo $poste->poste_pere; ?>" selected><?php echo $poste->poste_pere; ?><?php echo ($poste->poste_pere=="" ? "Selec. Pere" : '');?></option>
                                 <?php foreach($pere as $pere){ ?>
                 				<option value="<?php echo $pere->pere_name; ?>"><?php echo $pere->pere_name; ?></option>
-								<?php } ?>
-                            </optgroup>
-                        </select><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_sous_pref">
-                            <optgroup label="Sous prefecture">
-                                <option value="<?php echo $poste->poste_sous_pref; ?>" selected><?php echo $poste->poste_sous_pref; ?><?php echo ($poste->poste_sous_pref=="" ? "Selec. Sous Prefecture" : '');?></option>
-                                <?php foreach($sous_pref as $sous_pref){ ?>
-                				<option value="<?php echo $psous_pref->sous_pref_name; ?>"><?php echo $psous_pref->sous_pref_name; ?></option>
 								<?php } ?>
                             </optgroup>
                         </select></div>
@@ -175,8 +168,8 @@
 			<?php } ?>
         </optgroup>
     </select><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_inspecteur_name">
-        <optgroup label="Inspecteur">
-            <option value="<?php echo $poste->poste_inspecteur_name; ?>" selected><?php echo $poste->poste_inspecteur_name; ?><?php echo ($poste->poste_inspecteur_name=="" ? "Selec. Inspecteur" : '');?></option>
+        <optgroup label="Annimateur">
+            <option value="<?php echo $poste->poste_inspecteur_name; ?>" selected><?php echo $poste->poste_inspecteur_name; ?><?php echo ($poste->poste_inspecteur_name=="" ? "Selec. Annimateur" : '');?></option>
 			<?php foreach($inspecteur as $insp){ ?>
             <option value="<?php echo $insp->insp_name." ".$insp->insp_firstname; ?>"><?php echo $insp->insp_matricule."| ".$insp->insp_name." ".$insp->insp_firstname ?></option>
 			<?php } ?>
@@ -219,6 +212,20 @@
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Eponge</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_eponge" value="oui" <?php echo ($poste->poste_eponge=="oui" ? 'checked' : '');?>/></td>
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Sceaux</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_sceau" value="oui" <?php echo ($poste->poste_sceau=="oui" ? 'checked' : '');?>/></td>
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Zinga</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_calebasse" value="oui" <?php echo ($poste->poste_calebasse=="oui" ? 'checked' : '');?>/></td>
+                                    </tr>
+									<tr>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Règle</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_regle" value="oui" <?php echo ($poste->poste_regle=="oui" ? 'checked' : '');?>/></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Cahier<br /></label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_cahier" value="oui" <?php echo ($poste->poste_cahier=="oui" ? 'checked' : '');?> /></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Téléphone</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_telephone" value="oui" <?php echo ($poste->poste_telephone=="oui" ? 'checked' : '');?>/></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Radio</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_radio" value="oui" <?php echo ($poste->poste_radio=="oui" ? 'checked' : '');?>/></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Drapeau</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_drapeau" value="oui" <?php echo ($poste->poste_drapeau=="oui" ? 'checked' : '');?>/></td>
+                                    </tr>
+									<tr>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Règle</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_regle" value="oui" <?php echo ($poste->poste_regle=="oui" ? 'checked' : '');?>/></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
                                     </tr>
                                 </tbody>
                             </table>

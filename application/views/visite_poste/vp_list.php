@@ -15,7 +15,7 @@
                             <th style="width: 143px;">Numéro</th>
                             <th style="width: 223px;">Poste</th>
                             <th style="width: 188px;">Moniteur</th>
-                            <th style="width: 232px;">Inspecteur</th>
+                            <th style="width: 232px;">Annimateur</th>
                             <th style="width: 205px;">Date</th>
                             <th style="width: 137px;">Heure</th>
                             <th style="width: 204px;">Action</th>

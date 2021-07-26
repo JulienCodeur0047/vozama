@@ -21,6 +21,8 @@
                             <th style="width: 232px;">Prénoms</th>
                             <th style="width: 205px;">Age</th>
                             <th style="width: 137px;">Classe</th>
+                            <th style="width: 137px;">Situation</th>
+                            <th style="width: 137px;">N Copie</th>
                             <th style="width: 137px;">Sexe</th>
                             <th style="width: 204px;">Action</th>
                         </tr>
@@ -34,6 +36,8 @@
                             <td><?php echo $eleve->eleve_firstname; ?></td>
                             <td><?php echo $eleve->eleve_age; ?></td>
                             <td><?php echo $eleve->eleve_classe; ?></td>
+                            <td><?php echo $eleve->eleve_situation; ?></td>
+                            <td><?php echo $eleve->eleve_num_copie; ?></td>
                             <td><?php echo $eleve->eleve_sexe; ?></td>
                             <td style="font-size: 12px;">
                             

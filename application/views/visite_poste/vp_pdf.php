@@ -82,7 +82,7 @@ visite de poste </span></b></p>
   <td width=101 valign=top style='width:75.5pt;border:solid windowtext 1.0pt;
   border-left:none;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt'>
   <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-  normal'><b>Inspecteur</b></p>
+  normal'><b>Annimateur</b></p>
   </td>
   <td width=101 valign=top style='width:75.55pt;border:solid windowtext 1.0pt;
   border-left:none;background:#F2F2F2;padding:0cm 5.4pt 0cm 5.4pt'>

@@ -201,6 +201,16 @@ class Suiv_model extends CI_Model{
 			'moniteur_profession' => $this->input->post('moniteur_profession'),
 			'moniteur_date_entre_voz' => $this->input->post('moniteur_date_entre_voz'),
 			'moniteur_date_nais' => $this->input->post('moniteur_date_nais'),
+			'moniteur_tel' => $this->input->post('moniteur_tel'),
+			'moniteur_cin' => $this->input->post('moniteur_cin'),
+			'moniteur_date_liv_cin' => $this->input->post('moniteur_date_liv_cin'),
+			'moniteur_lieu_deliv_cin' => $this->input->post('moniteur_lieu_deliv_cin'),
+			'moniteur_nbr_enfant' => $this->input->post('moniteur_nbr_enfant'),
+			'moniteur_nbr_charge' => $this->input->post('moniteur_nbr_charge'),
+			'moniteur_nv_etude' => $this->input->post('moniteur_nv_etude'),
+			'moniteur_diplome' => $this->input->post('moniteur_diplome'),
+			'moniteur_lieu_etude' => $this->input->post('moniteur_lieu_etude'),
+			'moniteur_resource' => $this->input->post('moniteur_resource'),
 			'poste_id' => $this->input->post('poste_id'),
 			'moniteur_poste' => $this->poste->findPoste($this->input->post('poste_id'))->poste_name, //xx
 		);

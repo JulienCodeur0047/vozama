@@ -161,6 +161,15 @@ class Poste_model extends CI_Model{
             'poste_eponge' => $this->input->post('poste_eponge'),
             'poste_sceau' => $this->input->post('poste_sceau'),
             'poste_calebasse' => $this->input->post('poste_calebasse'),
+
+            'poste_regle' => $this->input->post('poste_regle'),
+            'poste_cahier' => $this->input->post('poste_cahier'),
+            'poste_telephone' => $this->input->post('poste_telephone'),
+            'poste_radio' => $this->input->post('poste_radio'),
+            'poste_radio' => $this->input->post('poste_radio'),
+            'poste_drapeau' => $this->input->post('poste_drapeau'),
+            'poste_logo' => $this->input->post('poste_logo'),
+
             'poste_zone' => $this->input->post('poste_zone'),
         );
 		if($id==0){
@@ -390,6 +399,15 @@ class Poste_model extends CI_Model{
             'poste_eponge' => $this->input->post('poste_eponge'),
             'poste_sceau' => $this->input->post('poste_sceau'),
             'poste_calebasse' => $this->input->post('poste_calebasse'),
+
+			'poste_regle' => $this->input->post('poste_regle'),
+            'poste_cahier' => $this->input->post('poste_cahier'),
+            'poste_telephone' => $this->input->post('poste_telephone'),
+            'poste_radio' => $this->input->post('poste_radio'),
+            'poste_radio' => $this->input->post('poste_radio'),
+            'poste_drapeau' => $this->input->post('poste_drapeau'),
+            'poste_logo' => $this->input->post('poste_logo'),
+			
             'poste_zone' => $this->input->post('poste_zone')
         );
         return $this->db->insert('poste', $data);

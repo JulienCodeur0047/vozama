@@ -76,7 +76,7 @@
 				<?php } ?>
             </optgroup>
         </select><a href="#newfkt" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
-        <input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="Quartier" name="poste_quartier" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_district">
+        <input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="ZAP" name="poste_quartier" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_district">
             <optgroup label="District">
                 <option value="" selected>Selec. Disctrict</option>
 				<?php foreach($district as $district){ ?>
@@ -113,14 +113,7 @@
                 				<option value="<?php echo $pere->pere_name; ?>"><?php echo $pere->pere_name; ?></option>
 								<?php } ?>
                             </optgroup>
-                        </select><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_sous_pref">
-                            <optgroup label="Sous prefecture">
-                                <option value="" selected>Selec. Sous prefecture</option>
-                                <?php foreach($sous_pref as $sous_pref){ ?>
-                				<option value="<?php echo $sous_pref->sous_pref_name; ?>"><?php echo $sous_pref->sous_pref_name; ?></option>
-								<?php } ?>
-                            </optgroup>
-                        </select><a href="#newpref" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+                        </select>
                     </div>
                     <div style="text-align: center;margin-top: 14px;"><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_prox_epp">
                             <optgroup label="Proximité EPP">
@@ -186,8 +179,8 @@
 			<?php } ?>
         </optgroup>
     </select><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_inspecteur_name">
-        <optgroup label="Inspecteur">
-            <option value selected>Selec. Inspecteur</option>
+        <optgroup label="Annimateur">
+            <option value selected>Selec. Annimateur</option>
 			<?php foreach($inspecteur as $insp){ ?>
             <option value="<?php echo $insp->insp_name." ".$insp->insp_firstname; ?>"><?php echo $insp->insp_matricule."| ".$insp->insp_name." ".$insp->insp_firstname ?></option>
 			<?php } ?>
@@ -231,6 +224,20 @@
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Eponge</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_eponge" value="oui"/></td>
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Sceaux</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_sceau" value="oui" /></td>
                                         <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Zinga</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_calebasse" value="oui" /></td>
+                                    </tr>
+									<tr>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Règle</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_regle" value="oui" /></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Cahier<br /></label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_cahier" value="oui" /></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Téléphone</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_telephone" value="oui"/></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Radio</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_radio" value="oui" /></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Drapeau</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_drapeau" value="oui" /></td>
+                                    </tr>
+									<tr>
+                                        <td style="margin-right: 0px;padding-right: 62px;"><label style="margin-bottom: 0px;margin-top: 0px;padding-bottom: 0px;padding-top: 0px;">Logo</label><input type="checkbox" style="margin-left: 5px;height: 12px;margin-top: -1px;padding-top: 0px;padding-right: 0px;margin-right: 15px;" name="poste_logo" value="oui" /></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
+                                        <td style="margin-right: 0px;padding-right: 62px;"></td>
                                     </tr>
                                 </tbody>
                             </table>

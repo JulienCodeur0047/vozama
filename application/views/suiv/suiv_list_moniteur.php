@@ -8,6 +8,8 @@
     <div class="card" style="border-radius: 0px;margin-bottom: 22px;border-width: 0px;">
         <div class="card-body" style="margin-top: 0px;margin-bottom: 3px;">
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Moniteur</h1>
+			<a class="btn btn-light action-button" role="button" href="#filtermn" data-toggle="modal" style="margin-top: 2px;background: var(--gray);font-size: 12px;border-radius: 4px;"><i class="fa fa-filter" style="font-size: 13px;"></i>  Filtre</a>
+			<a class="btn btn-light action-button" role="button" href="<?php echo base_url('suivmn');?>" style="margin-top: 2px;background: var(--teal);font-size: 12px;border-radius: 4px;"><i class="fa fa-refresh" style="font-size: 13px;"></i></a></h1> 
             <div class="table-responsive" style="width: auto;font-size: 12px;">
                 <table class="table">
                     <thead>
@@ -15,6 +17,9 @@
                             <th style="width: 59px;">Matricule</th>
                             <th style="width: 178px;">Nom & Prénoms</th>
                             <th style="width: 104px;">Poste</th>
+                            <th style="width: 104px;">Téléphone</th>
+                            <th style="width: 104px;">CIN</th>
+                            <th style="width: 104px;">Nbr Enfant</th>
                             <th style="width: 105px;height: 44px;">Date entré</th>
                             <th style="width: 73px;"></th>
                         </tr>
@@ -25,6 +30,9 @@
                             <td><?php echo $moniteur->moniteur_matricule;?></td>
                             <td><?php echo $moniteur->moniteur_name;?> <?php echo $moniteur->moniteur_firstname;?></td>
                             <td><?php echo $moniteur->moniteur_poste;?></td>
+                            <td><?php echo $moniteur->moniteur_tel;?></td>
+                            <td><?php echo $moniteur->moniteur_cin;?></td>
+                            <td><?php echo $moniteur->moniteur_nbr_enfant;?></td>
                             <td><?php echo $moniteur->moniteur_date_entre_voz;?></td>
                             <td style="font-size: 12px;width: 30px;">
 							<a class="btn btn-light btn-edit" type="button" 
@@ -38,6 +46,9 @@
 							data-moniteur_date_nais="<?php echo $moniteur->moniteur_date_nais;?>"
 							data-moniteur_religion="<?php echo $moniteur->moniteur_religion;?>"
 							data-moniteur_profession="<?php echo $moniteur->moniteur_profession;?>"
+							data-moniteur_tel="<?php echo $moniteur->moniteur_tel;?>"
+							data-moniteur_cin="<?php echo $moniteur->moniteur_cin;?>"
+							data-moniteur_nbr_enfant="<?php echo $moniteur->moniteur_nbr_enfant;?>"
 							data-poste_id="<?php echo $moniteur->poste_id;?>"
 							style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
 							<a class="btn btn-light"
@@ -56,9 +67,16 @@
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <?php $this->load->view('suiv/modal_create_moniteur');?>
+<?php $this->load->view('suiv/modal_filter_mn');?>
 <script>
     $(document).ready(function(){
 
+		$('#filtermn').on('hidden.bs.modal', function (e) {
+  		$(this)
+    	.find("input,textarea,select")
+       	.val('')
+       	.end()
+		});
 		$('#newmoniteur').on('hidden.bs.modal', function (e) {
   		$(this)
     	.find("input,textarea,select")
@@ -79,6 +97,9 @@
             const moniteur_profession = $(this).data('moniteur_profession');
             const poste_id = $(this).data('poste_id');
             const moniteur_etat = $(this).data('moniteur_etat');
+            const moniteur_tel = $(this).data('moniteur_tel');
+            const moniteur_cin = $(this).data('moniteur_cin');
+            const moniteur_nbr_enfant = $(this).data('moniteur_nbr_enfant');
             // Set data to Form Edit
             $('.id').val(id);
             $('.moniteur_name').val(moniteur_name);
@@ -91,6 +112,10 @@
             $('.moniteur_profession').val(moniteur_profession);
             $('.poste_id').val(poste_id).trigger('change');
             $('.moniteur_etat').val(moniteur_etat).trigger('change');
+            $('.moniteur_tel').val(moniteur_tel);
+            $('.moniteur_cin').val(moniteur_cin);
+            $('.moniteur_nbr_enfant').val(moniteur_nbr_enfant);
+
             // Call Modal Edit
             $('#newmoniteur').modal('show');
         });

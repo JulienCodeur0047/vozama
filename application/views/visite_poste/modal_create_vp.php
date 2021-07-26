@@ -36,9 +36,9 @@
                                 <div class="col-xl-4"><label style="font-size: 10px;margin-bottom: 0px;margin-left: 4px;">Evaluation moniteur</label><input type="text" class="form-control" style="font-size: 12px;width: 100px;" placeholder="Evaluation" name="vp_eval_moniteur" /></div>
                             </div>
                             <div class="form-row">
-                                <div class="col"><label style="font-size: 10px;margin-bottom: 0px;margin-left: 4px;">Inspecteur</label><select class="form-control" style="font-size: 12px;" name="inspecteur_id">
-                                        <optgroup label="Inspecteur">
-                                            <option value selected>Selec. Inspecteur</option>
+                                <div class="col"><label style="font-size: 10px;margin-bottom: 0px;margin-left: 4px;">Annimateur</label><select class="form-control" style="font-size: 12px;" name="inspecteur_id">
+                                        <optgroup label="Annimateur">
+                                            <option value selected>Selec. Annimateur</option>
 											<?php foreach ($inspecteur as $inspecteur) { ?>
 											<option value="<?php echo $inspecteur->id; ?>"><?php echo $inspecteur->insp_name.' '.$inspecteur->insp_firstname; ?></option>
 											<?php }?>

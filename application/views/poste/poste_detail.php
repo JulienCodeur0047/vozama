@@ -53,19 +53,17 @@
                     <tr>
                         <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Fokotany: </strong></td>
                         <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_fkt;?></td>
-                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Quartier: </strong></td>
+                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Zap: </strong></td>
                         <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_quartier;?></td>
                     </tr>
                     <tr>
-                        <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Sous préfecture: </strong></td>
-                        <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_sous_pref;?></td>
                         <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">CISCO: </strong></td>
                         <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_cisco;?></td>
                     </tr>
                     <tr>
                         <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Moniteur: </strong></td>
                         <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_moniteur_name;?></td>
-                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Inspecteur: </strong></td>
+                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Annimateur: </strong></td>
                         <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_inspecteur_name;?></td>
                     </tr>
                     <tr>
@@ -175,6 +173,24 @@
                     <tr>
                         <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Balais: </strong></td>
                         <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_balais;?></td>
+                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Règle: </strong></td>
+                        <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_regle;?></td>
+                    </tr>
+					<tr>
+                        <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Cahier: </strong></td>
+                        <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_cahier;?></td>
+                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Téléphone: </strong></td>
+                        <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_telephone;?></td>
+                    </tr>
+					<tr>
+                        <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Radio: </strong></td>
+                        <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_radio;?></td>
+                        <td style="font-size: 12px;width: 277px;text-align: left;"><strong style="font-size: 12px;margin-right: 10px;">Drapeau: </strong></td>
+                        <td style="font-size: 12px;width: 780px;text-align: left;"><?php echo $poste->poste_drapeau;?></td>
+                    </tr>
+					<tr>
+                        <td style="width: 261px;padding: 5px;"><strong style="font-size: 12px;margin-right: 10px;">Logo: </strong></td>
+                        <td style="font-size: 12px;width: 703px;text-align: left;"><?php echo $poste->poste_logo;?></td>
                         <td style="font-size: 12px;width: 277px;text-align: left;"></td>
                         <td style="font-size: 12px;width: 780px;text-align: left;"></td>
                     </tr>
