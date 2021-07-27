@@ -20,7 +20,6 @@
                             <th style="width: 223px;">Nom</th>
                             <th style="width: 188px;">Moniteur</th>
                             <th style="width: 232px;">Région</th>
-                            <th style="width: 205px;">Site</th>
                             <th style="width: 137px;">Ouverture</th>
                             <th style="width: 137px;">Secteur</th>
                             <th style="width: 204px;">Action</th>
@@ -33,7 +32,6 @@
                             <td><?php echo $poste->poste_name; ?></td>
                             <td><?php echo $poste->poste_moniteur_name; ?></td>
                             <td><?php echo $poste->poste_region; ?></td>
-                            <td><?php echo $poste->poste_site; ?></td>
                             <td><?php echo $poste->poste_overture; ?></td>
                             <td><?php echo $poste->poste_secteur; ?></td>
                             <td style="font-size: 12px;">

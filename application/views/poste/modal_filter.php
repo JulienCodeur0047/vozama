@@ -15,7 +15,8 @@
 									<option value="<?php echo $secteur->secteur_name;?>"><?php echo $secteur->secteur_name;?></option>
 								<?php }?>
                             </optgroup>
-                        </select><label style="margin-bottom: -4px;font-size: 11px;">Site</label>
+                        </select>
+						<!--<label style="margin-bottom: -4px;font-size: 11px;">Site</label>
 						<select style="font-size: 12px;width: 250px;color: var(--gray);height: 25px;border-radius: 2px;" name="site_id">
                             <optgroup label="Site">
                                 <option value selected>Select.</option>
@@ -23,7 +24,8 @@
 									<option value="<?php echo $site->id;?>"><?php echo $site->site_name;?></option>
 								<?php }?>
                             </optgroup>
-                        </select></div>
+                        </select>-->
+					</div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">ok</button></div>
