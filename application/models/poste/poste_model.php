@@ -293,6 +293,24 @@ class Poste_model extends CI_Model{
 		  $query = $this->db->get("poste");
 		  return $query->result();
 	}
+	public function printGetPoste()
+	{
+		$query = "SELECT * , (SELECT COUNT(e.id) 
+		FROM eleve e WHERE e.poste_id = p.id)
+		 AS nbr_eleve FROM poste p";
+			$secteu = $this->input->post("poste_secteur");
+		if(!empty($this->input->post("poste_secteur"))){
+			$query = "SELECT * , (SELECT COUNT(e.id) 
+			FROM eleve e WHERE e.poste_id = p.id)
+		 	AS nbr_eleve FROM poste p WHERE p.poste_secteur = ? ";
+			$requst = $this->db->query($query,[$secteu]);
+			return $requst->result();
+		}else{
+			$req = $this->db->query($query);
+			return $req->result();
+		}
+		 return $secteu;
+	}
 	public function getSecteurLookUp(){
 		$query = $this->db->get("secteur");
 		  return $query->result();

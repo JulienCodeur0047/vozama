@@ -43,6 +43,13 @@ class Poste_controller extends CI_Controller{
 		$html = $this->load->view('poste/poste_pdf',$data,true);
 		$this->pdf->createPDF($html,'listPoste',false);
 	}
+	public function printListPosteToPdfU()
+	{
+		$this->load->library('pdf');
+		$data['data'] = $this->poste->printGetPoste();
+		$html = $this->load->view('poste/poste_pdf_u',$data,true);
+		$this->pdf->createPDF($html,'listPoste',false);
+	}
 
 	public function create(){
 		$data['secteur'] = $this->poste->getSecteurLookUp();
