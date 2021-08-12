@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 16 juil. 2021 à 14:04
+-- Généré le : jeu. 12 août 2021 à 07:45
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -420,6 +420,16 @@ CREATE TABLE IF NOT EXISTS `moniteur` (
   `moniteur_profession` varchar(100) DEFAULT NULL,
   `moniteur_date_entre_voz` date DEFAULT NULL,
   `moniteur_date_nais` date DEFAULT NULL,
+  `moniteur_tel` varchar(100) DEFAULT NULL,
+  `moniteur_cin` varchar(100) DEFAULT NULL,
+  `moniteur_date_liv_cin` date DEFAULT NULL,
+  `moniteur_lieu_deliv_cin` varchar(100) DEFAULT NULL,
+  `moniteur_nbr_enfant` int(10) DEFAULT NULL,
+  `moniteur_nbr_charge` int(10) DEFAULT NULL,
+  `moniteur_nv_etude` varchar(100) DEFAULT NULL,
+  `moniteur_diplome` varchar(100) DEFAULT NULL,
+  `moniteur_lieu_etude` varchar(100) DEFAULT NULL,
+  `moniteur_resource` varchar(100) DEFAULT NULL,
   `poste_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -735,6 +745,12 @@ CREATE TABLE IF NOT EXISTS `poste` (
   `poste_balais` varchar(100) DEFAULT NULL,
   `poste_savon` varchar(100) DEFAULT NULL,
   `poste_eponge` varchar(100) DEFAULT NULL,
+  `poste_regle` varchar(100) DEFAULT NULL,
+  `poste_cahier` varchar(100) DEFAULT NULL,
+  `poste_telephone` varchar(100) DEFAULT NULL,
+  `poste_radio` varchar(100) DEFAULT NULL,
+  `poste_drapeau` varchar(100) DEFAULT NULL,
+  `poste_logo` varchar(100) DEFAULT NULL,
   `poste_cisco` varchar(100) DEFAULT NULL,
   `poste_commune` varchar(100) DEFAULT NULL,
   `poste_eglise` varchar(100) DEFAULT NULL,
