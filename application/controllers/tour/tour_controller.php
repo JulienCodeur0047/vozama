@@ -13,6 +13,7 @@ class Tour_controller extends CI_Controller{
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('com/Com_model','com');
 		$this->load->model('tour/Tour_model','tour');
+		$this->load->model('Session_model','sess4');
 		
 
 	}
@@ -20,14 +21,14 @@ class Tour_controller extends CI_Controller{
     {
 		$data['chmbre'] = $this->tour->getChmbreNotres();
         $data['data'] = $this->tour->getChambreResOrSearch();
-		$this->getSession();
+		$this->getSession();  
 		$this->load->view('tour/tour_list_hotel',$data);
 		$this->load->view('theme/footer');
     }
     public function indexTouriste()
     {
 		$data['data'] = $this->tour->getTouristResOrSearch();
-        $this->getSession();
+		$this->getSession();  
 		$this->load->view('tour/tour_list_tourist',$data);
 		$this->load->view('theme/footer');
     }
@@ -36,14 +37,18 @@ class Tour_controller extends CI_Controller{
     {
 		$data['site'] = $this->poste->getSiteLookUp();
 		$data['data'] = $this->tour->getVsTourOrSearch();
-        $this->getSession();
+        $this->getSession();  
 		$this->load->view('tour/tour_list_vs',$data);
 		$this->load->view('theme/footer');
     }
-    public function getSession()
+	public function getSession()
 	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 	public function saveReserv()
 	{

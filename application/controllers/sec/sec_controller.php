@@ -13,33 +13,39 @@ class Sec_controller extends CI_Controller{
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('com/Com_model','com');
 		$this->load->model('sec/Sec_model','sec');
+		
+		$this->load->model('Session_model','sess4');
 	}
     public function indexvst()
     {
 		$data['data'] = $this->sec->getOrSearchVis();
-        $this->getSession();
+        $this->getSession(); 
         $this->load->view('sec/sec_list_vis',$data);
 		$this->load->view('theme/footer');
     }
     public function indexpass()
     {
 		$data['data'] = $this->sec->getOrSearchPass();
-        $this->getSession();
+        $this->getSession(); 
         $this->load->view('sec/sec_list_pass',$data);
 		$this->load->view('theme/footer');
     }
     public function indexplan()
     {
-        $this->getSession();
+        $this->getSession(); 
         $this->load->view('sec/sec_planning'); /// replace $this->load->view('fullcalendar');
 		$this->load->view('theme/footer');
     }
-
 	public function getSession()
 	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
+
 	public function savevis()
 	{
 		$this->load->library('form_validation');

@@ -10,6 +10,8 @@ class Login_controller extends CI_Controller{
 
 	public function index(){
 		$this->login();
+		$this->destroySession();
+		
 	}
 
 	public function welcome(){
@@ -72,5 +74,18 @@ class Login_controller extends CI_Controller{
 	  }
 	public function function_alert($message) {
 		echo "<script>alert('$message');</script>";
+	}
+	public function destroySession()
+	{
+		$this->session->unset_userdata('id');
+		$this->session->unset_userdata('user_name');
+		$this->session->unset_userdata('user_type_code');
+		$sessArray = array(
+			'id' => "",
+			'user_name' => "",
+			'user_type_code' => "",
+			'is_authenticated' => FALSE,
+		  );
+		$this->session->set_userdata($sessArray);
 	}
 }

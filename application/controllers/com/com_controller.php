@@ -16,6 +16,15 @@ class Com_controller extends CI_Controller{
 
 	}
 
+	public function getSession()
+	{
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
+	}
 	public function indexparr()
 	{
 		$data['data'] = $this->poste->getPostOrSearch();
@@ -36,11 +45,6 @@ class Com_controller extends CI_Controller{
 		$this->getSession();
 		$this->load->view('com/com_list_res',$data);
 		$this->load->view('theme/footer');
-	}
-	public function getSession()
-	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
 	}
 	public function deleteres($id)
 	{

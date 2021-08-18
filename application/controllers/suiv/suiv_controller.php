@@ -15,11 +15,12 @@ class Suiv_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('suiv/Suiv_model','suivi');
+		$this->load->model('Session_model','sess4');
 	}
 
 	public function indexpr()
 	{
-		$this->getSession();        
+		$this->getSession();       
 		$this->load->view('suiv/suiv_list_parent');    
 		$this->load->view('theme/footer');    
 	}
@@ -44,7 +45,7 @@ class Suiv_controller extends CI_Controller{
 	{
 		$data['data'] = $this->suivi->getOrSearchMoniteur();
 		$data['poste'] = $this->poste->getAllPoste();
-		$this->getSession();    
+		$this->getSession();   
 		$this->load->view('suiv/suiv_list_moniteur',$data);    
 		$this->load->view('theme/footer');    
 	}
@@ -67,8 +68,12 @@ class Suiv_controller extends CI_Controller{
 	}
 	public function getSession()
 	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session); 
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 	public function saveNote()
 	{

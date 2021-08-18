@@ -14,19 +14,27 @@ class Poste_controller extends CI_Controller{
 		$this->load->library('pdf');
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
+		$this->load->model('Session_model','sess4');
 	}
 
 	public function index(){
 		$data['data'] = $this->poste->getPostOrSearch();
 		$data['secteur'] = $this->poste->getSecteurLookUp();
 		$data['site'] = $this->poste->getSiteLookUp();
-		$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);       
+		
+		$this->getSession();        
 		$this->load->view('poste/poste_list',$data);
 		$this->load->view('theme/footer');
 	}
-
+	public function getSession()
+	{
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
+	}
 	public function delete($id){
 		$this->poste->deletePoste($id);
 		redirect(base_url('alph'));
@@ -66,11 +74,8 @@ class Poste_controller extends CI_Controller{
 		$data['zone'] = $this->poste->getZoneLookUp();
 		$data['moniteur'] = $this->poste->getMoniteurLookUp();
 		$data['inspecteur'] = $this->poste->getInspecteurLookUp();
-		$session['session'] = $this->session;
 		
-		
-
-		$this->load->view('theme/header',$session);
+		$this->getSession();  
 		$this->load->view('poste/poste_create',$data);
 		$this->load->view('theme/footer');
 	}
@@ -92,10 +97,8 @@ class Poste_controller extends CI_Controller{
 		$data['inspecteur'] = $this->poste->getInspecteurLookUp();
 		$data['poste'] = $this->poste->findPoste($id);
 
-		$session['session'] = $this->session;
-		//$poste = $this->poste->findPoste($id);
-
-		$this->load->view('theme/header',$session);
+		
+		$this->getSession();  
 		$this->load->view('poste/poste_edit',$data);
 		$this->load->view('theme/footer');
 
@@ -106,9 +109,8 @@ class Poste_controller extends CI_Controller{
 		$data['eleve'] = $this->eleve->getEleveByPoste($id);
 		$data['eleveInfo'] = $this->eleve->getEleveById($id);
 		$data['eleveCount'] = $this->eleve->getEleveCountByPoste($id);
-		$session['session'] = $this->session;
 
-		$this->load->view('theme/header',$session);
+		$this->getSession();  
 		$this->load->view('poste/poste_detail',$data);
 		$this->load->view('theme/footer');
 	}

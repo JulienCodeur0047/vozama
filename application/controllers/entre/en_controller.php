@@ -10,12 +10,13 @@ class En_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('environnement/env_model','env');
 		$this->load->model('entre/entre_model','en');
+		$this->load->model('Session_model','sess4');
 	  }
 
 	  public function index()
 	  {
 		  $data['data'] = $this->en->getDepOrSearch();
-		  $this->getSession();
+		  $this->getSession(); 
 		  $this->load->view('entre/en_list_dep',$data);
 		  $this->load->view('theme/footer');
 
@@ -25,7 +26,7 @@ class En_controller extends CI_Controller{
 		$data['data'] = $this->en->getPersOrSearch();
 		$data['dep'] = $this->en->printDep();
 
-		$this->getSession();
+		$this->getSession(); 
 		$this->load->view('entre/en_list_pers',$data);
 		$this->load->view('theme/footer');
 	  }
@@ -34,7 +35,7 @@ class En_controller extends CI_Controller{
 		$data['data']= $this->en->getConOrSearch();
 		$data['pers']= $this->en->getPers();
 		$data['dep'] = $this->en->printDep();
-		$this->getSession();
+		$this->getSession(); 
 		$this->load->view('entre/en_list_cong',$data);
 		$this->load->view('theme/footer');
 	  }
@@ -42,15 +43,11 @@ class En_controller extends CI_Controller{
 	  {
 		$data['data']= $this->en->getBienOrSearch();
 		$data['dep'] = $this->en->printDep();
-		$this->getSession();
+		$this->getSession(); 
 		$this->load->view('entre/en_list_bien',$data);
 		$this->load->view('theme/footer');
 	  }
-	  public function getSession()
-	  {
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);  
-	  }
+	 
 
 	  public function saveDep()
 	  {
@@ -159,5 +156,14 @@ class En_controller extends CI_Controller{
 	  {
 		  $this->en->deleteBien($id);
 		  redirect(base_url('enbien'));
+	  }
+	  public function getSession()
+	  {
+		  if ($this->session->userdata('is_authenticated') == TRUE) {
+			  $session['session'] = $this->session;
+			  $this->load->view('theme/header',$session);
+		  }else{
+			  redirect(base_url('logout'));
+		  }
 	  }
 }

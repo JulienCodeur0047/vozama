@@ -16,14 +16,13 @@ class Dev_controller extends CI_Controller{
 	
 	public function getParentByTitre($titre)
 	{
-		var_dump($titre);
-		die;
+		//var_dump($titre);
+		//die;
 		if ($titre == "") {
 			$this->indexcmv();
 		} else {
 			$data['data'] = $this->dev->getParentByTitre($titre);
-			$session['session'] = $this->session;
-			$this->load->view('theme/header',$session);
+			$this->getSession();
 			$this->load->view('dev/dev_list',$data);
 			$this->load->view('theme/footer');
 		}
@@ -129,8 +128,12 @@ class Dev_controller extends CI_Controller{
 
 	public function getSession()
 	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 }
 ?>

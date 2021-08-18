@@ -8,15 +8,16 @@ class Env_controller extends CI_Controller{
 	  
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('environnement/env_model','env');
+		
+		$this->load->model('Session_model','sess4');
 	  }
 
 		public function indexPep(){
 			$data['data'] = $this->env->getPepOrSearchFilter();
 			$data['poste'] = $this->poste->getPosteLookUp();
 			$data['site'] = $this->poste->getSiteLookUp();
-			$session['session'] = $this->session;
-
-			$this->load->view('theme/header',$session);     
+		
+			$this->getSession();     
 			$this->load->view('environnement/env_pepiniere_list',$data);
 			$this->load->view('theme/footer');
 		}
@@ -25,12 +26,18 @@ class Env_controller extends CI_Controller{
 			$data['aep'] = $this->env->getAepOrSearchFilter();
 			$data['poste'] = $this->poste->getPosteLookUp();
 			$data['site'] = $this->poste->getSiteLookUp();
-
-			$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);      
+			$this->getSession();      
 			$this->load->view('environnement/env_aep_list',$data);
 			$this->load->view('theme/footer');
+		}
+		public function getSession()
+		{
+			if ($this->session->userdata('is_authenticated') == TRUE) {
+				$session['session'] = $this->session;
+				$this->load->view('theme/header',$session);
+			}else{
+				redirect(base_url('logout'));
+			}
 		}
 		public function savepep(){
 			$this->load->library('form_validation');

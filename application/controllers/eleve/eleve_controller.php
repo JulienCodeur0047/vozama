@@ -9,6 +9,7 @@ class Eleve_controller extends CI_Controller{
 		$this->load->library('pdf');
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
+		$this->load->model('Session_model','sess4');
 		
 		
 
@@ -19,13 +20,19 @@ class Eleve_controller extends CI_Controller{
 		$data['poste'] = $this->poste->getAllPoste();
 		$data['site'] = $this->poste->getSiteLookUp();
 		$data['secteur'] = $this->poste->getSecteurLookUp();
-		$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);      
+		$this->getSession();    
 		$this->load->view('eleve/eleve_list',$data);
 		$this->load->view('theme/footer');
 	}
-
+	public function getSession()
+	{
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
+	}
 	public function printlistel(){
 		$data['data'] = $this->eleve->getEleveOrSearchFilter();
 		$html = $this->load->view('eleve/eleve_pdf',$data,true);

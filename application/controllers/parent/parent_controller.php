@@ -10,6 +10,7 @@ class Parent_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('parent/Parent_model','parent');
+		$this->load->model('Session_model','sess4');
 	}
 
 	public function index()
@@ -17,15 +18,19 @@ class Parent_controller extends CI_Controller{
 		$data['data'] = $this->parent->getOrSearchPare();
 		$data['site'] = $this->poste->getSiteLookUp();
 		$data['poste'] = $this->poste->getAllPoste();
-		$this->getSession();
+		$this->getSession();  
 		$this->load->view('parent/pare_list',$data);
 		$this->load->view('theme/footer');
 	}
+
 	public function getSession()
 	{
-		$session['session'] = $this->session;
-		$this->load->view('theme/header',$session);
-		
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 	public function saveparent()
 	{

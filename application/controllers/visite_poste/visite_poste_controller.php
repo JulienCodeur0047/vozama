@@ -16,6 +16,7 @@ class Visite_poste_controller extends CI_Controller{
 		$this->load->model('poste/Poste_model','poste');
 		$this->load->model('eleve/Eleve_model','eleve');
 		$this->load->model('visite_poste/Visite_poste_model','vp');
+		$this->load->model('Session_model','sess4');
 
 	}
 
@@ -24,9 +25,8 @@ class Visite_poste_controller extends CI_Controller{
 		$data['poste'] = $this->poste->getPostOrSearch();
 		$data['moniteur'] = $this->poste->getMoniteurLookUp();
 		$data['inspecteur'] = $this->poste->getInspecteurLookUp();
-		$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);       
+		
+		$this->getSession();      
 		$this->load->view('visite_poste/vp_list',$data);
 		$this->load->view('theme/footer');
 	}
@@ -57,9 +57,8 @@ class Visite_poste_controller extends CI_Controller{
 
 	public function show($id){
 		$data['vp'] = $this->vp->getVpById($id);
-		$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);
+	
+		$this->getSession();  
 		$this->load->view('visite_poste/vp_detail',$data);
 		$this->load->view('theme/footer');
 
@@ -71,9 +70,8 @@ class Visite_poste_controller extends CI_Controller{
 		$data['moniteur'] = $this->poste->getMoniteurLookUp();
 		$data['inspecteur'] = $this->poste->getInspecteurLookUp();
 
-		$session['session'] = $this->session;
-
-		$this->load->view('theme/header',$session);     
+		
+		$this->getSession();      
 		$this->load->view('visite_poste/vp_edit',$data);
 		$this->load->view('theme/footer');
 	}
@@ -100,5 +98,14 @@ class Visite_poste_controller extends CI_Controller{
 	public function delete($id){
 		$this->vp->deleteVp($id);
 		redirect(base_url('vp'));
+	}
+	public function getSession()
+	{
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 }
