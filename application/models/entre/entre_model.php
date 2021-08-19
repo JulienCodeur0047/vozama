@@ -116,6 +116,7 @@ class Entre_model extends CI_Model{
         'pers_dep' => $depname,
         'dep_id' => $this->input->post('dep_id'),
         'pers_dr_conge' => $this->input->post('pers_dr_conge'), 
+        'pers_nbr_conge' =>$this->input->post('pers_nbr_conge') , 
         );
       if (!empty($id)) {
         $this->db->where('id',$id);
@@ -124,6 +125,28 @@ class Entre_model extends CI_Model{
         return $this->db->insert('personal', $data);
       }
     }
+
+		public function getNbrJourConge($dateEmbauche, $drConge)
+		{
+			$str1 =  strtotime($dateEmbauche);
+			$str2 = strtotime(date('Y-m-d'));
+
+			$year1 = date('Y', $str1);
+			$year2 = date('Y', $str2);
+
+			$month1 = date('m', $str1);
+			$month2 = date('m', $str2);
+
+			$nbrMois = (($year2 - $year1) * 12) + ($month2 - $month1);
+			$nbrConge = $drConge * $nbrMois;
+
+			if ($str1 < $str2 && $drConge > 0) {
+				return $nbrConge;
+			} else {
+				return 0;
+			}
+		}
+
 		public function saveOrUpdateBien()
     {
       $id = $this->input->post('id');
@@ -145,6 +168,8 @@ class Entre_model extends CI_Model{
         return $this->db->insert('bien', $data);
       }
     }
+
+
     public function saveOrUpdateCong()
     {
       $id = $this->input->post('id');
@@ -168,6 +193,7 @@ class Entre_model extends CI_Model{
         'conge_droit' => $prixdroit,
         'dep_id' => $dep_id,
         );
+			$this->updatePersConge($currentpers->id,$nbrjr);
       if (!empty($id)) {
         $this->db->where('id',$id);
         return $this->db->update('conge',$data);
@@ -175,6 +201,18 @@ class Entre_model extends CI_Model{
         return $this->db->insert('conge', $data);
       }
     }
+		public function updatePersConge($idPers, $nbrJrs)
+		{
+			$currentpersNbrConge = $this->findPersById($idPers)->pers_nbr_conge;
+			if ($currentpersNbrConge > 0 && $nbrJrs > 0 && $currentpersNbrConge >= $nbrJrs) {
+				$data = array(
+					'pers_nbr_conge' => $currentpersNbrConge - $nbrJrs
+				);
+				$this->db->where('id',$idPers);
+					return $this->db->update('personal',$data);
+			}
+			
+		}
 		public function findDepById($id)
 		{
 			return $this->db->get_where('department', array('id' => $id))->row();

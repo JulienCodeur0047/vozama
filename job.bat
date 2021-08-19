@@ -1,0 +1,1 @@
+php -f C:\wamp64\www\vozama\cron.php

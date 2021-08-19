@@ -62,7 +62,9 @@
 						<label style="font-size: 12px;margin-bottom: 0px;">Date de fin de contrat</label>
 						<input type="date" class="pers_date_gone" style="width: 214px;font-size: 12px;" name="pers_date_gone" />
 						<label style="font-size: 12px;margin-bottom: 0px;">Droit de congé / mois</label>
-						<input type="number" step="0.5" class="pers_dr_conge" style="font-size: 12px;width: 214px;" name="pers_dr_conge" /></div>
+						<input type="number" step="0.5" class="pers_dr_conge" style="font-size: 12px;width: 214px;" name="pers_dr_conge" />
+						<label style="font-size: 12px;margin-bottom: 0px;">Nombre de jour de congé</label>
+						<input type="number" step="0.5" class="pers_nbr_conge" style="font-size: 12px;width: 214px;" name="pers_nbr_conge" /></div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">Enregistrer</button></div>
