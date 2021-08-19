@@ -23,7 +23,7 @@
 						<input type="date" class="conge_date_reprise" style="width: 258px;font-size: 12px;" name="conge_date_reprise" />
 						<label style="font-size: 12px;margin-bottom: 0px;"><br /></label>
 						<label style="font-size: 12px;margin-bottom: 0px;">Nombre de jour</label>
-						<input type="number" class="conge_nbr_day" step="any" style="font-size: 12px;width: 258px;" name="conge_nbr_day" />
+						<input type="number" step="0.5" class="conge_nbr_day" style="font-size: 12px;width: 258px;" name="conge_nbr_day" />
 						<label style="font-size: 12px;margin-bottom: 0px;">Prix-droit d'un congé</label>
 						<input type="number" class="conge_droit" step="any" style="font-size: 12px;width: 258px;" name="conge_droit" />
 						<label style="font-size: 12px;margin-bottom: 0px;">Raison du congé</label>
