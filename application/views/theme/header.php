@@ -69,7 +69,65 @@
 			</ul>
             <form class="form-inline mr-auto" target="_self">
                 <div class="form-group"><label for="search-field"></label></div>
-            </form><a class="btn btn-light action-button" role="button" href="<?php echo base_url('logout')?>" style="color: var(--blue);background: var(--gray);font-size: 14px;"><i class="fa fa-sign-out"></i></a>
+            </form>
+			<div class="dropdown show">
+				<a aria-expanded="true" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-gear" style="font-size: 22px;"></i></a>
+    				<div class="dropdown-menu hide">
+						<?php switch ($session->user_type_code) {
+
+							  case 2:?>
+							  <a class="dropdown-item" href="#"><i class="fa fa-table"></i> Table de base</a>
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 3:
+							  ?>
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 4:
+							  ?>
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 5:
+							  ?> 
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 6:
+							  ?> 
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 7:
+							  ?> 
+							  <a class="dropdown-item" href="#"><i class="fa fa-hotel"></i> Chambre</a>
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 8:
+							  ?> 
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  case 9:
+							  ?> 
+							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
+							  <?php
+							  break;
+							  default:
+								?>
+						<a class="dropdown-item" href="#"><i class="fa fa-user"></i> Utilisateur</a>
+						<a class="dropdown-item" href="#"><i class="fa fa-table"></i> Table de base</a>
+						<a class="dropdown-item" href="#"><i class="fa fa-hotel"></i> Chambre</a>
+						<a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a></div>
+						<?php
+						}
+			
+						?>
+					</div>
+			
         </div>
     </div>
 </nav>
