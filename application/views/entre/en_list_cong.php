@@ -17,6 +17,7 @@
                             <th style="width: 125px;">Nom &amp; Prénoms</th>
                             <th style="width: 60px;">Date début</th>
                             <th style="width: 50px;">Date Fin</th>
+                            <th style="width: 50px;">Date de reprise</th>
                             <th style="width: 50px;">Nbr Jour</th>
 							<th style="width: 50px;">Prix</th>
                             <th style="width: 30px;"></th>
@@ -28,6 +29,7 @@
                             <td><?php echo $cong->conge_pers; ?></td>
                             <td><?php echo $cong->conge_date_start; ?></td>
                             <td><?php echo $cong->conge_date_end; ?></td>
+                            <td><?php echo $cong->conge_date_reprise; ?></td>
                             <td><?php echo $cong->conge_nbr_day; ?></td>
                             <td><?php echo $cong->conge_price; ?> Ar</td>
                             <td style="font-size: 12px;width: 30px;">
