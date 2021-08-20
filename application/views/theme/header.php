@@ -71,7 +71,7 @@
                 <div class="form-group"><label for="search-field"></label></div>
             </form>
 			<div class="dropdown show">
-				<a aria-expanded="true" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-gear" style="font-size: 22px;"></i></a>
+				<a aria-expanded="false" data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-gear" style="font-size: 22px;"></i></a>
     				<div class="dropdown-menu hide">
 						<?php switch ($session->user_type_code) {
 
