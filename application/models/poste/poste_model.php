@@ -185,11 +185,17 @@ class Poste_model extends CI_Model{
             'eglise_name' => $this->input->post('eglise_name'),);
 			return $this->db->insert('eglise',$data);
 	}
+	public function deleteEglise($id){
+		return $this->db->delete('eglise', array('id' => $id));
+	}
 	public function saveSecteur()
 	{
 		$data = array(
             'secteur_name' => $this->input->post('secteur_name'),);
 			return $this->db->insert('secteur',$data);
+	}
+	public function deleteSecteur($id){
+		return $this->db->delete('secteur', array('id' => $id));
 	}
 	public function saveZone()
 	{
@@ -197,11 +203,17 @@ class Poste_model extends CI_Model{
             'zone_name' => $this->input->post('zone_name'),);
 			return $this->db->insert('zone',$data);
 	}
+	public function deleteZone($id){
+		return $this->db->delete('zone', array('id' => $id));
+	}
 	public function saveRegion()
 	{
 		$data = array(
             'region_name' => $this->input->post('region_name'),);
 			return $this->db->insert('region',$data);
+	}
+	public function deleteRegion($id){
+		return $this->db->delete('region', array('id' => $id));
 	}
 	public function saveCisco()
 	{
@@ -209,11 +221,17 @@ class Poste_model extends CI_Model{
             'cisco_name' => $this->input->post('cisco_name'),);
 			return $this->db->insert('cisco',$data);
 	}
+	public function deleteCisco($id){
+		return $this->db->delete('cisco', array('id' => $id));
+	}
 	public function saveCommune()
 	{
 		$data = array(
             'commune_name' => $this->input->post('commune_name'),);
 			return $this->db->insert('commune',$data);
+	}
+	public function deleteCommune($id){
+		return $this->db->delete('commune', array('id' => $id));
 	}
 	public function saveNiveau()
 	{
@@ -221,11 +239,17 @@ class Poste_model extends CI_Model{
             'niveau_name' => $this->input->post('niveau_name'),);
 			return $this->db->insert('niveau',$data);
 	}
+	public function deleteNiveau($id){
+		return $this->db->delete('niveau', array('id' => $id));
+	}
 	public function saveFkt()
 	{
 		$data = array(
             'fkt_name' => $this->input->post('fkt_name'),);
 			return $this->db->insert('fokotany',$data);
+	}
+	public function deleteFkt($id){
+		return $this->db->delete('fokotany', array('id' => $id));
 	}
 	public function saveDistrict()
 	{
@@ -233,11 +257,17 @@ class Poste_model extends CI_Model{
             'district_name' => $this->input->post('district_name'),);
 			return $this->db->insert('district',$data);
 	}
+	public function deleteDistrict($id){
+		return $this->db->delete('district', array('id' => $id));
+	}
 	public function savePref()
 	{
 		$data = array(
             'sous_pref_name' => $this->input->post('sous_pref_name'),);
 			return $this->db->insert('sous_prefecture',$data);
+	}
+	public function deletePref($id){
+		return $this->db->delete('sous_prefecture', array('id' => $id));
 	}
 	public function saveMoniteur()
 	{
@@ -245,17 +275,35 @@ class Poste_model extends CI_Model{
             'moniteur_name' => $this->input->post('moniteur_name'),);
 			return $this->db->insert('moniteur',$data);
 	}
+	public function deleteMoniteur($id){
+		return $this->db->delete('moniteur', array('id' => $id));
+	}
 	public function saveInspecteur()
 	{
 		$data = array(
             'insp_name' => $this->input->post('insp_name'),);
 			return $this->db->insert('inspecteur',$data);
 	}
+	public function deleteInspecteur($id){
+		return $this->db->delete('inspecteur', array('id' => $id));
+	}
 	public function savePere()
 	{
 		$data = array(
             'pere_name' => $this->input->post('pere_name'),);
 			return $this->db->insert('pere',$data);
+	}
+	public function deletePere($id){
+		return $this->db->delete('pere', array('id' => $id));
+	}
+	public function saveQuartier()
+	{
+		$data = array(
+            'quartier_name' => $this->input->post('quartier_name'),);
+			return $this->db->insert('quartier',$data);
+	}
+	public function deleteQuartier($id){
+		return $this->db->delete('quartier', array('id' => $id));
 	}
 	public function getPostOrSearch(){
 		if(!empty($this->input->get("search"))){

@@ -177,7 +177,7 @@
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col" style="height: auto;">
                     <label style="margin-bottom: -4px;font-size: 11px;">Pere</label>
-                    <input type="text" style="width: 265px;font-size: 12px;" name="eglise_name" placeholder="Nom et Prenom" /></div>
+                    <input type="text" style="width: 265px;font-size: 12px;" name="pere_name" placeholder="Nom et Prenom" /></div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">ok</button></div>
@@ -235,6 +235,25 @@
                     <div class="col" style="height: auto;">
                     <label style="margin-bottom: -4px;font-size: 11px;">Inspecteur</label>
                     <input type="text" style="width: 265px;font-size: 12px;" name="insp_name" placeholder="Nom de l'inspecteur'" /></div>
+                </div>
+            </div>
+            <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">ok</button></div>
+            </form>
+            <?php echo form_close();?>
+        </div>
+    </div>
+</div>
+<div role="dialog" id="newzap" tabindex="-1" class="modal fade show">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="height: 33px;font-size: 13px;padding: 7px;padding-top: 3px;"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+            <div class="modal-body" style="height: auto;">
+            <?php echo form_open('savequartier')?>
+            <form method="POST">
+                <div class="row" style="height: auto;width: auto;">
+                    <div class="col" style="height: auto;">
+                    <label style="margin-bottom: -4px;font-size: 11px;">ZAP</label>
+                    <input type="text" style="width: 265px;font-size: 12px;" name="quartier_name" placeholder="Nom de ZAP" /></div>
                 </div>
             </div>
             <div class="modal-footer" style="height: 39px;padding: 1px;"><button class="btn btn-primary" type="submit" style="font-size: 14px;height: 27px;padding: -3px 12px;margin: 5px;padding-top: 1px;">ok</button></div>

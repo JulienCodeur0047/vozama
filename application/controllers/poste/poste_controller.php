@@ -26,6 +26,26 @@ class Poste_controller extends CI_Controller{
 		$this->load->view('poste/poste_list',$data);
 		$this->load->view('theme/footer');
 	}
+	public function indextb()
+	{
+		$data['secteur'] = $this->poste->getSecteurLookUp();
+		$data['region'] = $this->poste->getRegionLookUp();
+		$data['cisco'] = $this->poste->getCiscoLookUp();
+		$data['commune'] = $this->poste->getCommuneLookUp();
+		$data['niveau'] = $this->poste->getNiveauLookUp();
+		$data['fokotany'] = $this->poste->getFokotanyLookUp();
+		$data['quartier'] = $this->poste->getQuartierLookUp();
+		$data['district'] = $this->poste->getDistrictLookUp();
+		$data['eglise'] = $this->poste->getEgliseLookUp();
+		$data['pere'] = $this->poste->getPereLookUp();
+		$data['sous_pref'] = $this->poste->getSousPrefLookUp();
+		$data['zone'] = $this->poste->getZoneLookUp();
+		$data['moniteur'] = $this->poste->getMoniteurLookUp();
+		$data['inspecteur'] = $this->poste->getInspecteurLookUp();
+		$this->getSession();
+		$this->load->view('poste/poste_table_base',$data);
+		$this->load->view('theme/footer');
+	}
 	public function getSession()
 	{
 		if ($this->session->userdata('is_authenticated') == TRUE) {
@@ -141,11 +161,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveEglise();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteEglise($id){
+		$this->poste->deleteEglise($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveSecteur()
 	{ 
@@ -157,11 +181,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveSecteur();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteSecteur($id){
+		$this->poste->deleteSecteur($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveZone()
 	{ 
@@ -173,11 +201,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveZone();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteZone($id){
+		$this->poste->deleteZOne($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveRegion()
 	{ 
@@ -189,11 +221,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveRegion();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteRegion($id){
+		$this->poste->deleteRegion($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveCisco()
 	{ 
@@ -205,11 +241,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveCisco();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteCisco($id){
+		$this->poste->deleteCisco($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveCommune()
 	{ 
@@ -221,11 +261,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveCommune();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteCommune($id){
+		$this->poste->deleteCommune($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveNiveau()
 	{ 
@@ -237,11 +281,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveNiveau();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteNiveau($id){
+		$this->poste->deleteNiveau($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveFkt()
 	{ 
@@ -253,11 +301,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveFkt();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteFkt($id){
+		$this->poste->deleteFkt($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveDistrict()
 	{ 
@@ -269,11 +321,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveDistrict();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteDistrict($id){
+		$this->poste->deleteDistrict($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function savePref()
 	{ 
@@ -285,11 +341,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->savePref();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deletePref($id){
+		$this->poste->deletePref($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveMoniteur()
 	{ 
@@ -301,11 +361,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveMoniteur();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteMoniteur($id){
+		$this->poste->deleteMoniteur($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function saveInspecteur()
 	{ 
@@ -317,11 +381,15 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->saveInspecteur();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deleteInspecteur($id){
+		$this->poste->deleteInspecteur($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function savePere()
 	{ 
@@ -333,11 +401,35 @@ class Poste_controller extends CI_Controller{
 		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
-			redirect(base_url('createposte'));
+			redirect(base_url('tbaplh'));
 		}else{
 		   $this->poste->savePere();
-		   redirect(base_url('createposte'),'refresh');
+		   redirect(base_url('tbaplh'),'refresh');
 		}
+	}
+	public function deletePere($id){
+		$this->poste->deletePere($id);
+		redirect(base_url('tbaplh'),'refresh');
+	}
+	public function saveQuartier()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('quartier_name', 'quartier_name', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('tbaplh'));
+		}else{
+		   $this->poste->saveQuartier();
+		   redirect(base_url('tbaplh'),'refresh');
+		}
+	}
+	public function deleteQuartier($id){
+		$this->poste->deleteQuartier($id);
+		redirect(base_url('tbaplh'),'refresh');
 	}
 	public function update($id){
 		$this->load->library('form_validation');
