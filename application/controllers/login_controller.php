@@ -88,4 +88,40 @@ class Login_controller extends CI_Controller{
 		  );
 		$this->session->set_userdata($sessArray);
 	}
+	public function userManager()
+	{
+		$data['user'] = $this->user->getOrSearchUser();
+		$this->getSession();
+		$this->load->view('admin/admin_list_user',$data);
+		$this->load->view('theme/footer');
+	}
+	public function saveUser()
+	{
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('user_name', 'user_name', 'required');
+		$this->form_validation->set_rules('user_password', 'user_password', 'required');
+		//$this->form_validation->set_rules('user_type', 'user_type', 'required');
+
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+		redirect(base_url('usermgr'));
+		}else{
+		   $this->user->saveOrUpdateUser();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('usermgr'));
+		}
+	}
+	public function deleteUser($id)
+	{
+		$this->user->deleteUser($id);
+		redirect(base_url('usermgr'));
+	}
+	public function getSession()
+	{
+		$data['session'] = $this->session;	
+		$this->load->view('theme/header',$data);
+	}
 }

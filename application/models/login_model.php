@@ -43,7 +43,74 @@ class Login_model extends CI_Model {
 		  return false;
 		}
 	  }
+	  public function getOrSearchUser()
+	  {
+		if(!empty($this->input->get("search"))){
+			  $this->db->like('id', $this->input->get("search"));
+			  $this->db->or_like('user_name', $this->input->get("search"));
+			  $this->db->or_like('user_type', $this->input->get("search"));
+			}
+		if (!empty($this->input->post("search"))) {
+			$this->db->like('id', $this->input->post("search"));
+			$this->db->or_like('user_name', $this->input->post("search"));
+		}
+		if (!empty($this->input->post("user_type"))) {
+			$this->db->or_like('user_type', $this->input->post("user_type"));
+		}
+			$query = $this->db->get("user");
+			return $query->result();
+	  }
+	  public function saveOrUpdateUser()
+	  {
+		$id = $this->input->post('id');
+		$user_code = $this->input->post('user_type_code');
+		switch ($user_code) {
+				case 2:
+					$user_type = "Alphabétisation";
+					break;
+					case 3:
+						$user_type = "Environnement";
+						break;
+						case 4:
+							$user_type = "Développement";
+							break;
+							case 5:
+								$user_type = "Suivi et évaluation";
+								break;
+								case 6:
+									$user_type = "Communication ";
+									break;
+									case 7:
+										$user_type = "Tourisme solidaire";
+										break;
+										case 8:
+											$user_type = "Sécurité";
+											break;
+											case 9:
+												$user_type = "Entreprise";
+												break;
+			default:
+			$user_type = "Administrateur";
+				break;
+		}
 
+		$data = array(
+			'user_name'=> $this->input->post('user_name'),
+			'user_password'=> $this->input->post('user_password'),
+			'user_type'=> $user_type,
+			'user_type_code'=> $user_code,
+		);
+		if (!empty($id)) {
+			$this->db->where('id',$id);
+        	return $this->db->update('user',$data);
+		}else {
+        	return $this->db->insert('user',$data);
+		}
+	  }
+	  public function deleteUser($id)
+	  {
+		return $this->db->delete('user', array('id' => $id));
+	  }
 	/**
 	 * Get the value of id
 	 */ 

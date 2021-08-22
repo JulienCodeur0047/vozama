@@ -26,7 +26,7 @@
                 <option value="<?php echo $sect->secteur_name; ?>"><?php echo $sect->secteur_name; ?></option>
                 <?php } ?>
             </optgroup>
-        </select> <a href="#newsecteur" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a></div>
+        </select></div>
     <div style="text-align: center;margin-top: 14px;"><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_zone">
             <optgroup label="Zone">
                 <option value="" selected>Selec. Zone</option>
@@ -34,7 +34,7 @@
                 <option value="<?php echo $zone->zone_name; ?>"><?php echo $zone->zone_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newzone" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
         <select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_region">
             <optgroup label="Région">
                 <option value="" selected>Selec. Région</option>
@@ -42,7 +42,7 @@
                 <option value="<?php echo $reg->region_name; ?>"><?php echo $reg->region_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newregion" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
         <select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_cisco">
             <optgroup label="CISCO">
                 <option value="" selected>Selec. CISCO</option>
@@ -50,7 +50,7 @@
                 <option value="<?php echo $cisco->cisco_name; ?>"><?php echo $cisco->cisco_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newcisco" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
         <select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_commune">
             <optgroup label="Commune">
                 <option value="" selected>Selec. Commune</option>
@@ -58,7 +58,7 @@
                 <option value="<?php echo $comm->commune_name; ?>"><?php echo $comm->commune_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newcommune" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
     </div>
     <div style="text-align: center;margin-top: 14px;"><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_niveau">
             <optgroup label="Niveau">
@@ -67,7 +67,7 @@
                 <option value="<?php echo $niveau->niveau_name; ?>"><?php echo $niveau->niveau_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newniveau" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
         <select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_fkt">
             <optgroup label="Fokotany">
                 <option value="" selected>Selec. Fokotany</option>
@@ -75,7 +75,7 @@
                 <option value="<?php echo $fkt->fkt_name; ?>"><?php echo $fkt->fkt_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newfkt" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
         <input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="ZAP" name="poste_quartier" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_district">
             <optgroup label="District">
                 <option value="" selected>Selec. Disctrict</option>
@@ -83,7 +83,7 @@
                 <option value="<?php echo $district->district_name; ?>"><?php echo $district->district_name; ?></option>
 				<?php } ?>
             </optgroup>
-        </select><a href="#newdistrict" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+        </select>
     </div>
     <div style="height: 20px;">
         <div style="margin-top: 33px;">
@@ -105,7 +105,7 @@
                 				<option value="<?php echo $eglise->eglise_name; ?>"><?php echo $eglise->eglise_name; ?></option>
 								<?php } ?>
                             </optgroup>
-                        </select> <a href="#neweglise" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+                        </select> 
                         <select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_pere">
                             <optgroup label="Père">
                                 <option value="" selected>Selec. Père</option>
@@ -170,7 +170,7 @@
             <option value="<?php echo $moniteur->moniteur_name." ".$moniteur->moniteur_firstname; ?>"><?php echo $moniteur->moniteur_matricule."| ".$moniteur->moniteur_name." ".$moniteur->moniteur_firstname; ?></option>
 			
         </optgroup>
-    </select><a href="#newmoniteur" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+    </select>
     <input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="Changement Moniteur" name="poste_changement_moniteur" /><select style="width: 149px;height: 21px;margin-right: 10px;margin-left: 10px;padding-top: 1px;padding-right: 2px;padding-bottom: 1px;padding-left: 2px;font-size: 12px;border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);color: rgb(125,125,125);" name="poste_name_predecesseur">
         <optgroup label="Predecesseur">
             <option value selected>Nom du Predecesseur</option>
@@ -185,7 +185,7 @@
             <option value="<?php echo $insp->insp_name." ".$insp->insp_firstname; ?>"><?php echo $insp->insp_matricule."| ".$insp->insp_name." ".$insp->insp_firstname ?></option>
 			<?php } ?>
         </optgroup>
-    </select><a href="#newinspe" data-toggle="modal"><i class="fa fa-plus" style="font-size: 13px;"></i></a>
+    </select>
     <input type="text" style="border-radius: 3px;border-width: 0px;border-bottom-width: 1px;border-bottom-color: rgb(164,164,164);font-size: 12px;margin-right: 10px;margin-left: 10px;" placeholder="Formateur" name="poste_formateur" /></div>
                 </div>
             </div>
