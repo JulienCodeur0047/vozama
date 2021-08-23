@@ -121,7 +121,11 @@ class Login_controller extends CI_Controller{
 	}
 	public function getSession()
 	{
-		$data['session'] = $this->session;	
-		$this->load->view('theme/header',$data);
+		if ($this->session->userdata('is_authenticated') == TRUE) {
+			$session['session'] = $this->session;
+			$this->load->view('theme/header',$session);
+		}else{
+			redirect(base_url('logout'));
+		}
 	}
 }

@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header" style="height: 37px;font-size: 13px;padding: 7px;">
-                <h4 class="modal-title" style="font-size: 13px;">Nouveau Utilisateur</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" style="font-size: 13px;">Utilisateur</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body" style="height: auto;">
 			<?php echo form_open('saveuser');?>

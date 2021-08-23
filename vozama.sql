@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 12 août 2021 à 07:45
+-- Généré le : lun. 23 août 2021 à 11:27
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `conge` (
   `conge_pers` varchar(300) DEFAULT NULL,
   `conge_date_start` date DEFAULT NULL,
   `conge_date_end` date DEFAULT NULL,
-  `conge_nbr_day` decimal(10,0) DEFAULT '0',
+  `conge_nbr_day` double DEFAULT '0',
   `pers_id` int(10) DEFAULT NULL,
   `conge_date_reprise` date DEFAULT NULL,
   `dep_id` int(10) DEFAULT NULL,
@@ -657,7 +657,7 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `pers_date_renew` date DEFAULT NULL,
   `pers_cot_social` varchar(100) DEFAULT NULL,
   `pers_dep` varchar(200) DEFAULT NULL,
-  `pers_nbr_conge` int(10) DEFAULT NULL,
+  `pers_nbr_conge` double DEFAULT '0',
   `pers_dr_conge` double DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
