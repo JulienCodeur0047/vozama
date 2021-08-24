@@ -21,7 +21,7 @@
             
             select:function(start, end, allDay)
             {
-                var title = prompt("Veuillez entrer le nom de Gard");
+                var title = prompt("Veuillez saisir un titre de planning");
                 if(title)
                 {
                     var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
@@ -99,7 +99,7 @@
     });
              
     </script>
-    <?php $this->load->view('theme/header_sec');?>
+    <?php $this->load->view('theme/header_pln');?>
     </div>
     </div>
     </div>
@@ -108,3 +108,4 @@
             <div id="calendar"></div>
         </div>
 </section>
+

@@ -15,8 +15,7 @@ class Login_controller extends CI_Controller{
 	}
 
 	public function welcome(){
-		$data['session'] = $this->session;	
-		$this->load->view('theme/header',$data);
+		$this->getSession();
 		$this->load->view('home/welcome');
 		$this->load->view('theme/footer');
 	}

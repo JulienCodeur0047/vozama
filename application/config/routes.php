@@ -97,7 +97,7 @@ $route['printcomres']['post'] = "com/Com_controller/printRes";
 $route['compart'] = "com/Com_controller/indexpart";
 $route['comres'] = "com/Com_controller/indexres";
 $route['sec'] = "sec/Sec_controller/indexvst";
-$route['secplan'] = "sec/Sec_controller/indexplan";
+$route['planning'] = "sec/Sec_controller/indexplan";
 #parent
 $route['pare'] = "parent/Parent_controller/index";
 $route['paresave']['post'] = "parent/Parent_controller/saveparent";
