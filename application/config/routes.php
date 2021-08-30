@@ -147,6 +147,7 @@ $route['savechmbr']['post'] = "tour/Tour_controller/saveChmbre";
 $route['savetourvs']['post'] = "tour/Tour_controller/savevs";
 $route['printtourtrst']['post'] = "tour/Tour_controller/printTrst";
 $route['printtourvs']['post'] = "tour/Tour_controller/printVs";
+$route['printtourfc']['post'] = "tour/Tour_controller/printFacture";
 $route['printlschmbr'] = "tour/Tour_controller/printChrxx";
 $route['tourtrstsave']['post'] = "tour/Tour_controller/saveTrst";
 $route['tourtrstlog'] = "tour/Tour_controller/indexTouristLog";

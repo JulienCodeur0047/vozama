@@ -20,6 +20,7 @@
                             <th style="width: 30px;height: 44px;">Client Nbr</th>
                             <th style="width: 51px;height: 44px;">Repas</th>
                             <th style="width: 51px;height: 44px;">Viste de site</th>
+                            <th style="width: 51px;height: 44px;">Note</th>
                             <th style="width: 51px;height: 44px;">Total</th>
                             <th style="width: 50px;"></th>
                         </tr>
@@ -34,18 +35,37 @@
                             <td><?php echo $res->res_cli_nbr;?></td>
                             <td><?php echo $res->res_repas;?></td>
                             <td><?php echo $res->res_visitesite;?></td>
+                            <td><?php echo $res->res_note;?></td>
                             <td><?php echo $res->res_montant;?> Ar</td>
                             <td style="font-size: 12px;width: 30px;">
                             
                             <a class="btn btn-light btn-detail"
                             data-id="<?php echo $res->id;?>"
                             data-res_chr_num="<?php echo $res->res_chr_num;?>"
+                            data-res_chr_type="<?php echo $res->res_chr_type;?>"
                             data-res_date="<?php echo $res->res_date;?>"
                             data-res_cli_nom="<?php echo $res->res_cli_nom;?>"
                             data-res_cli_nbr="<?php echo $res->res_cli_nbr;?>"
                             data-res_cli_tel="<?php echo $res->res_cli_tel;?>"
                             data-res_montant="<?php echo $res->res_montant;?>"
                             data-res_nbr_jr="<?php echo $res->res_nbr_jr;?>"
+                            data-res_chr_prix="<?php echo $res->res_chr_prix;?>"
+                            data-res_chr_prix_total="<?php echo $res->res_chr_prix_total;?>"
+
+							data-res_repas_prix="<?php echo $res->res_repas_prix;?>"
+							data-res_repas_nbr="<?php echo $res->res_repas_nbr;?>"
+							data-res_repas_prix_total="<?php echo $res->res_repas_prix_total;?>"
+
+							data-res_lit_sup_prix = "<?php echo $res->res_lit_sup_prix;?>"
+							data-res_lit_sup_nbr = "<?php echo $res->res_lit_sup_nbr;?>"
+							data-res_lit_sup_prix_total = "<?php echo $res->res_lit_sup_prix_total;?>"
+
+							data-res_visitesite_prix = "<?php echo $res->res_visitesite_prix;?>"
+
+							data-res_ptid_prix = "<?php echo $res->res_ptid_prix;?>"
+							data-res_ptid_nbr = "<?php echo $res->res_ptid_nbr;?>"
+							data-res_ptid_prix_total = "<?php echo $res->res_ptid_prix_total;?>"
+
                              type="button" style="background: rgb(153,217,168);margin-right: 0px;height: 34px;margin-top: -7px;padding-top: 1px;border-radius: 0px;"><i class="fa fa-eye" style="font-size: 12px;padding-top: 0px;"></i></a>
                             <a class="btn btn-light" 
                             onclick="return confirm('Voulez-vous supprimer la Réservation du client <?php echo $res->res_cli_nom.' du '.$res->res_date; ?> ?');"
@@ -65,7 +85,7 @@
 </section>
 <?php $this->load->view('tour/modal_create_reserv')?>
 <?php $this->load->view('tour/modal_create_resa')?>
-<?php $this->load->view('tour/modal_detail_reserv')?>
+<?php $this->load->view('tour/modal_detail_resa')?>
 <script src="<?php echo base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script>
@@ -84,6 +104,7 @@
             // get data from button edit
             const id = $(this).data('id');
             const res_chr_num = $(this).data('res_chr_num');
+            const res_chr_type = $(this).data('res_chr_type');
             const res_date = $(this).data('res_date');
             const res_cli_nom = $(this).data('res_cli_nom');
             const res_cli_nbr = $(this).data('res_cli_nbr');
@@ -91,17 +112,51 @@
             const res_paye_reste = $(this).data('res_paye_reste');
             const res_montant = $(this).data('res_montant');
             const res_nbr_jr = $(this).data('res_nbr_jr');
+            const res_chr_prix = $(this).data('res_chr_prix');
+            const res_chr_prix_total = $(this).data('res_chr_prix_total');
+
+            const res_repas_prix = $(this).data('res_repas_prix');
+            const res_repas_nbr = $(this).data('res_repas_nbr');
+            const res_repas_prix_total = $(this).data('res_repas_prix_total');
+
+            const res_lit_sup_prix = $(this).data('res_lit_sup_prix');
+            const res_lit_sup_nbr = $(this).data('res_lit_sup_nbr');
+            const res_lit_sup_prix_total = $(this).data('res_lit_sup_prix_total');
+
+            const res_visitesite_prix = $(this).data('res_visitesite_prix');
+
+            const res_ptid_prix = $(this).data('res_ptid_prix');
+            const res_ptid_nbr = $(this).data('res_ptid_nbr');
+            const res_ptid_prix_total = $(this).data('res_ptid_prix_total');
             // Set data to Form Edit
             $('.id').val(id);
             $('.res_chr_num').val(res_chr_num);
+            $('.res_chr_type').val(res_chr_type);
             $('.res_date').val(res_date);
             $('.res_cli_nom').val(res_cli_nom);
             $('.res_cli_nbr').val(res_cli_nbr);
             $('.res_cli_tel').val(res_cli_tel);
             $('.res_montant').val(res_montant);
             $('.res_nbr_jr').val(res_nbr_jr);
+            $('.res_chr_prix').val(res_chr_prix);
+            $('.res_chr_prix_total').val(res_chr_prix_total);
+
+            $('.res_repas_prix').val(res_repas_prix);
+            $('.res_repas_nbr').val(res_repas_nbr);
+            $('.res_repas_prix_total').val(res_repas_prix_total);
+
+            $('.res_lit_sup_prix').val(res_lit_sup_prix);
+            $('.res_lit_sup_nbr').val(res_lit_sup_nbr);
+            $('.res_lit_sup_prix_total').val(res_lit_sup_prix_total);
+
+            $('.res_visitesite_prix').val(res_visitesite_prix);
+
+            $('.res_ptid_prix').val(res_ptid_prix);
+            $('.res_ptid_nbr').val(res_ptid_nbr);
+            $('.res_ptid_prix_total').val(res_ptid_prix_total);
+			
             // Call Modal Edit
-            $('#detailreserv').modal('show');
+            $('#detailresa').modal('show');
         });
     });
 

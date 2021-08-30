@@ -169,5 +169,15 @@ class Tour_controller extends CI_Controller{
 		$html = $this->load->view('tour/tour_chr_pdf',$data,true);
 		$this->pdf->createPDF($html,'listchr',false);
 	}
+	public function printFacture()
+	{
+		$id = $this->input->post('id');
+		$resa['resa'] = $this->tour->printInResa($id);
+		$resa['numfac'] = rand(100,999+$id+7);
+		//var_dump($resa);
+		//die;
+		$html = $this->load->view('tour/tour_facture_resa_pdf',$resa,true);
+		$this->pdf->createPDF($html,'listreservation',false);
+	}
 }
 ?>

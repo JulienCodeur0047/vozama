@@ -181,6 +181,14 @@ class Tour_model extends CI_Model{
       //calcule
       $chr_prix = $Chmbre->chr_prix_nuite;
       $chr_nbr_jr = $this->input->post('res_nbr_jr');
+	  
+	  $vs = $this->input->post('res_visitesite');
+	  if ($vs == "OUI") {
+		$vs_prix = $this->input->post('res_visitesite_prix');
+	  }else{
+		$vs_prix = 0;
+		$vs = "NON";
+	  }
 
 			if ($chr_nbr_jr > 0) {
 				$montantTChr = $chr_prix*$chr_nbr_jr;
@@ -230,7 +238,7 @@ class Tour_model extends CI_Model{
 				$lit_nbr = 0;
 			}
 
-			$montantTotalRes = $montantTChr + $montantRepas + $montantPtid + $montantLitSup;
+			$montantTotalRes = $montantTChr + $montantRepas + $montantPtid + $montantLitSup + $vs_prix;
 
       $data = array(
         'chambre_id' => $idchmbr,
@@ -259,6 +267,12 @@ class Tour_model extends CI_Model{
 				//T
 				'res_montant' => $montantTotalRes,
 
+				//Lit
+				'res_lit_sup' => $lit,
+				'res_lit_sup_prix' => $lit_prix,
+				'res_lit_sup_nbr' => $lit_nbr,
+				'res_lit_sup_prix_total' => $montantLitSup,
+				
 				'res_note' => $this->input->post('res_note'), 
 				'res_visitesite' => $this->input->post('res_visitesite'), 
 				'res_visitesite_prix' => $this->input->post('res_visitesite_prix'), 
@@ -278,6 +292,9 @@ class Tour_model extends CI_Model{
     }
 	public function findChmbre($id){
 		return $this->db->get_where('chambre', array('id' => $id))->row();
+	}
+	public function findResa($id){
+		return $this->db->get_where('reservation', array('id' => $id))->row();
 	}
     public function updateChmbr($id,$str)
     {
@@ -320,5 +337,9 @@ class Tour_model extends CI_Model{
 			$query = $this->db->get("chambre");
       return $query->result();
 		}
+	public function printInResa($id)
+	{
+		return $this->findResa($id);
+	}
 }
 ?>
