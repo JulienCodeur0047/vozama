@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 23 août 2021 à 11:27
+-- Généré le : lun. 30 août 2021 à 05:17
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -829,24 +829,33 @@ DROP TABLE IF EXISTS `reservation`;
 CREATE TABLE IF NOT EXISTS `reservation` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `res_chr_num` int(10) DEFAULT NULL,
+  `res_chr_type` varchar(100) DEFAULT NULL,
+  `res_chr_prix_total` int(11) DEFAULT '0',
   `chambre_id` int(10) DEFAULT NULL,
   `res_nbr_jr` int(10) DEFAULT NULL,
   `res_date` date DEFAULT NULL,
-  `res_type` varchar(100) DEFAULT NULL,
   `res_montant` int(10) DEFAULT NULL,
   `res_cli_nom` varchar(200) DEFAULT NULL,
   `res_cli_tel` varchar(100) DEFAULT NULL,
   `res_cli_nbr` int(10) DEFAULT NULL,
+  `res_cli_email` int(200) DEFAULT NULL,
+  `res_note` varchar(400) DEFAULT NULL,
+  `res_visitesite` varchar(100) DEFAULT 'NON',
+  `res_visitesite_prix` int(11) DEFAULT '0',
+  `res_lit_sup` varchar(100) DEFAULT 'NON',
+  `res_lit_sup_prix` int(11) DEFAULT '0',
+  `res_lit_sup_nbr` int(11) DEFAULT '0',
+  `res_lit_sup_prix_total` int(11) DEFAULT '0',
+  `res_ptid` varchar(100) DEFAULT 'NON',
+  `res_ptid_prix` int(11) DEFAULT '0',
+  `res_ptid_nbr` int(11) DEFAULT '0',
+  `res_ptid_prix_total` int(11) DEFAULT '0',
+  `res_repas` varchar(100) DEFAULT 'NON',
+  `res_repas_type` varchar(100) DEFAULT NULL,
+  `res_repas_prix` int(11) DEFAULT '0',
+  `res_repas_nbr` int(11) DEFAULT '0',
+  `res_repas_prix_total` int(11) DEFAULT '0',
   `res_chr_prix` int(10) DEFAULT NULL,
-  `res_paye_avc` int(10) DEFAULT '0',
-  `res_paye_reste` int(10) DEFAULT '0',
-  `res_paye_total` varchar(100) DEFAULT 'non',
-  `res_repa_complet` varchar(100) DEFAULT 'non',
-  `res_repa_prix_u` int(10) DEFAULT NULL,
-  `res_repa_prix_total` int(10) DEFAULT NULL,
-  `res_repa_u` varchar(100) DEFAULT 'non',
-  `res_repa_nbr_complet` int(10) DEFAULT '3',
-  `res_nbr_hr` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
