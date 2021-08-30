@@ -16,10 +16,50 @@ class Tour_model extends CI_Model{
 			$query = $this->db->get("chambre");
 			return $query->result();
 		}
+		//TYPE
+		public function getChmbreNResTypeS()
+		{
+			$this->db->where('chr_reserve','non');
+			$this->db->where('chr_type','Simple');
+			$query = $this->db->get("chambre");
+			return $query->result();
+		}
+		public function getChmbreNResTypeD()
+		{
+			$this->db->where('chr_reserve','non');
+			$this->db->where('chr_type','Double');
+			$query = $this->db->get("chambre");
+			return $query->result();
+		}
+		public function getChmbreNResTypeF()
+		{
+			$this->db->where('chr_reserve','non');
+			$this->db->where('chr_type','Familial');
+			$query = $this->db->get("chambre");
+			return $query->result();
+		}
+		public function getChmbreNResTypeDo()
+		{
+			$this->db->where('chr_reserve','non');
+			$this->db->where('chr_type','Dortoir');
+			$query = $this->db->get("chambre");
+			return $query->result();
+		}
+		//TYPE
+		public function getChmbreOrSearch()
+		{
+			if(!empty($this->input->get("search"))){
+				$this->db->like('chr_type', $this->input->get("search"));
+				$this->db->or_like('chr_numero', $this->input->get("search"));
+				$this->db->or_like('chr_prix_nuite', $this->input->get("search"));
+				}
+			$query = $this->db->get("chambre");
+			return $query->result();
+		}
 		public function getChambreResOrSearch()
 		{
 			if(!empty($this->input->get("search"))){
-				$this->db->like('	res_chr_num', $this->input->get("search"));
+				$this->db->like('res_chr_num', $this->input->get("search"));
 				$this->db->or_like('res_cli_nom', $this->input->get("search"));
 				$this->db->or_like('res_cli_tel', $this->input->get("search"));
 				}
@@ -83,6 +123,25 @@ class Tour_model extends CI_Model{
         return $this->db->insert('viste_site', $data);
       }
     }
+		public function saveOrUpdateChmbre()
+		{
+			$id = $this->input->post('id');
+			$data = array(
+				'chr_numero' => $this->input->post('chr_numero'),
+				'chr_type' => $this->input->post('chr_type'),
+				'chr_prix_nuite' => $this->input->post('chr_prix_nuite'),
+			);
+			if (!empty($id)) {
+        $this->db->where('id',$id);
+        return $this->db->update('chambre',$data);
+      }else{
+        return $this->db->insert('chambre', $data);
+      }
+		}
+		public function deleteChmbre($id)
+		{
+			return $this->db->delete('chambre', array('id' => $id));
+		}
     public function deleteVs($id)
     {
       return $this->db->delete('viste_site', array('id' => $id));
@@ -115,35 +174,95 @@ class Tour_model extends CI_Model{
     }
     public function saveReserv()
     {
-      $idchmbr = $this->input->post('idchmbr');
+	  $idres = $this->input->post('id');
+      $idchmbr = $this->input->post('chambre_id');
+
+	  $Chmbre = $this->findChmbre($idchmbr);
       //calcule
-      $prixnuit = $this->input->post('chr_prix_nuite');
-      $prixhr = $this->input->post('chr_prix_nuite');
-      $nbrjour = $this->input->post('res_nbr_jr');
-      $nbrhr = $this->input->post('res_nbr_hr');
-      $prixrepas = $this->input->post('res_repa_prix_total');
+      $chr_prix = $Chmbre->chr_prix_nuite;
+      $chr_nbr_jr = $this->input->post('res_nbr_jr');
 
-      $rest = 0; $avc = $this->input->post('res_paye_avc');
-      
-      $total = $prixnuit*$nbrjour + $prixhr*$nbrhr + $prixrepas*$nbrjour;
+			if ($chr_nbr_jr > 0) {
+				$montantTChr = $chr_prix*$chr_nbr_jr;
+			} else {
+				$montantTChr = 0;
+				$chr_prix = 0;
+				$chr_nbr_jr = 0;
+			}
 
-      if (!empty($avc)) {
-        $rest = $total - $avc;
-      }
-      //
-      $idres = $this->input->post('');
+			$repas = $this->input->post('res_repas');
+			$repas_type = $this->input->post('res_repas_type');
+			$repas_prix = $this->input->post('res_repas_prix');
+			$repas_nbr =  $this->input->post('res_repas_nbr');
+
+			if ($repas == "OUI") {
+				$montantRepas = $repas_nbr*$repas_prix;
+			}else {
+				$repas = "NON";
+				$montantRepas = 0;
+				$repas_type = "";
+				$repas_prix = 0;
+				$repas_nbr = 0;
+				
+			}
+
+			$ptid = $this->input->post('res_ptid');
+			$ptid_prix = $this->input->post('res_ptid_prix');
+			$ptid_nbr = $this->input->post('res_ptid_nbr');
+
+			if ($ptid == "OUI") {
+				$montantPtid = $ptid_nbr*$ptid_prix;
+			}else {
+				$ptid = "NON";
+				$ptid_prix = 0;
+				$ptid_nbr = 0;
+				$montantPtid = 0;
+			}
+
+			$lit= $this->input->post('res_lit_sup');
+			$lit_prix = $this->input->post('res_lit_sup_prix');
+			$lit_nbr = $this->input->post('res_lit_sup_nbr');
+			if ($lit == "OUI") {
+				$montantLitSup = $lit_nbr*$lit_prix;
+			}else {
+				$montantLitSup = 0;
+				$lit_prix = 0;
+				$lit_nbr = 0;
+			}
+
+			$montantTotalRes = $montantTChr + $montantRepas + $montantPtid + $montantLitSup;
+
       $data = array(
         'chambre_id' => $idchmbr,
-        'res_chr_num' => $this->input->post('chr_numero'),
+        //cli
         'res_cli_nom' => $this->input->post('res_cli_nom'),
         'res_cli_tel' => $this->input->post('res_cli_tel'),
+        'res_cli_email' => $this->input->post('res_cli_email'),
         'res_cli_nbr' => $this->input->post('res_cli_nbr'),
-        'res_nbr_jr' => $nbrjour,
-        'res_nbr_hr' => $nbrhr,
-        'res_repa_prix_total' => $prixrepas,
-        'res_paye_avc' => $avc,
-        'res_paye_reste' => $rest,
-        'res_paye_total' => $total,
+				//chr
+				'res_chr_num' => $Chmbre->chr_numero,
+				'res_chr_type' => $Chmbre->chr_type,
+				'res_chr_prix' => $Chmbre->chr_prix_nuite,
+				'res_chr_prix_total' => $montantTChr,
+				'res_nbr_jr' => $chr_nbr_jr,
+				//repas
+				'res_repas' => $repas,
+				'res_repas_type' => $repas_type,
+				'res_repas_prix' => $repas_prix,
+				'res_repas_nbr' => $repas_nbr,
+				'res_repas_prix_total' => $montantRepas,
+				//ptid
+				'res_ptid' => $ptid,
+				'res_ptid_prix' => $ptid_prix,
+				'res_ptid_nbr' => $ptid_nbr,
+				'res_ptid_prix_total' => $montantPtid,
+				//T
+				'res_montant' => $montantTotalRes,
+
+				'res_note' => $this->input->post('res_note'), 
+				'res_visitesite' => $this->input->post('res_visitesite'), 
+				'res_visitesite_prix' => $this->input->post('res_visitesite_prix'), 
+
         'res_date' => date('y-m-d h:i:s'),
         );
         if(!empty($idchmbr)){
@@ -157,6 +276,9 @@ class Tour_model extends CI_Model{
           return $this->db->insert('reservation', $data);
         }
     }
+	public function findChmbre($id){
+		return $this->db->get_where('chambre', array('id' => $id))->row();
+	}
     public function updateChmbr($id,$str)
     {
       $data = array(
@@ -193,5 +315,10 @@ class Tour_model extends CI_Model{
       $query = $this->db->get("viste_site");
       return $query->result();
     }
+		public function printChmbr()
+		{
+			$query = $this->db->get("chambre");
+      return $query->result();
+		}
 }
 ?>

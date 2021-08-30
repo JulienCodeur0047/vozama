@@ -107,7 +107,7 @@
 							  break;
 							  case 7:
 							  ?> 
-							  <a class="dropdown-item" href="#"><i class="fa fa-hotel"></i> Chambre</a>
+							  <a class="dropdown-item" href="<?php echo base_url('tourchmbr')?>"><i class="fa fa-hotel"></i> Chambre</a>
 							  <a class="dropdown-item" href="<?php echo base_url('planning');?>" ><i class="fa fa-calendar"></i> Plannings</a>
 							  <a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a>
 							  <?php
@@ -129,7 +129,7 @@
 						<a class="dropdown-item" href="<?php echo base_url('usermgr')?>"><i class="fa fa-user"></i> Utilisateur</a>
 						<a class="dropdown-item" href="<?php echo base_url('planning');?>" ><i class="fa fa-calendar"></i> Plannings</a>
 						<a class="dropdown-item" href="<?php echo base_url('tbaplh')?>"><i class="fa fa-table"></i> Table de base</a>
-						<a class="dropdown-item" href="#"><i class="fa fa-hotel"></i> Chambre</a>
+						<a class="dropdown-item" href="<?php echo base_url('tourchmbr')?>"><i class="fa fa-hotel"></i> Chambre</a>
 						<a class="dropdown-item" href="<?php echo base_url('logout')?>"><i class="fa fa-sign-out"></i> Deconnexion</a></div>
 						<?php
 						}
