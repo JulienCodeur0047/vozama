@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 30 août 2021 à 05:17
+-- Généré le : Dim 05 sep. 2021 à 17:57
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -336,6 +336,33 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `environnement`
+--
+
+DROP TABLE IF EXISTS `environnement`;
+CREATE TABLE IF NOT EXISTS `environnement` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) DEFAULT NULL,
+  `commune_id` int(11) DEFAULT NULL,
+  `env_site` varchar(100) DEFAULT NULL,
+  `env_commune` varchar(100) DEFAULT NULL,
+  `env_annee_depart` int(4) DEFAULT NULL,
+  `env_nb_arbre_2020` int(11) DEFAULT '0',
+  `env_nb_arbre_2021` int(11) DEFAULT '0',
+  `env_nb_arbre_2022` int(11) DEFAULT '0',
+  `env_nb_arbre_2023` int(11) DEFAULT '0',
+  `env_total_est_zone` int(11) DEFAULT '0',
+  `env_date_dern_plant` date DEFAULT NULL,
+  `env_date_dern_visit` date DEFAULT NULL,
+  `env_taux_survie` int(11) DEFAULT NULL,
+  `env_obs_gal` varchar(400) DEFAULT NULL,
+  `env_bailleur` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `events`
 --
 
@@ -600,19 +627,22 @@ CREATE TABLE IF NOT EXISTS `passgard` (
 DROP TABLE IF EXISTS `pepiniere`;
 CREATE TABLE IF NOT EXISTS `pepiniere` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `pep_libelle` varchar(100) DEFAULT NULL,
-  `pep_type` varchar(100) DEFAULT NULL,
-  `pep_date` date DEFAULT NULL,
-  `pep_site` varchar(100) DEFAULT NULL,
-  `pep_poste` varchar(100) DEFAULT NULL,
-  `poste_id` int(10) DEFAULT NULL,
-  `site_id` int(10) DEFAULT NULL,
-  `pep_qte` int(10) DEFAULT NULL,
-  `pep_durre_porjet` varchar(100) DEFAULT NULL,
-  `pep_description` varchar(400) DEFAULT NULL,
-  `pep_surface` varchar(100) DEFAULT NULL,
-  `pep_prix` varchar(100) DEFAULT NULL,
-  `pep_taille` varchar(100) DEFAULT NULL,
+  `pep_date_maj` date DEFAULT NULL,
+  `pep_espece` varchar(100) DEFAULT NULL,
+  `pep_fournisseur` varchar(100) DEFAULT NULL,
+  `pep_date_acht_seed` date DEFAULT NULL,
+  `pep_qte_seed_acht` varchar(100) DEFAULT NULL,
+  `pep_date_semis` date DEFAULT NULL,
+  `pep_date_menpot` date DEFAULT NULL,
+  `pep_nbr_menpot` int(11) DEFAULT '0',
+  `pep_entre_ext` varchar(100) DEFAULT NULL,
+  `pep_morts` int(11) DEFAULT '0',
+  `pep_vendue` int(11) DEFAULT '0',
+  `pep_shared` int(11) DEFAULT '0',
+  `pep_pu` int(11) DEFAULT '0',
+  `pep_mont_total` int(11) DEFAULT '0',
+  `pep_stock_reel` int(11) DEFAULT '0',
+  `pep_note` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

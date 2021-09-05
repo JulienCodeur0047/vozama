@@ -64,6 +64,7 @@ $route['deluser/(:any)'] = "Login_controller/deleteUser/$1";
 $route['saveuser']['post'] = "Login_controller/saveUser";
 $route['printposte']['post'] = "poste/Poste_controller/printListPosteToPdfU";
 $route['env'] = "environnement/Env_controller/indexPep";
+$route['envn'] = "environnement/Env_controller/indexEnv";
 $route['envdelpep/(:any)'] = "environnement/Env_controller/deletePepiniere/$1";
 $route['envdelaep/(:any)'] = "environnement/Env_controller/deleteAep/$1";
 
@@ -198,6 +199,7 @@ $route['tbaplh'] = "poste/Poste_controller/indextb";
 
 $route['saveposte']['post'] = "poste/Poste_controller/save";
 $route['savepep']['post'] = "environnement/Env_controller/savepep";
+$route['saveenv']['post'] = "environnement/Env_controller/saveenv";
 $route['savecmv']['post'] = "dev/Dev_controller/savecmv";
 $route['saveagr']['post'] = "dev/Dev_controller/saveagr";
 $route['saveaep']['post'] = "environnement/Env_controller/saveaep";

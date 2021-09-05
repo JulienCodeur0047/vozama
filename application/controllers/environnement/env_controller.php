@@ -21,7 +21,16 @@ class Env_controller extends CI_Controller{
 			$this->load->view('environnement/env_pepiniere_list',$data);
 			$this->load->view('theme/footer');
 		}
-
+		public function indexEnv()
+		{
+			$data['env'] = $this->env->getEnvOrSearch();
+			$data['site'] = $this->poste->getSiteLookUp();
+			$data['commune'] = $this->poste->getCommuneLookUp();
+			
+			$this->getSession(); 
+			$this->load->view('environnement/env_list_env',$data);
+			$this->load->view('theme/footer');
+		}
 		public function indexAep(){
 			$data['aep'] = $this->env->getAepOrSearchFilter();
 			$data['poste'] = $this->poste->getPosteLookUp();
@@ -42,7 +51,7 @@ class Env_controller extends CI_Controller{
 		public function savepep(){
 			$this->load->library('form_validation');
 
-			$this->form_validation->set_rules('pep_type', 'pep_type', 'required');
+			$this->form_validation->set_rules('pep_espece', 'pep_espece', 'required');
 	
 	
 			if ($this->form_validation->run() == FALSE){
@@ -53,6 +62,22 @@ class Env_controller extends CI_Controller{
 			   $this->env->insertpep();
 			   echo "<script>alert('Ajout Reussit');</script>";
 			   redirect(base_url('env'));
+			}
+		}
+		public function saveenv()
+		{
+			$this->load->library('form_validation');
+
+			$this->form_validation->set_rules('site_id', 'site_id', 'required');
+	
+			if ($this->form_validation->run() == FALSE){
+				$this->session->set_flashdata('errors', validation_errors());
+				echo "<script>alert('Ajout Error');</script>";
+				redirect(base_url('envn'));
+			}else{
+			   $this->env->saveOrUpdateEnv();
+			   echo "<script>alert('Ajout Reussit');</script>";
+			   redirect(base_url('envn'));
 			}
 		}
 		public function saveaep(){

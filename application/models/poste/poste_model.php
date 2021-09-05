@@ -108,6 +108,9 @@ class Poste_model extends CI_Model{
 	public function findPoste($id){
 		return $this->db->get_where('poste', array('id' => $id))->row();
 	}
+	public function findCommune($id){
+		return $this->db->get_where('commune', array('id' => $id))->row();
+	}
 	public function findSite($id){
 		return $this->db->get_where('site', array('id' => $id))->row();
 	}

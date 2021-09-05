@@ -5,5 +5,6 @@
             <div class="collapse navbar-collapse" id="navcol-1" style="margin-top: 9px;">
                 <ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('env');?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Pépinière</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('envn');?>" style="border-right-width: 2px;border-right-color: rgb(102,102,102);font-size: 13px;">Environnement</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('envaep');?>" style="font-size: 13px;">AEP (adduction d'eau potable)</a></li>
 				</ul>
