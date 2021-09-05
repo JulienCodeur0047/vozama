@@ -179,7 +179,9 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer" style="height: 51px;padding: 8px;"><button class="btn btn-dark" type="button" style="font-size: 12px;height: 28px;padding: 1px 12px;">Facture <i class="fa fa-print"></i></button><button class="btn btn-primary" type="submit" style="font-size: 12px;height: 28px;padding: 1px 12px;">Enregistrer</button></div>
+            <div class="modal-footer" style="height: 51px;padding: 8px;">
+			<!--<button class="btn btn-dark" type="button" style="font-size: 12px;height: 28px;padding: 1px 12px;">Facture <i class="fa fa-print"></i></button>-->
+			<button class="btn btn-primary" type="submit" style="font-size: 12px;height: 28px;padding: 1px 12px;">Enregistrer</button></div>
 			</form>
 			<?php echo form_close()?>
 		</div>
