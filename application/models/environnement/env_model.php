@@ -91,7 +91,7 @@ class Env_model extends CI_Model{
 			'env_nb_arbre_2022' => $this->input->post('env_nb_arbre_2022'), 
 			'env_nb_arbre_2023' => $this->input->post('env_nb_arbre_2023'), 
 			'env_total_est_zone' => $this->input->post('env_total_est_zone'), 
-			'env_date_dern_plant' => $this->input->post('communenv_date_dern_plante_id'), 
+			'env_date_dern_plant' => $this->input->post('env_date_dern_plant'),
 			'env_date_dern_visit' => $this->input->post('env_date_dern_visit'), 
 			'env_taux_survie' => $this->input->post('env_taux_survie'), 
 			'env_bailleur' => $this->input->post('env_bailleur'), 

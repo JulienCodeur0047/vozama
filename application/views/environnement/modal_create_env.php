@@ -55,7 +55,7 @@
                     </div>
                     <div class="col" style="height: auto;">
 					<label style="margin-bottom: -4px;font-size: 11px;">Date dernier plantation</label>
-					<input type="date" style="width: 216px;font-size: 13px;color: var(--gray);" name="env_date_dern_plant" />
+					<input type="date" style="width: 216px;font-size: 13px;color: var(--gray);" name="env_date_dern_plant" class="env_date_dern_plant"/>
 					<label style="margin-bottom: -4px;font-size: 11px;">Date dernier visite</label>
 					<input class="env_date_dern_visit" type="date" style="width: 216px;font-size: 13px;color: var(--gray);" name="env_date_dern_visit" />
 					<label style="margin-bottom: -4px;font-size: 11px;">Taux de survie</label>
