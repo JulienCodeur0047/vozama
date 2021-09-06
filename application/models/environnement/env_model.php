@@ -108,6 +108,40 @@ class Env_model extends CI_Model{
 
 	}
 
+	public function saveOrUpdateAep()
+	{
+		$id = $this->input->post('id');
+		$data = array(
+				'aep_type' => $this->input->post('aep_type') ,
+				'aep_bailleur' => $this->input->post('aep_bailleur'),
+				'aep_commune' => $this->poste->findCommune( $this->input->post('commune_id'))->commune_name ,
+				'commune_id' => $this->input->post('commune_id') ,
+				'aep_annee_srv' => $this->input->post('aep_annee_srv') ,
+				'aep_village_pal' => $this->input->post('aep_village_pal') ,
+				'aep_nbr_foyer' => $this->input->post('aep_nbr_foyer') ,
+				'aep_nbr_pers' => $this->input->post('aep_nbr_pers') ,
+				'aep_nbr_born_fontaine' => $this->input->post('aep_nbr_born_fontaine') ,
+				'aep_nbr_bp' => $this->input->post('aep_nbr_bp'), 
+				'aep_nbr_lavoir_douche' => $this->input->post('aep_nbr_lavoir_douche') ,
+				'aep_nbr_latrine' => $this->input->post('aep_nbr_latrine') ,
+				'aep_cot_mens_fyr' => $this->input->post('aep_cot_mens_fyr'),
+				'aep_date_last_suiv' => $this->input->post('aep_date_last_suiv') ,
+				'aep_responsable_suiv' => $this->input->post('aep_responsable_suiv'),
+				'aep_etat_fonct' => $this->input->post('aep_etat_fonct') ,
+				'aep_etat_entrt' => $this->input->post('aep_etat_entrt') ,
+				'aep_cons_my_Lhjr' => $this->input->post('aep_cons_my_Lhjr') ,
+				'aep_etat_cot' => $this->input->post('aep_etat_cot') ,
+				'aep_note' => $this->input->post('aep_note') ,
+		);
+		if (!empty($id)) {
+			$this->db->where('id',$id);
+			return $this->db->update('aep',$data);
+		  }else{
+			return $this->db->insert('aep', $data);
+		  }
+
+	}
+
 	public function updateaep($data,$id){
 		$this->db->where('id',$id);
         return $this->db->update('aep',$data);

@@ -83,8 +83,7 @@ class Env_controller extends CI_Controller{
 		public function saveaep(){
 			$this->load->library('form_validation');
 
-			$this->form_validation->set_rules('aep_date', 'aep_date', 'required');
-			$this->form_validation->set_rules('aep_parrain', 'aep_parrain', 'required');
+			$this->form_validation->set_rules('aep_type', 'aep_type', 'required');
 	
 	
 			if ($this->form_validation->run() == FALSE){
@@ -92,7 +91,7 @@ class Env_controller extends CI_Controller{
 				echo "<script>alert('Ajout Error');</script>";
 				redirect(base_url('envaep'));
 			}else{
-			   $this->env->insertaep();
+			   $this->env->saveOrUpdateAep();
 			   echo "<script>alert('Ajout Reussit');</script>";
 			   redirect(base_url('envaep'));
 			}
@@ -141,7 +140,7 @@ class Env_controller extends CI_Controller{
 		}
 		public function deleteAep($id)
 		{
-			$this->env->deletePepiniere($id);
+			$this->env->deleteAep($id);
 			redirect(base_url('envaep'));
 		}
 

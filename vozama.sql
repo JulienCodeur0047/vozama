@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 05 sep. 2021 à 17:57
+-- Généré le : lun. 06 sep. 2021 à 21:20
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -36,6 +36,26 @@ CREATE TABLE IF NOT EXISTS `aep` (
   `poste_id` int(10) DEFAULT NULL,
   `site_id` int(11) DEFAULT NULL,
   `aep_parrain` varchar(100) DEFAULT NULL,
+  `aep_type` varchar(100) DEFAULT NULL,
+  `aep_bailleur` varchar(100) DEFAULT NULL,
+  `aep_commune` varchar(100) DEFAULT NULL,
+  `commune_id` varchar(100) DEFAULT NULL,
+  `aep_annee_srv` int(11) DEFAULT NULL,
+  `aep_village_pal` varchar(100) DEFAULT NULL,
+  `aep_nbr_foyer` int(11) DEFAULT NULL,
+  `aep_nbr_pers` int(11) DEFAULT NULL,
+  `aep_nbr_born_fontaine` int(11) DEFAULT NULL,
+  `aep_nbr_bp` int(11) DEFAULT NULL,
+  `aep_nbr_lavoir_douche` int(11) DEFAULT NULL,
+  `aep_nbr_latrine` int(11) DEFAULT NULL,
+  `aep_cot_mens_fyr` int(11) DEFAULT NULL,
+  `aep_date_last_suiv` date DEFAULT NULL,
+  `aep_responsable_suiv` varchar(200) DEFAULT NULL,
+  `aep_etat_fonct` varchar(100) DEFAULT NULL,
+  `aep_etat_entrt` int(100) DEFAULT NULL,
+  `aep_cons_my_Lhjr` int(11) DEFAULT NULL,
+  `aep_etat_cot` varchar(100) DEFAULT NULL,
+  `aep_note` varchar(400) DEFAULT NULL,
   `aep_description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
