@@ -18,6 +18,9 @@
 					<select class="commune_id" name="commune_id" style="font-size: 12px;width: 217px;color: var(--gray);height: 25px;border-radius: 2px;">
                             <optgroup label="Commune">
                                 <option value selected>Selec.Commune</option>
+								<?php foreach ($com as $com) {?>
+									<option value="<?php echo $com->id;?>"><?php echo $com->commune_name;?></option>
+								<?php };?>
                             </optgroup>
                         </select>
                         <div class="row">
@@ -60,7 +63,7 @@
 							<label style="margin-bottom: -4px;font-size: 11px;">Etat de fonctionnement</label>
 							<input type="text" class="aep_etat_fonct" style="width: 114px;font-size: 13px;height: 25px;margin-top: 5px;padding-left: 0px;margin-left: 5px;" name="aep_etat_fonct" />
 							<label style="margin-bottom: -4px;font-size: 11px;">Cons. moyenne (L/Hab/jr)</label>
-							<input type="number" class="aep_cons_my_Lhjr" style="width: 114px;font-size: 13px;height: 25px;margin-top: 5px;padding-left: 0px;margin-left: 5px;" name="aep_cons_my_Lhjr" /></div>
+							<input type="number" class="aep_cons_my_lhjr" style="width: 114px;font-size: 13px;height: 25px;margin-top: 5px;padding-left: 0px;margin-left: 5px;" name="aep_cons_my_lhjr" /></div>
                             <div class="col-xl-6" style="padding-right: 3px;padding-left: 4px;">
 							<label style="margin-bottom: -4px;font-size: 11px;">Etat entretient</label>
 							<input type="text" class="aep_etat_entrt" style="width: 114px;font-size: 13px;height: 25px;margin-top: 5px;padding-left: 0px;margin-left: 5px;" name="aep_etat_entrt" />

@@ -10,8 +10,12 @@
 			<input type="hidden" class="id" name="id"/>
                 <div class="row" style="height: auto;width: auto;">
                     <div class="col-lg-6"><label style="font-size: 12px;margin-bottom: 0px;">Nom</label>
-					<input type="text" class="pers_name" style="font-size: 12px;width: 214px;" name="pers_name" /><label style="font-size: 12px;margin-bottom: 0px;">Prénoms</label>
-					<input type="text" class="pers_firstname" style="font-size: 12px;width: 214px;" name="pers_firstname" /><label style="font-size: 12px;margin-bottom: 0px;">Date de naissance</label>
+					<input type="text" class="pers_name" style="font-size: 12px;width: 214px;" name="pers_name" />
+					<label style="font-size: 12px;margin-bottom: 0px;">Prénoms</label>
+					<input type="text" class="pers_firstname" style="font-size: 12px;width: 214px;" name="pers_firstname" />
+					<label style="font-size: 12px;margin-bottom: 0px;">Matricule</label>
+					<input type="text" class="pers_matricule" style="font-size: 12px;width: 214px;" name="pers_matricule" />
+					<label style="font-size: 12px;margin-bottom: 0px;">Date de naissance</label>
 					<input type="date" class="pers_date_birth" style="width: 214px;font-size: 12px;" name="pers_date_birth" /><label style="font-size: 12px;margin-bottom: 0px;">Sexe</label>
 					<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_sexe" name="pers_sexe">
                             <optgroup label="This is a group">
@@ -47,15 +51,24 @@
                                 <option value="Freelance">Freelance</option>
                                 <option value="Stage">Stage</option>
                             </optgroup>
-                        </select><label style="font-size: 12px;margin-bottom: 0px;">Type de Personnel</label>
+                        </select><label style="font-size: 12px;margin-bottom: 0px;">Catégorie professionnel</label>
 						<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_type" name="pers_type">
                             <optgroup label="This is a group">
                                 <option value selected>Select.</option>
-                                <option value="Cadre Sup">Cadre Sup</option>
-                                <option value="Cadre">Cadre</option>
-                                <option value="Non Cadre">Non Cadre</option>
+								<?php foreach ($typepers as $typepers) { ?>
+									<option value="<?php echo $typepers->pers_type_name;?>"><?php echo $typepers->pers_type_name;?></option>
+								<?php }?>
                             </optgroup>
-                        </select><label style="font-size: 12px;margin-bottom: 0px;margin-top: 7px;">Téléphone</label>
+                        </select>
+						<label style="font-size: 12px;margin-bottom: 0px;">SIte de travail</label>
+						<select style="font-size: 12px;width: 214px;height: 24px;" class="pers_site" name="pers_site">
+                            <optgroup label="This is a group">
+                                <option value selected>Selec.</option>
+                                <option value="Ambositra">Ambositra</option>
+                                <option value="Fianarantsoa">Fianarantsoa</option>
+                            </optgroup>
+                        </select>
+						<label style="font-size: 12px;margin-bottom: 0px;margin-top: 7px;">Téléphone</label>
 						<input type="text" class="pers_phone" style="font-size: 12px;width: 214px;" name="pers_phone" /><label style="font-size: 12px;margin-bottom: 0px;">E-mail</label>
 						<input type="text" class="pers_mail" style="font-size: 12px;width: 214px;" name="pers_mail" /><label style="font-size: 12px;margin-bottom: 0px;">Date d&#39;embauche</label>
 						<input type="date" class="pers_date_arrived" style="width: 214px;font-size: 12px;" name="pers_date_arrived" />

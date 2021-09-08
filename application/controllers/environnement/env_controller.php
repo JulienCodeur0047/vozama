@@ -35,6 +35,8 @@ class Env_controller extends CI_Controller{
 			$data['aep'] = $this->env->getAepOrSearchFilter();
 			$data['poste'] = $this->poste->getPosteLookUp();
 			$data['site'] = $this->poste->getSiteLookUp();
+			$data['com'] = $this->poste->getCommuneLookUp();
+
 			$this->getSession();      
 			$this->load->view('environnement/env_aep_list',$data);
 			$this->load->view('theme/footer');

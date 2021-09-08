@@ -8,4 +8,5 @@
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('enpers');?>" style="font-size: 13px;">Personnel</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('encong');?>" style="font-size: 13px;">Congé</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('enbien');?>" style="font-size: 13px;">Bien</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo base_url('enstk');?>" style="font-size: 13px;">Stock</a></li>
 				</ul>

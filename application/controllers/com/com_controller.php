@@ -34,7 +34,7 @@ class Com_controller extends CI_Controller{
 	}
 	public function indexpart()
 	{
-		$data['data'] = $this->poste->getPostOrSearch();
+		$data['data'] = $this->com->getEntOrSearch();
 		$this->getSession();
 		$this->load->view('com/com_list_partenair',$data);
 		$this->load->view('theme/footer');
@@ -83,18 +83,18 @@ class Com_controller extends CI_Controller{
 	}
 	public function savepart()
 	{
-		//$this->load->library('form_validation');
-		//$this->form_validation->set_rules('poste_partenair_type', 'poste_partenair_type', 'required');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('ent_nom', 'ent_nom', 'required');
 
-		/*if ($this->form_validation->run() == FALSE){
+		if ($this->form_validation->run() == FALSE){
 			$this->session->set_flashdata('errors', validation_errors());
 			echo "<script>alert('Ajout Error');</script>";
 			redirect(base_url('compart'));
-		}else{*/
-		   $this->com->savePart();
+		}else{
+		   $this->com->saveOrUpdateEntite();
 		   echo "<script>alert('Ajout Reussit');</script>";
 		   redirect(base_url('compart'));
-		//}
+		}
 	}
 	public function printParr()
 	{
@@ -104,7 +104,7 @@ class Com_controller extends CI_Controller{
 	}
 	public function printPart()
 	{
-		$data['data'] = $this->com->printPart();
+		$data['data'] = $this->com->getEntOrSearch();
 		$html = $this->load->view('com/com_part_pdf',$data,true);
 		$this->pdf->createPDF($html,'listPostePartenaire',false);
 	}
@@ -113,6 +113,11 @@ class Com_controller extends CI_Controller{
 		$data['data'] = $this->com->printRes();
 		$html = $this->load->view('com/com_res_pdf',$data,true);
 		$this->pdf->createPDF($html,'listcom',false);
+	}
+	public function deleteEnt($id)
+	{
+		$this->com->deleteEnt($id);
+		redirect(base_url('compart'));
 	}
 }
 ?>

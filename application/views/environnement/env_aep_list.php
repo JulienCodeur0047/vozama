@@ -36,7 +36,7 @@
                             <td><?php echo $aep->aep_annee_srv;?></td>
                             <td><?php echo $aep->aep_date_last_suiv?></td>
                             <td><?php echo $aep->aep_etat_fonct?></td>
-                            <td><?php echo $aep->aep_cons_my_Lhjr?></td>
+                            <td><?php echo $aep->aep_cons_my_lhjr?></td>
                             <td><?php echo $aep->aep_responsable_suiv;?></td>
                             <td style="font-size: 12px;">
 							
@@ -59,7 +59,7 @@
 							data-aep_responsable_suiv=  "<?php echo $aep->aep_responsable_suiv?>" 
 							data-aep_etat_fonct=  "<?php echo $aep->aep_etat_fonct?>" 
 							data-aep_etat_entrt=  "<?php echo $aep->aep_etat_entrt?>" 
-							data-aep_cons_my_Lhjr=  "<?php echo $aep->aep_cons_my_Lhjr?>" 
+							data-aep_cons_my_lhjr=  "<?php echo $aep->aep_cons_my_lhjr?>" 
 							data-aep_etat_cot=  "<?php echo $aep->aep_etat_cot?>" 
 							data-aep_note=  "<?php echo $aep->aep_note?>" 
 							type="button" style="background: rgb(153,217,168);margin-right: 0px;height: auto;margin-top: 0px;padding-top: 0px;border-radius: 0px;"><i class="fa fa-pencil-square-o" style="font-size: 12px;padding-top: 0px;"></i></a>
@@ -112,7 +112,7 @@
 			const aep_responsable_suiv=  $(this).data('aep_responsable_suiv'); 
 			const aep_etat_fonct=  $(this).data('aep_etat_fonct'); 
 			const aep_etat_entrt=  $(this).data('aep_etat_entrt'); 
-			const aep_cons_my_Lhjr=  $(this).data('aep_cons_my_Lhjr'); 
+			const aep_cons_my_lhjr=  $(this).data('aep_cons_my_lhjr'); 
 			const aep_etat_cot=  $(this).data('aep_etat_cot'); 
 			const aep_note=  $(this).data('aep_note'); 
             // Set data to Form Edit
@@ -134,7 +134,7 @@
 			$('.aep_responsable_suiv').val(aep_responsable_suiv); 
 			$('.aep_etat_fonct').val(aep_etat_fonct); 
 			$('.aep_etat_entrt').val(aep_etat_entrt); 
-			$('.aep_cons_my_Lhjr').val(aep_cons_my_Lhjr); 
+			$('.aep_cons_my_lhjr').val(aep_cons_my_lhjr); 
 			$('.aep_etat_cot').val(aep_etat_cot); 
 			$('.aep_note').val(aep_note); 
             // Call Modal Edit

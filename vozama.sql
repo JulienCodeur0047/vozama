@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 06 sep. 2021 à 21:20
+-- Généré le : mer. 08 sep. 2021 à 14:18
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `aep` (
   `aep_responsable_suiv` varchar(200) DEFAULT NULL,
   `aep_etat_fonct` varchar(100) DEFAULT NULL,
   `aep_etat_entrt` int(100) DEFAULT NULL,
-  `aep_cons_my_Lhjr` int(11) DEFAULT NULL,
+  `aep_cons_my_lhjr` int(11) DEFAULT NULL,
   `aep_etat_cot` varchar(100) DEFAULT NULL,
   `aep_note` varchar(400) DEFAULT NULL,
   `aep_description` varchar(100) DEFAULT NULL,
@@ -336,6 +336,23 @@ CREATE TABLE IF NOT EXISTS `eleve` (
   `eleve_m3` double DEFAULT NULL,
   `eleve_mg` int(11) DEFAULT NULL,
   `eleve_date_mo` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `entite`
+--
+
+DROP TABLE IF EXISTS `entite`;
+CREATE TABLE IF NOT EXISTS `entite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ent_nom` varchar(200) DEFAULT NULL,
+  `ent_contrat` varchar(100) DEFAULT NULL,
+  `ent_partenaire` varchar(100) DEFAULT NULL,
+  `ent_date_debut` date DEFAULT NULL,
+  `ent_date_fin` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -691,6 +708,8 @@ CREATE TABLE IF NOT EXISTS `personal` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `pers_name` varchar(100) DEFAULT NULL,
   `pers_firstname` varchar(100) DEFAULT NULL,
+  `pers_matricule` varchar(100) DEFAULT NULL,
+  `pers_site` varchar(200) DEFAULT NULL,
   `pers_date_birth` date DEFAULT NULL,
   `pers_cin` varchar(100) DEFAULT NULL,
   `pers_address` varchar(100) DEFAULT NULL,
@@ -721,7 +740,6 @@ CREATE TABLE IF NOT EXISTS `personal` (
 DROP TABLE IF EXISTS `personal_type`;
 CREATE TABLE IF NOT EXISTS `personal_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pers_type_code` varchar(100) DEFAULT NULL,
   `pers_type_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -970,6 +988,45 @@ CREATE TABLE IF NOT EXISTS `sous_prefecture` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `sous_pref_name` varchar(100) DEFAULT NULL,
   `sous_pref_code` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stk`
+--
+
+DROP TABLE IF EXISTS `stk`;
+CREATE TABLE IF NOT EXISTS `stk` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stk_designation` varchar(200) DEFAULT NULL,
+  `stk_qte` int(11) DEFAULT NULL,
+  `stk_unit` varchar(100) DEFAULT NULL,
+  `stk_type` varchar(100) DEFAULT NULL,
+  `stk_date` date DEFAULT NULL,
+  `stk_fournisseur` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stk_mvt`
+--
+
+DROP TABLE IF EXISTS `stk_mvt`;
+CREATE TABLE IF NOT EXISTS `stk_mvt` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mvt_date` date DEFAULT NULL,
+  `mvt_destination` varchar(200) DEFAULT NULL,
+  `mvt_fournisseur` varchar(200) DEFAULT NULL,
+  `mvt_qte` int(11) DEFAULT NULL,
+  `mvt_unit` varchar(100) DEFAULT NULL,
+  `mvt_etat` varchar(100) DEFAULT NULL,
+  `mvt_reste` int(11) DEFAULT NULL,
+  `stk_id` int(11) DEFAULT NULL,
+  `mvt_stk_designation` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

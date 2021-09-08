@@ -33,6 +33,10 @@ class Com_model extends CI_Model{
 	  {
 		return $this->db->delete('soc_network', array('id' => $id));
 	  }
+	  public function deleteEnt($id)
+	  {
+		return $this->db->delete('entite', array('id' => $id));
+	  }
 	  public function getResOrSearch()
 	  {
 		if(!empty($this->input->get("search"))){
@@ -67,6 +71,31 @@ class Com_model extends CI_Model{
 		}
 	  }
 
+	  public function saveOrUpdateEntite()
+	  {
+		  $id = $this->input->post('id');
+		  $data = array(
+			'ent_nom' => $this->input->post('ent_nom') ,
+			'ent_contrat' => $this->input->post('ent_contrat') ,
+			'ent_partenaire' => $this->input->post('ent_partenaire') ,
+			'ent_date_debut' => $this->input->post('ent_date_debut') ,
+			'ent_date_fin' => $this->input->post('ent_date_fin') ,
+			);
+			if(!empty($id)){
+				$this->db->where('id',$id);
+				return $this->db->update('entite',$data);
+			}else{
+				return $this->db->insert('entite', $data);
+			}
+	  }
+	  public function getEntOrSearch()
+	  {
+		if(!empty($this->input->get("search"))){
+			$this->db->like('ent_nom', $this->input->get("search"));
+		  }
+		  $query = $this->db->get("entite");
+		  return $query->result();
+	  }
 	  public function savePart()
 	  {
 		$id = $this->input->post('id');

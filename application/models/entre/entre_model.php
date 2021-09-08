@@ -51,6 +51,50 @@ class Entre_model extends CI_Model{
 		  $query = $this->db->get("bien");
 		  return $query->result();
 	  }
+		public function getOrSearchStkProduit()
+		{
+			$type = $this->input->post('stk_type');
+			$dated = $this->input->post('dated');
+			$datef = $this->input->post('datef');
+
+			if (!empty($this->input->get("searchp"))) {
+				$this->db->like('stk_designation', $this->input->get("searchp"));
+				$this->db->or_like('stk_type', $this->input->get("searchp")); 
+				$this->db->or_like('stk_date', $this->input->get("searchp")); 
+				$this->db->or_like('stk_fournisseur', $this->input->get("searchp")); 
+			}
+			if (!empty($type)) {
+				$this->db->where('stk_type', $type);
+			}
+			if (!empty($dated)&&!empty($datef)) {
+				$this->db->where('stk_date >=', $dated);
+				$this->db->where('stk_date <=', $datef);
+			}
+			$query = $this->db->get("stk");
+		  return $query->result();
+		}
+		public function getOrSearchStkMvt()
+		{
+			$etat = $this->input->post('mvt_etat');
+			$dated = $this->input->post('dated');
+			$datef = $this->input->post('datef');
+
+			if (!empty($this->input->get("searchm"))) {
+				$this->db->like('mvt_destination', $this->input->get("searchm"));
+				$this->db->or_like('mvt_etat', $this->input->get("searchm")); 
+				$this->db->or_like('mvt_stk_designation', $this->input->get("searchm")); 
+				$this->db->or_like('stk_id', $this->input->get("searchm")); 
+			}
+			if (!empty($etat)) {
+				$this->db->where('mvt_etat', $etat);
+			}
+			if (!empty($dated)&&!empty($datef)) {
+				$this->db->where('mvt_date >=', $dated);
+				$this->db->where('mvt_date <=', $datef);
+			}
+			$query = $this->db->get("stk_mvt");
+		  return $query->result();
+		}
 
 		public function getPersOrSearch()
 	  {
@@ -77,7 +121,68 @@ class Entre_model extends CI_Model{
 		  $query = $this->db->get("personal");
 		  return $query->result();
 	  }
+		public function insetStk()
+		{
+			$datastk = array(
+        'stk_designation' => $this->input->post('stk_designation'),
+        'stk_qte' => $this->input->post('stk_qte'),
+        'stk_unit' => $this->input->post('stk_unit'),
+        'stk_type' => $this->input->post('stk_type'),
+        'stk_date' => $this->input->post('stk_date'),
+        'stk_fournisseur' => $this->input->post('stk_fournisseur'),
+        );
+				$this->db->insert('stk', $datastk);
+				$idstk = 	$this->db->insert_id();
 
+				$datamvt = array(
+					'mvt_date' => $this->input->post('stk_date'),
+					'mvt_fournisseur' => $this->input->post('stk_fournisseur'),
+					'mvt_qte' => $this->input->post('stk_qte'),
+					'mvt_unit' => $this->input->post('stk_unit'),
+					'mvt_etat' => "Entrée",
+					'mvt_reste' => $this->input->post('stk_qte'),
+					'stk_id' => $idstk,
+					'mvt_stk_designation' => $this->input->post('stk_designation'),
+					);
+					$this->addMvt($datamvt);
+		}
+		public function outsetStk()
+		{
+			$idstk = $this->input->post('id');
+			$qteOut = $this->input->post('mvt_qte');
+			$qteStk = $this->getStkById($idstk)->stk_qte;
+			if ($qteOut<=$qteStk) {
+				$rest = $this->getStkById($idstk)->stk_qte - $qteOut;
+				$datamvt = array(
+					'mvt_date' => $this->input->post('mvt_date'),
+					'mvt_destination' => $this->input->post('mvt_destination'),
+					'mvt_qte' => $qteOut,
+					'mvt_unit' => $this->getStkById($idstk)->stk_unit,
+					'mvt_etat' => "Sortie",
+					'mvt_reste' => $rest,
+					'stk_id' => $idstk,
+					'mvt_stk_designation' => $this->getStkById($idstk)->stk_designation,
+					);
+					$datastk = array(
+						'stk_qte' => $rest,
+						);
+					$this->addMvt($datamvt);
+					$this->db->where('id',$idstk);
+        	$this->db->update('stk',$datastk);
+			}
+			else {
+				return "E";
+			}
+		}
+		public function addMvt($data)
+		{
+			if (!empty($data)){
+				return $this->db->insert('stk_mvt', $data);
+			}
+		}
+		public function getStkById($id){
+			return $this->db->get_where('stk', array('id' => $id))->row();
+		}
 	public function saveOrUpdateDep()
     {
       $id = $this->input->post('id');
@@ -93,6 +198,11 @@ class Entre_model extends CI_Model{
         return $this->db->insert('department', $data);
       }
     }
+		public function getLookUpTypePers()
+		{
+			$query = $this->db->get("personal_type");
+		  return $query->result();
+		}
 		public function saveOrUpdatePers()
     {
       $id = $this->input->post('id');
@@ -100,6 +210,8 @@ class Entre_model extends CI_Model{
       $data = array(
         'pers_name' => $this->input->post('pers_name'),
         'pers_firstname' => $this->input->post('pers_firstname'),
+        'pers_matricule' => $this->input->post('pers_matricule'),
+        'pers_site' => $this->input->post('pers_site'),
         'pers_sexe' => $this->input->post('pers_sexe'),
         'pers_date_birth' => $this->input->post('pers_date_birth'),
         'pers_age' => $this->calculateAge($this->input->post('pers_date_birth')),
@@ -286,6 +398,38 @@ class Entre_model extends CI_Model{
 				$this->db->where('bien_type', $type);
 			}
 		  $query = $this->db->get("bien");
+		  return $query->result();
+		}
+		public function printStk()
+		{
+			$type = $this->input->post('stk_type');
+			$dated = $this->input->post('dated');
+			$datef = $this->input->post('datef');
+
+			if (!empty($type)) {
+				$this->db->where('stk_type', $type);
+			}
+			if (!empty($dated)&&!empty($datef)) {
+				$this->db->where('stk_date >=', $dated);
+				$this->db->where('stk_date <=', $datef);
+			}
+			$query = $this->db->get("stk");
+		  return $query->result();
+		}
+		public function printMvt()
+		{
+			$etat = $this->input->post('mvt_etat');
+			$dated = $this->input->post('dated');
+			$datef = $this->input->post('datef');
+
+			if (!empty($etat)) {
+				$this->db->where('mvt_etat', $etat);
+			}
+			if (!empty($dated)&&!empty($datef)) {
+				$this->db->where('mvt_date >=', $dated);
+				$this->db->where('mvt_date <=', $datef);
+			}
+			$query = $this->db->get("stk_mvt");
 		  return $query->result();
 		}
 		public function calculateAge($date){

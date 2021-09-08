@@ -20,9 +20,9 @@
                         <select name="pers_type" style="font-size: 12px;width: 250px;color: var(--gray);height: 25px;border-radius: 2px;">
                             <optgroup label="Type">
                                 <option value selected>Select.</option>
-                                <option value="Cadre Sup">Cadre Sup</option>
-                                <option value="Cadre">Cadre</option>
-                                <option value="Non Cadre">Non Cadre</option>
+								<?php foreach ($typepers as $typepers) { ?>
+									<option value="<?php echo $typepers->pers_type_name;?>"><?php echo $typepers->pers_type_name;?></option>
+								<?php }?>
                             </optgroup>
                         </select><label style="margin-bottom: -4px;font-size: 11px;">Type de contrat</label>
                         <select style="font-size: 12px;width: 250px;color: var(--gray);height: 25px;border-radius: 2px;" name="pers_contrat">

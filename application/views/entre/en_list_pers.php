@@ -14,11 +14,13 @@
                 <table class="table">
                     <thead>
                         <tr style="color: var(--gray);">
+                            <th style="width: 50px;">Matricule</th>
                             <th style="width: 150px;">Nom &amp; Prénoms</th>
                             <th style="width: 50px;">Departement</th>
                             <th style="width: 20px;">Sexe</th>
                             <th style="width: 30px;">Age</th>
-                            <th style="width: 50px;">Type</th>
+                            <th style="width: 50px;">Catégorie</th>
+                            <th style="width: 50px;">Site</th>
                             <th style="width: 50px;">Droit de Congé</th>
                             <th style="width: 50px;">Congé reste</th>
                             <th style="width: 40px;">Type de Contrat</th>
@@ -29,11 +31,13 @@
                     <tbody>
 					<?php foreach ($data as $pers) { ?>
                         <tr>
+                            <td><?php echo $pers->pers_matricule;?></td>
                             <td><?php echo $pers->pers_name;?> <?php echo $pers->pers_firstname;?></td>
                             <td><?php echo $pers->pers_dep;?></td>
                             <td><?php echo $pers->pers_sexe;?></td>
                             <td><?php echo $pers->pers_age;?> ans</td>
                             <td><?php echo $pers->pers_type;?></td>
+                            <td><?php echo $pers->pers_site;?></td>
                             <td><?php echo $pers->pers_dr_conge;?> jours/mois</td>
                             <td><?php echo $pers->pers_nbr_conge;?> jours</td>
                             <td><?php echo $pers->pers_contrat;?></td>
@@ -44,6 +48,8 @@
 							data-id="<?php echo $pers->id?>"
 							data-pers_name="<?php echo $pers->pers_name?>"
 							data-pers_firstname="<?php echo $pers->pers_firstname?>"
+							data-pers_matricule="<?php echo $pers->pers_matricule?>"
+							data-pers_site="<?php echo $pers->pers_site?>"
 							data-pers_date_birth="<?php echo $pers->pers_date_birth?>"
 							data-pers_sexe="<?php echo $pers->pers_sexe?>"
 							data-pers_age="<?php echo $pers->pers_age?>"
@@ -97,6 +103,8 @@
             const id = $(this).data('id');
             const pers_name = $(this).data('pers_name');
             const pers_firstname = $(this).data('pers_firstname');
+            const pers_matricule = $(this).data('pers_matricule');
+            const pers_site = $(this).data('pers_site');
             const pers_date_birth = $(this).data('pers_date_birth');
             const pers_sexe = $(this).data('pers_sexe');
             const pers_age = $(this).data('pers_age');
@@ -118,6 +126,8 @@
             $('.id').val(id);
             $('.pers_name').val(pers_name);
             $('.pers_firstname').val(pers_firstname);
+            $('.pers_matricule').val(pers_matricule);
+            $('.pers_site').val(pers_site);
             $('.pers_date_birth').val(pers_date_birth);
             $('.pers_sexe').val(pers_sexe);
             $('.pers_age').val(pers_age);

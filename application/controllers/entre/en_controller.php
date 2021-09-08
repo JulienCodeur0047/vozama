@@ -25,6 +25,7 @@ class En_controller extends CI_Controller{
 	  {
 		$data['data'] = $this->en->getPersOrSearch();
 		$data['dep'] = $this->en->printDep();
+		$data['typepers'] = $this->en->getLookUpTypePers();
 
 		$this->getSession(); 
 		$this->load->view('entre/en_list_pers',$data);
@@ -47,8 +48,16 @@ class En_controller extends CI_Controller{
 		$this->load->view('entre/en_list_bien',$data);
 		$this->load->view('theme/footer');
 	  }
-	 
+	  public function indexstk()
+	  {
+		$data['prod'] = $this->en->getOrSearchStkProduit();
+		$data['mvt'] = $this->en->getOrSearchStkMvt();
 
+		$this->getSession(); 
+		$this->load->view('entre/en_stk_list',$data);
+		$this->load->view('theme/footer');
+	  }
+	 
 	  public function saveDep()
 	  {
 		  $this->load->library('form_validation');
@@ -64,6 +73,37 @@ class En_controller extends CI_Controller{
 			 echo "<script>alert('Ajout Reussit');</script>";
 			 redirect(base_url('en'));
 		  }
+	  }
+	  public function saveStk()
+	  {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('stk_designation', 'stk_designation', 'required');
+		$this->form_validation->set_rules('stk_type', 'stk_type', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('enstk'));
+		}else{
+		   $this->en->insetStk();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('enstk'));
+		}
+	  }
+	  public function saveOutStk()
+	  {
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('mvt_date', 'mvt_date', 'required');
+
+		if ($this->form_validation->run() == FALSE){
+			$this->session->set_flashdata('errors', validation_errors());
+			echo "<script>alert('Ajout Error');</script>";
+			redirect(base_url('enstk'));
+		}else{
+		   $this->en->outsetStk();
+		   echo "<script>alert('Ajout Reussit');</script>";
+		   redirect(base_url('enstk'));
+		}
 	  }
 	  public function savePers()
 	  {
@@ -136,6 +176,18 @@ class En_controller extends CI_Controller{
 		  $data['data'] = $this->en->printBien();
 		  $html = $this->load->view('entre/en_bien_pdf',$data,true);
 		  $this->pdf->createPDF($html,'listcong',false);
+	  }
+	  public function printStk()
+	  {
+		$data['stk'] = $this->en->printStk();
+		$html = $this->load->view('entre/en_stk_pdf',$data,true);
+		$this->pdf->createPDF($html,'liststk',false);
+	  }
+	  public function printMvt()
+	  {
+		$data['mvt'] = $this->en->printMvt();
+		$html = $this->load->view('entre/en_mvt_pdf',$data,true);
+		$this->pdf->createPDF($html,'listmvt',false);
 	  }
 	  public function deleteDep($id)
 	  {

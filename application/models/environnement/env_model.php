@@ -129,7 +129,7 @@ class Env_model extends CI_Model{
 				'aep_responsable_suiv' => $this->input->post('aep_responsable_suiv'),
 				'aep_etat_fonct' => $this->input->post('aep_etat_fonct') ,
 				'aep_etat_entrt' => $this->input->post('aep_etat_entrt') ,
-				'aep_cons_my_Lhjr' => $this->input->post('aep_cons_my_Lhjr') ,
+				'aep_cons_my_lhjr' => $this->input->post('aep_cons_my_lhjr') ,
 				'aep_etat_cot' => $this->input->post('aep_etat_cot') ,
 				'aep_note' => $this->input->post('aep_note') ,
 		);
