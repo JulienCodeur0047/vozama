@@ -209,6 +209,11 @@ class En_controller extends CI_Controller{
 		  $this->en->deleteBien($id);
 		  redirect(base_url('enbien'));
 	  }
+	  public function deleteStk($id)
+	  {
+		  $this->en->deleteStk($id);
+		  redirect(base_url('enstk'));
+	  }
 	  public function getSession()
 	  {
 		  if ($this->session->userdata('is_authenticated') == TRUE) {

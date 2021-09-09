@@ -6,14 +6,14 @@
             <h1 style="margin-bottom: 18px;height: 16px;font-size: 15px;color: var(--gray);">Gestion de stock</h1>
             <div class="row">
                 <div class="col">
-                    <h6 style="font-size: 14px;color: var(--secondary);margin-top: 7px;">Produits</h6>
+                    <h6 style="font-size: 14px;color: var(--secondary);margin-top: 7px;">Stock</h6>
                     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search" style="font-size: 11px;height: 58px;padding-top: 3px;">
                         <div class="container"><button data-toggle="collapse" data-target="#navcol-2" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                             <div class="collapse navbar-collapse" id="navcol-2">
                                 <ul class="navbar-nav"></ul>
                                 <form class="form-inline mr-auto" target="_self">
                                     <div class="form-group"><label for="search-field"><i class="fa fa-search"></i></label><input type="search" class="form-control search-field" id="search-field-1" name="searchp" style="height: 26px;font-size: 12px;border-bottom-color: #cccccc;width: 182px;" placeholder="Recherche" /></div>
-                                </form><a class="btn btn-light action-button" role="button" data-toggle="modal" href="#newstk" style="height: 21px;padding-top: 2px;padding-bottom: 1px;width: 92.0781px;border-top-right-radius: 0;border-bottom-right-radius: 0;"><i class="fa fa-plus"></i> Produit</a>
+                                </form><a class="btn btn-light action-button" role="button" data-toggle="modal" href="#newstk" style="height: 21px;padding-top: 2px;padding-bottom: 1px;width: 92.0781px;border-top-right-radius: 0;border-bottom-right-radius: 0;"><i class="fa fa-plus"></i> Stock</a>
 								<a class="btn btn-light action-button" role="button" data-toggle="modal" href="#printstk" style="height: 21px;padding-top: 3px;padding-bottom: 1px;width: 45.07810000000001px;border-top-left-radius: 0;border-bottom-left-radius: 0;background: var(--secondary);padding-left: 16px;"><i class="fa fa-print"></i></a>
                             </div>
                         </div>
@@ -50,7 +50,10 @@
 									data-stk_date="<?php echo $prod->stk_date;?>"
 									data-stk_fournisseur="<?php echo $prod->stk_fournisseur;?>"
 									type="button" style="font-size: 10px;height: 20px;padding: 0px;padding-top: 0px;padding-right: 2px;padding-bottom: 0px;padding-left: 2px;border-radius: 0px;background: var(--success);"><i class="fa fa-sign-out"></i> sortie</a>
-									<a href="#" style="margin-left: 3px;"><i class="fa fa-trash-o" style="font-size: 12px;margin-top: 0px;height: 20px;padding-top: 0px;color: var(--red);"></i></a></td>
+									<a 
+									onclick="return confirm('Voulez-vous supprimer le stock: <?php echo $prod->stk_designation;?> Quantité <?php echo $prod->stk_qte;?>?');"
+									href="<?php echo base_url('endeletestk/'.$prod->id)?>" 
+									style="margin-left: 3px;"><i class="fa fa-trash-o" style="font-size: 12px;margin-top: 0px;height: 20px;padding-top: 0px;color: var(--red);"></i></a></td>
                                 </tr>
 								<?php }?>
                                 <tr></tr>

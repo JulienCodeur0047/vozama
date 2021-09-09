@@ -138,6 +138,7 @@ $route['endeletedep/(:any)'] = "entre/En_controller/deleteDep/$1";
 $route['endeletepers/(:any)'] = "entre/En_controller/deletePers/$1";
 $route['endeletecong/(:any)'] = "entre/En_controller/deleteCong/$1";
 $route['endeletebien/(:any)'] = "entre/En_controller/deleteBien/$1";
+$route['endeletestk/(:any)'] = "entre/En_controller/deleteStk/$1";
 
 $route['secpass'] = "sec/Sec_controller/indexpass";
 $route['secsavevis']['post'] = "sec/Sec_controller/savevis";

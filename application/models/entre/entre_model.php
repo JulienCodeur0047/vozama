@@ -361,6 +361,10 @@ class Entre_model extends CI_Model{
     {
       return $this->db->delete('bien', array('id' => $id));
     }
+	public function deleteStk($id)
+    {
+      return $this->db->delete('stk', array('id' => $id));
+    }
     public function printPers()
     {
       $type = $this->input->post("pers_type");
